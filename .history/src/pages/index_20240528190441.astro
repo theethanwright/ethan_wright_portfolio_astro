@@ -1,0 +1,27 @@
+---
+// Component Imports
+import '../styles/base.css';
+import Head from '../components/Head.astro';
+import Navbar from '../components/Navbar.astro';
+import Menu from '../components/Menu.astro';
+---
+
+<html lang="en">
+<head>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <script defer src="home/app.js"></script>
+    <script defer src="app.js"></script>
+    <Head Page='home' Title='Ethan Wright - Designer'/>
+</head>
+<body class="bg-white dark:bg-black overflow-hidden">
+    <div class="text">CURIOSITY LEADING TO CREATIONS THAT FOSTER CARE</div>
+    <a href="project-play" draggable="false" id="project1"><img src="/home/public/images/1.jpg" alt="" class="pro-img" draggable="false"></a>
+    <a href="project-echo" draggable="false" id="project2"><img src="/home/public/images/2.png" alt="" class="pro-img" draggable="false"></a>
+    <a href="project-offhand" draggable="false" id="project3"><img src="/home/public/images/3.jpg" alt="" class="pro-img" draggable="false"></a>
+    <Menu />
+    <Navbar />
+    <div id="container"></div>
+    <div class="intro text-blg tracking-wide text-black dark:text-white text-opacity-85 font-mono">Hey! My name is Ethan Wright and I’m a designer and creative.</div>
+    <div class="fun-fact text-blg tracking-wide text-black dark:text-white text-opacity-85 font-mono hidden md:block">Designed and built <br>by me.</div>
+</body>
+</html>
