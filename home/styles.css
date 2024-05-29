@@ -1,0 +1,35 @@
+
+.word {
+  position: absolute;
+  transform-origin: 50% 50%;
+  cursor: grab;
+  user-select: none;
+  font-family: "Nohemi";
+  font-weight: 500;
+  color: light-dark(#101010, #fff);
+  font-size: 7.176vw;
+  margin-right: 10px;
+  line-height: 7.176vw;
+}
+
+.pro-img {
+  position: absolute;
+  height: auto;
+  cursor: pointer;
+  width: 1vw;
+
+  border-radius: clamp(10px, 0.525vw, 20px);
+}
+
+.intro {
+  position: absolute;
+  top: 77.798vh;
+  left: 9.838vw;
+  width: 350px;
+}
+
+.fun-fact {
+  position: absolute;
+  top: 77.798vh;
+  right: 11vw;
+}

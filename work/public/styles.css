@@ -1,0 +1,22 @@
+#node_clone {
+    display: block;
+    position: absolute;
+    top: calc(max(var(--top) * 1px));
+    left: calc(max(var(--left) * 1px));
+    width: calc(max(var(--width) * 1px));
+    height: calc(max(var(--height) * 1px));
+    animation: expand 700ms forwards;
+    animation-timing-function: ease;
+}
+
+@keyframes expand {
+    0% {top: calc(max(var(--top) * 1px));
+        left: calc(max(var(--left) * 1px));
+        width: calc(max(var(--width) * 1px));
+        height: calc(max(var(--height) * 1px));}
+
+    100% {top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;}
+}
