@@ -1,0 +1,10 @@
+---
+// Component Imports
+import { ViewTransitions } from "astro:transitions";
+import { fade } from 'astro:transitions';
+---
+<html lang="en">
+<header transition:animate={fade({ duration: '0.4s' })}></header>
+    <ViewTransitions />
+</head>
+<slot/ >
