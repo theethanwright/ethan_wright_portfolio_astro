@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Nohemi";
-  src: url('/public/fonts/Nohemi-Medium.woff2') format('woff2');
+  src: url('fonts/Nohemi-Medium.woff2') format('woff2');
 }
 
 @tailwind base;
