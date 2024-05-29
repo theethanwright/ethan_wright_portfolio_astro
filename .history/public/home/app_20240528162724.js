@@ -179,7 +179,7 @@ imageElements.forEach((imageElem) => {
   }
     const randomLeft = Math.floor(Math.random() * window.innerWidth);
     const randomTop = Math.floor(Math.random() * window.innerHeight);
-    const randomTime = Math.floor(Math.random() * 2500) + 1000;
+    const randomTime = Math.floor(Math.random() * 2500) + 2000;
     const randomVelocityX = Math.floor(Math.random() * 2) + -2;
     const randomVelocityY = Math.floor(Math.random() * 2) + 1;
     var startTime = 0,
