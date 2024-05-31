@@ -1,0 +1,12 @@
+---
+import { ResourceCardScript } from './ResourceCardScript.js';
+---
+<body>
+    <h1>Metadata Parser</h1>
+    
+    <input type="text" id="urlInput" placeholder="Enter URL">
+    <button onclick="fetchAndDisplayPages(['https://astro.build/index.html', 'https://google.com/index.html'])">Fetch Metadata</button>
+
+    <div id="metadataContainer"></div>
+</body>
+</html>

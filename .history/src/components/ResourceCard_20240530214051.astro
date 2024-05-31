@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Preview Card</title>
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            max-width: 300px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .card h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .card p {
+            font-size: 1em;
+            color: #555;
+        }
+        </style>
+</head>
+<body>
+    <h1>Metadata Parser</h1>
+    
+    <input type="text" id="urlInput" placeholder="Enter URL">
+    <button onclick="fetchAndDisplayPages(['https://astro.build/index.html', 'https://google.com/index.html'])">Fetch Metadata</button>
+
+    <div id="metadataContainer"></div>
+
+    <script>
+        async function fetchAndParseMetadata(url) {
+            try {
+                // Fetch the HTML content of the URL
+                const response = await fetch(url);
+                const html = await response.text();
+
+                // Create a temporary div element to hold the HTML content
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = html;
+
+                // Extract metadata
+                const metadata = {};
+
+                // Title
+                const titleElement = tempDiv.querySelector('title');
+                metadata.title = titleElement ? titleElement.textContent.trim() : '';
+
+                // Description
+                const descriptionElement = tempDiv.querySelector('meta[name="description"]');
+                metadata.description = descriptionElement ? descriptionElement.getAttribute('content') : '';
+
+                // Image
+                const imageElement = tempDiv.querySelector('meta[property="og:image"]');
+                console.log(imageElement);
+                metadata.image = imageElement ? imageElement.getAttribute('content') : '';
+
+                // Other metadata you might want to extract...
+
+                return metadata;
+            } catch (error) {
+                console.error('Error fetching or parsing metadata:', error);
+                return null;
+            }
+        }
+
+        async function fetchAndDisplayMetadata(url) {
+            // const url = document.getElementById('urlInput').value;
+            const metadataContainer = document.getElementById('metadataContainer');
+            metadataContainer.innerHTML = ''; // Clear previous metadata
+
+            if (!url) {
+                alert('Please enter a URL');
+                return;
+            }
+
+            try {
+                const metadata = await fetchAndParseMetadata(url);
+                if (metadata) {
+                    // Display metadata
+                    metadataContainer.innerHTML += `
+                        <div class="card" id="linkPreviewCard">
+                        <img id="cardImage" src="${metadata.image}" alt="Image">
+                        <h3 id="cardTitle">${metadata.title}</h3>
+                        <p id="cardDescription">${metadata.description}</p>
+                    `;
+                } else {
+                    metadataContainer.textContent = 'Failed to fetch metadata.';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                metadataContainer.textContent = 'Error fetching metadata.';
+            }
+        }
+
+        async function fetchAndDisplayPages(urls) {
+            for (const x of urls) {
+                fetchAndDisplayMetadata(x);
+            }
+        }
+    </script>
+    </div>
+
+</body>
+</html>
