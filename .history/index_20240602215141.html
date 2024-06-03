@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage Screenshot</title>
+    <style>
+        #loading {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .spinner {
+            border: 8px solid #f3f3f3; /* Light grey */
+            border-top: 8px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Capture Webpage Screenshot</h1>
+    <input type="text" id="url" placeholder="Enter URL">
+    <button onclick="captureScreenshot()">Capture Screenshot</button>
+    <div id="loading" class="spinner"></div>
+    <div id="result"></div>
+
+    <script>
+        function isValidUrl(string) {
+            try {
+                new URL(string);
+                return true;
+            } catch (_) {
+                return false;  
+            }
+        }
+
+        async function captureScreenshot() {
+            const url = document.getElementById('url').value;
+            const loadingElement = document.getElementById('loading');
+            const resultElement = document.getElementById('result');
+
+            if (!url) {
+                alert('Please enter a URL');
+                return;
+            }
+
+            if (!isValidUrl(url)) {
+                alert('Please enter a valid URL');
+                return;
+            }
+
+            // Show the loading animation
+            loadingElement.style.display = 'block';
+            resultElement.innerHTML = '';
+
+            try {
+                const response = await fetch('http://localhost:3000/capture', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ url })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <h2>${data.title}</h2>
+                        <img src="${data.image}" alt="Screenshot">
+                    `;
+                    resultElement.appendChild(card);
+                } else {
+                    const errorText = await response.text();
+                    alert(`Error: ${errorText}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error capturing screenshot');
+            } finally {
+                // Hide the loading animation
+                loadingElement.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

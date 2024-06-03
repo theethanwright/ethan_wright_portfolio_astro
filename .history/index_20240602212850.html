@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage Screenshot</title>
+</head>
+<body>
+    <h1>Capture Webpage Screenshot</h1>
+    <input type="text" id="url" placeholder="Enter URL">
+    <button onclick="captureScreenshot()">Capture Screenshot</button>
+    <div id="result">
+        <h2>Screenshot:</h2>
+        <img id="screenshot" src="" alt="Screenshot will appear here">
+    </div>
+
+    <script>
+        async function captureScreenshot() {
+            const url = document.getElementById('url').value;
+            if (!url) {
+                alert('Please enter a URL');
+                return;
+            }
+
+            const response = await fetch('http://localhost:3000/capture', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ url })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                document.getElementById('screenshot').src = data.image;
+            } else {
+                alert('Error capturing screenshot');
+            }
+        }
+    </script>
+</body>
+</html>
