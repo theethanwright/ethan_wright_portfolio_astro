@@ -1,0 +1,119 @@
+---
+import React, { useState, useRef } from 'react';
+
+const captureScreenshot = async (url) => {
+  const response = await fetch('http://localhost:3000/capture', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ url })
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    return data;
+  } else {
+    throw new Error('Error capturing screenshot');
+  }
+};
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage Screenshot</title>
+    <style>
+        #loading {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .spinner {
+            border: 8px solid #f3f3f3; /* Light grey */
+            border-top: 8px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Capture Webpage Screenshot</h1>
+    <input type="text" id="url" placeholder="Enter URL" ref={urlInput} />
+    <button onClick={handleClick}>Capture Screenshot</button>
+    <div id="loading" class="spinner" style={loading ? 'display:block;' : 'display:none;'}></div>
+    <div id="result">
+        {result && (
+            <div class="card">
+                <h2>{result.title}</h2>
+                <img src={result.image} alt="Screenshot" />
+            </div>
+        )}
+    </div>
+
+    <script>
+        const [loading, setLoading] = useState(false);
+        const [result, setResult] = useState(null);
+        const urlInput = useRef();
+
+        const handleClick = async () => {
+            const url = urlInput.current.value;
+
+            if (!url) {
+                alert('Please enter a URL');
+                return;
+            }
+
+            if (!isValidUrl(url)) {
+                alert('Please enter a valid URL');
+                return;
+            }
+
+            setLoading(true);
+
+            try {
+                const data = await captureScreenshot(url);
+                setResult(data);
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error capturing screenshot');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        const isValidUrl = (string) => {
+            try {
+                new URL(string);
+                return true;
+            } catch (_) {
+                return false;
+            }
+        };
+    </script>
+</body>
+</html>

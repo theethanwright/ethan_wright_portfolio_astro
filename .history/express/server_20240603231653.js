@@ -1,0 +1,48 @@
+const express = import('express');
+const puppeteer = import('puppeteer');
+const cors = import('cors');
+const port = 3000;
+
+app.use(cors());
+app.use(express.json());
+
+let browser;
+(async () => {
+    browser = await puppeteer.launch();
+})();
+
+app.post('/capture', async (req, res) => {
+    const { url } = req.body;
+
+    if (!url) {
+        return res.status(400).send('URL is required');
+    }
+
+    try {
+        const page = await browser.newPage();
+        await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+
+        const title = await page.evaluate(() => {
+            const metaTitle = document.querySelector('meta[property="og:title"]') || 
+                              document.querySelector('meta[name="twitter:title"]') || 
+                              document.querySelector('meta[name="title"]');
+            return metaTitle ? metaTitle.content : document.title;
+        });
+
+        const screenshot = await page.screenshot({ encoding: 'base64' });
+        await page.close();
+
+        res.status(200).json({ title: title || 'No title found', image: `data:image/png;base64,${screenshot}` });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error capturing the screenshot');
+    }
+});
+
+process.on('exit', async () => {
+    if (browser) await browser.close();
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});

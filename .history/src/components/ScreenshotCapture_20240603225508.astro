@@ -1,0 +1,82 @@
+---
+import React, { useState, useRef } from 'react';
+
+const captureScreenshot = async (url) => {
+  const response = await fetch('http://localhost:3000/capture', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ url })
+  }),
+
+  if (response.ok) {
+    const data = await response.json();
+    return data;
+  } else {
+    throw new Error('Error capturing screenshot');
+  }
+};
+
+const ScreenshotCapture = () => {
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState(null);
+  const urlInput = useRef();
+
+  const handleClick = async () => {
+    const url = urlInput.current.value;
+
+    if (!url) {
+      alert('Please enter a URL');
+      return;
+    }
+
+    if (!isValidUrl(url)) {
+      alert('Please enter a valid URL');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const data = await captureScreenshot(url);
+      setResult(data);
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error capturing screenshot');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const isValidUrl = (string) => {
+    try {
+      new URL(string);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  };
+
+  return (
+    <div>
+      <h1>Capture Webpage Screenshot</h1>
+      <input type="text" id="url" placeholder="Enter URL" ref={urlInput} />
+      <button onClick={handleClick}>Capture Screenshot</button>
+      {loading && <div className="spinner"></div>}
+      <div id="result">
+        {result && (
+          <div className="card">
+            <h2>{result.title}</h2>
+            <img src={result.image} alt="Screenshot" />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default ScreenshotCapture;
+---
+
+<ScreenshotCapture />
