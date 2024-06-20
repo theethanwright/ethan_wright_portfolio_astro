@@ -13,7 +13,7 @@ module.exports = {
     },
     fontFamily: {
       'sans': ['"Nohemi"'],
-      'sans-ibm': ['IBM Plex Sans, sans-serif'],
+      'sans2': ['IBM Plex Sans, sans-serif'],
       'mono': ['IBM Plex Mono, monospace'],
     },
     fontSize: {
