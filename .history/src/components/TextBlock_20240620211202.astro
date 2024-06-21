@@ -1,0 +1,13 @@
+---
+interface Props {
+	Header: string;
+	Body: string;
+}
+
+const { Header, Body } = Astro.props;
+---
+
+
+<div class="text-hsm text-black dark:text-white">{Header}</div>
+            <div class="text-blg tracking-wide text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-light mt-2 mb-14">{Body}</div>
+

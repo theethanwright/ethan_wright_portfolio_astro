@@ -1,0 +1,18 @@
+---
+interface Props {
+	Primary: string;
+	PrimaryLink: string;
+	Secondary: string;
+    SecondaryLink: string
+}
+
+const { Primary, PrimaryLink, Secondary, SecondaryLink } = Astro.props;
+---
+
+<div class="grid-cols-scale gap-x-5 p-3 pb-20 pt-9 md:px-8 md:pt-10">
+    <div class="text-dsm text-black dark:text-white tracking-widest font-medium col-start-1 md:text-dmd lg:text-dlg lg:col-start-2 reveal">{Title}</div>
+    <div class="text-blg tracking-wide text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-thin mt-2 mb-14 col-start-1 col-span-4 md:col-span-8 lg:col-start-2 lg:col-span-6 row-span-3 reveal">{Body}</div>
+    <div class="text-bmd tracking-wide text-black dark:text-white font-mono mb-14 col-start-1 col-span-2 md:col-start-1 md:col-span-2 lg:col-start-9 lg:col-span-2 reveal">Skills Used:<div class="text-opacity-50 dark:text-opacity-50 mt-2 flex flex-col gap-2"><li>Book Design</li><li>Poster Design</li></div></div>
+    <div class="text-bmd tracking-wide text-black dark:text-white font-mono mb-14 col-start-3 col-span-2 md:col-start-5 md:col-span-2 lg:col-start-11 lg:col-span-2 reveal">Tools Used:<div class="text-opacity-50 dark:text-opacity-50 mt-2 flex flex-col gap-2"><li>InDesign</li><li>Illustrator</li><li>Figma</li></div></div>
+    <div class="text-bmd tracking-wide text-black dark:text-white font-mono mb-14 col-start-1 col-span-2 md:col-start-5 md:col-span-2 lg:col-start-9 lg:col-span-2 reveal">Awards:<div class="text-opacity-50 dark:text-opacity-50 mt-2 flex flex-col gap-2"><li class="leading-6">AMERICAN ADVERTISING AWARDS GREENVILLE 2024: Silver Addy <br> - Direct Marketing</li></div></div>
+    <div class="text-bmd tracking-wide text-black dark:text-white font-mono mb-14 col-start-3 col-span-2 md:col-start-1 md:col-span-2 lg:col-start-11 lg:col-span-2 reveal">Collaborators:<div class="text-opacity-50 dark:text-opacity-50 mt-2 flex flex-col gap-2"><li>Knoxie le Roux</li><li>Sydney Welch</li><li>Isabelle Rigsbee</li><li>Tabby Lo</li></div></div>
