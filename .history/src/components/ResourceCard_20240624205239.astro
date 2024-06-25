@@ -1,0 +1,28 @@
+<h1>Web Scraper</h1>
+    <button id="scrapeButton">Scrape Website</button>
+    <h2 id="title"></h2>
+    <img id="screenshot" src="" alt="Screenshot" style="display:none;"/>
+
+    <script>
+        document.getElementById('scrapeButton').addEventListener('click', async () => {
+            const url = 'https://example.com'; // Hardcoded URL
+
+            try {
+                const response = await fetch(`/scrape?url=${encodeURIComponent(url)}`);
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const result = await response.json();
+
+                document.getElementById('title').textContent = `Title: ${result.title}`;
+                const screenshot = document.getElementById('screenshot') as HTMLImageElement;
+                screenshot.src = '/screenshot.png';
+                screenshot.style.display = 'block';
+            } catch (error) {
+                console.error('Failed to fetch the scrape data:', error);
+                document.getElementById('title').textContent = 'Error: Failed to scrape the website';
+            }
+        });
+    </script>

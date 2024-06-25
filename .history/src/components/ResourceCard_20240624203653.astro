@@ -1,0 +1,17 @@
+<h1>Web Scraper</h1>
+    <button id="scrapeButton">Scrape Website</button>
+    <h2 id="title"></h2>
+    <img id="screenshot" src="${result.title}" alt="Screenshot" style="display:none;"/>
+
+    <script>
+        document.getElementById('scrapeButton').addEventListener('click', async () => {
+            const url = 'https://example.com'; // Hardcoded URL
+            const response = await fetch(`/scrape?url=${encodeURIComponent(url)}`);
+            const result = await response.json();
+
+            document.getElementById('title').textContent = `Title: ${result.title}`;
+            const screenshot = document.getElementById('screenshot');
+            screenshot.src = '/${result.title}';
+            screenshot.style.display = 'block';
+        });
+    </script>
