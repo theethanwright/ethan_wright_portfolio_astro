@@ -8,5 +8,10 @@ export default defineConfig({
 	  tailwind({
 		applyBaseStyles: false,
 	  }),
-	]
+	],
+	 
+		build: {
+		  // Example: Generate `page.html` instead of `page/index.html` during build.
+		  format: 'file'
+		},
   });
