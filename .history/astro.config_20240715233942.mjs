@@ -15,9 +15,7 @@ export default defineConfig({
 	  format: 'file'
 	},
 
-	
 	base: '/docs',
-   	trailingSlash: "never"
-	 
-
+	trailingSlash: "never"
+	
   });

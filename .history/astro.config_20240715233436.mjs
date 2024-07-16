@@ -9,15 +9,13 @@ export default defineConfig({
 		applyBaseStyles: false,
 	  }),
 	],
-	 
+
 	build: {
-	  // Example: Generate `page.html` instead of `page/index.html` during build.
-	  format: 'file'
-	},
-
-	
-	base: '/docs',
-   	trailingSlash: "never"
-	 
-
+		// Example: Generate `page.html` instead of `page/index.html` during build.
+		format: 'file'
+	  },
+  
+	  base: '/docs',
+	  trailingSlash: "never"
+	  
   });

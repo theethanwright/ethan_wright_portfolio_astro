@@ -16,8 +16,8 @@ export default defineConfig({
 	},
 
 	
-	base: '/docs',
-   	trailingSlash: "never"
+		base: '/docs',
+		trailingSlash: "never"
 	 
 
   });
