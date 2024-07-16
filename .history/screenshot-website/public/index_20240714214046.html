@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Screenshot Uploader</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload an Array of Websites for Screenshots</h1>
+    <textarea id="urls" placeholder="Enter one URL per line" rows="10" cols="50"></textarea><br>
+    <button id="submitBtn">Submit</button>
+    <div id="result"></div>
+
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', async (event) => {
+    console.log('Button clicked');
+    event.preventDefault();
+    const urls = document.getElementById('urls').value.split('\n').map(url => url.trim()).filter(url => url);
+    if (urls.length === 0) {
+        alert('Please enter at least one URL.');
+        return;
+    }
+    console.log('URLs parsed:', urls);
+    try {
+        console.log('Sending fetch request');
+        const response = await fetch('http://localhost:4000/screenshot', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ urls })
+        });
+        console.log('Fetch response received');
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Server responded with status ${response.status}: ${errorText}`);
+        }
+        const result = await response.json();
+        console.log('Results received:', result);
+        displayResults(result);
+        console.log('Results displayed');
+    } catch (error) {
+        console.error('Error occurred:', error);
+        document.getElementById('result').innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+    }
+});
+
+function displayResults(results) {
+    console.log('Displaying results');
+    const resultDiv = document.getElementById('result');
+    let tableHTML = '<table><tr><th>Website</th><th>Screenshot</th><th>Title</th></tr>';
+    results.forEach(result => {
+        if (result.error) {
+            tableHTML += `<tr><td colspan="3" style="color: red;">Error: ${result.error}</td></tr>`;
+        } else {
+            tableHTML += `
+                <tr>
+                    <td>-ResourceCard Link='${result.url}' Img='${result.filePath}' Title='${result.title}' Category='Color' CategoryLink='resources-colors'/></td>
+                </tr>
+            `;
+        }
+    });
+    tableHTML += '</table>';
+    resultDiv.innerHTML = tableHTML;
+    console.log('Results table generated');
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Screenshot Uploader</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload an Array of Websites for Screenshots</h1>
+    <form id="urlForm" onsubmit="return false;"> <!-- Prevent default form submission -->
+        <textarea id="urls" placeholder="Enter one URL per line" rows="10" cols="50"></textarea><br>
+        <button type="button" id="submitBtn">Submit</button> <!-- Use button with type="button" -->
+    </form>
+    <div id="result"></div>
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', async () => {
+            const urls = document.getElementById('urls').value.split('\n').map(url => url.trim()).filter(url => url);
+            if (urls.length === 0) {
+                alert('Please enter at least one URL.');
+                return;
+            }
+            try {
+                const response = await fetch('http://localhost:3000/screenshot', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ urls })
+                });
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Server responded with status ${response.status}: ${errorText}`);
+                }
+                const result = await response.json();
+                displayResults(result);
+            } catch (error) {
+                document.getElementById('result').innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+            }
+        });
+
+        function displayResults(results) {
+            const resultDiv = document.getElementById('result');
+            let tableHTML = '<table><tr><th>Website</th><th>Screenshot</th><th>Title</th></tr>';
+            results.forEach(result => {
+                if (result.error) {
+                    tableHTML += `<tr><td colspan="3" style="color: red;">Error: ${result.error}</td></tr>`;
+                } else {
+                    tableHTML += `
+                        <tr>
+                            <td><a href="${result.url}" target="_blank">${result.url}</a></td>
+                            <td><img src="${result.filePath}" alt="${result.title} screenshot" width="200"></td>
+                            <td>${result.title}</td>
+                        </tr>
+                    `;
+                }
+            });
+            tableHTML += '</table>';
+            resultDiv.innerHTML = tableHTML;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+---
+// Component Imports
+import '../styles/base.css';
+import Head from '../components/Head.astro'
+import Gtag from '../components/gtag.astro'
+import Navbar from '../components/Navbar.astro'
+import Menu from '../components/Menu.astro'
+import Footer from '../components/Footer.astro'
+import SideBarNav from '../components/SideBarNav.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+
+---
+
+<html lang="en">
+<head>
+    <Head Title='Playground'/>
+    <script defer src="playground/app.js"></script>
+</head>
+<Gtag/>
+<body class="bg-white dark:bg-black box-border">
+    <Navbar />
+    <Menu />
+  <!--heade-->
+  <div class="grid-cols-scale gap-x-5 px-3 pt-20 lg:pt-32 pb-20 md:px-8">
+    <div class="col-span-2 col-start-1 h-dvh mb-[90px]">
+        <SideBarNav />
+    </div>
+    <div class="pl-9 col-span-4 md:col-span-8 lg:col-start-3 lg:col-span-10 grid grid-cols-10">
+    <div class="lg:col-span-5 pt-[35px] flex flex-col">
+    <div class="text-dsm md:text-dmd lg:text-dsm text-black dark:text-white font-medium ">Knowledge should<br/>be free</div>
+    <div class="text-blg tracking-wide text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-light">I love to learn new tools and play around with novel and interesting things. The outcome of this kind of exploration doesn’t always result in fully built out case studies so I made the Playground to display these small but interesting experiments.</div>
+    </div>
+    <div class="col-span-3 col-start-8 flex flex-col">
+        <div class="text-bmd tracking-wide text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-light pb-[15px]">Resource of the Day</div>
+        <ResourceCard Link='https://toolfolio.io/' Img='screenshots/toolfolio.png' Title='Toolfolio' Category='Design Blogs' CategoryLink='*/'/>
+    </div>
+    <div class="pt-[130px] col-span-10 md:grid grid-cols-4 lg:gap-[20px]">
+        <ResourceCard Link='https://toolfolio.io/' Img='screenshots/toolfolio.png' Title='Toolfolio' Category='Design Blogs' CategoryLink='*/'/>
+        <ResourceCard Link='https://toolfolio.io/' Img='screenshots/toolfolio.png' Title='Toolfolio' Category='Design Blogs' CategoryLink='*/'/>
+        <ResourceCard Link='https://toolfolio.io/' Img='screenshots/toolfolio.png' Title='Toolfolio' Category='Design Blogs' CategoryLink='*/'/>
+        <ResourceCard Link='https://toolfolio.io/' Img='screenshots/toolfolio.png' Title='Toolfolio' Category='Design Blogs' CategoryLink='*/'/>
+        <ResourceCard Link='https://toolfolio.io/' Img='screenshots/toolfolio.png' Title='Toolfolio' Category='Design Blogs' CategoryLink='*/'/>
+    </div>
+  </div>
+</div>
+<Footer Primary='About Me' PrimaryLink='about' Secondary='Work' SecondaryLink='work'/>
+</body>
+</html>

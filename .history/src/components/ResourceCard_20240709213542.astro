@@ -1,0 +1,19 @@
+---
+interface Props {
+    Link: string;
+    Img: string;
+	Title: string;
+    Category: string;
+    CategoryLink: string;
+}
+
+const { Img, Title, Category, Link } = Astro.props;
+---
+
+<div class="w-full flex flex-col">
+    <a href={ Link }><img src={ Img } alt=""></a>
+    <div>
+        <a href=""><div class="text-blg tracking-wide text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-light">{ Title }</div></a>
+        <a href=""><div class="text-blg tracking-wide text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-light">{ Category }</div></a>
+    </div>
+</div>
