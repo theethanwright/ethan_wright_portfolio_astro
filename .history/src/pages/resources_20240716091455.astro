@@ -67,7 +67,7 @@ import ResourceGridWUI from '../components/ResourceGridWUI.astro';
     <Navbar />
     <Menu />
   <!--header-->
-  <div class="h-full flex flex-row gap-x-5 px-3 pt-[30px] lg:pt-20 pb-20 md:px-8">
+  <div class="h-full flex flex-row lg:gap-x-5 px-3 pt-[30px] lg:pt-20 pb-20 md:px-8">
     <div class="hidden lg:block">
         <div class="sticky top-[20px]">
             <!--Sidebar -->
@@ -205,17 +205,51 @@ import ResourceGridWUI from '../components/ResourceGridWUI.astro';
             </div>
         </div>
     </div>
-    <div class="pl-9 col-span-4 md:col-span-8 lg:col-start-3 lg:col-span-10 grid grid-cols-10">
+    <div class="lg:pl-9 col-span-4 md:col-span-8 lg:col-start-3 lg:col-span-10 grid grid-cols-10">
     <div class="col-span-10 md:col-span-5 pt-[50px] flex flex-col">
     <div class="text-dsm md:text-dmd lg:text-[6.458vw] lg:leading-[6.458vw] text-black dark:text-white font-medium ">Knowledge <br/> Is cool</div>
     <div class="text-blg tracking-wide text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-light"></div>
     </div>
-    <div class="pt-20 col-span-10 md:col-span-3 md:col-start-8 lg:col-start-8 flex flex-col md:pt-[20px]">
+    <div class="pt-32 lg:pt-20 col-span-10 md:col-span-3 md:col-start-8 lg:col-start-8 flex flex-col md:pt-[20px]">
         <div class="text-bmd tracking-wide text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-light pb-[15px]">Resource of the Day</div>
         <ResourceCard Link='https://toolfolio.io/' Img='screenshots/toolfolio.png' Title='Toolfolio' Category='Design Blogs' CategoryLink='*/'/>
     </div>
     <div class="pt-[110px] md:pt-[100px] col-span-10 flex flex-col gap-10">
-    
+    <div class="flex flex-col gap-5">
+    <div class="text-tlg tracking-wide">Design Blogs & Catlogs</div>
+    <div class="grid md:grid-cols-2 gap-x-2 gap-y-5 md:grid-cols-4 md:gap-x-[20px] md:gap-y-[40px]">
+        <!-- Design Blogs -->
+        <ResourceGridDB/>
+    </div>
+    </div>
+    <!-- Colors -->
+    <div class="flex flex-col gap-5">
+        <div class="text-tlg tracking-wide">Color</div>
+        <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
+        <ResourceGridColor/>   
+        </div>
+      </div>
+      <!-- Typography -->
+      <div class="flex flex-col gap-10">
+        <div class="text-tlg tracking-wide">Typography</div>
+        <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
+          <ResourceGridType/>   
+        </div>
+      </div>
+      <!-- Icons -->
+      <div class="flex flex-col gap-10">
+        <div class="text-tlg tracking-wide">Icons</div>
+        <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
+          <ResourceGridIcons/>
+        </div>
+      </div>
+      <!-- Imagery -->
+      <div class="flex flex-col gap-5">
+        <div class="text-tlg tracking-wide">Imagery</div>
+        <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
+          <ResourceGridImagery/>
+        </div>
+      </div>
       <!-- Web & UI -->
       <div class="flex flex-col gap-5">
         <div class="text-tlg tracking-wide">Web & UI</div>
