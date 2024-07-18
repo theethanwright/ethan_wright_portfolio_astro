@@ -1,6 +1,5 @@
 ---
 // Component Imports
-import { ViewTransitions } from "astro:transitions";
 import '../styles/base.css';
 import Head from '../components/Head.astro'
 import Gtag from '../components/gtag.astro'
@@ -9,13 +8,12 @@ import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
 import SideBarNav from '../components/SideBarNav.astro';
 import ResourceCard from '../components/ResourceCard.astro';
-import ResourceGridDA from '../components/ResourceGridDA.astro';
+import ResourceGridBooks from '../components/ResourceGridBooks.astro';
 
 ---
 
 <html lang="en">
 <head>
-    <ViewTransitions />
     <Head Title='Resources'/>
     <script defer src="playground/app.js"></script>
 
@@ -124,7 +122,7 @@ import ResourceGridDA from '../components/ResourceGridDA.astro';
                         <div class="text-blg tracking-wide text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-light">
                             Imagery</div>
                         </a>
-                    <a href="resources-books" class="px-[8px] py-[4px] flex flex-row gap-[10px] items-center hover:bg-white hover:bg-opacity-20 hover:border-[1px] border-white border-opacity-70 rounded-[10px]">
+                    <a href="resources-books" class="px-[8px] py-[4px] flex flex-row gap-[10px] items-center bg-white bg-opacity-20 hover:border-[1px] border-white border-opacity-70 rounded-[10px]">
                         <div class="bg-[#FF4C19] w-[20px] h-[20px] flex items-center justify-center rounded-[5px]">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                                 <path d="M11.0625 1.51562H4.15625C3.6714 1.51563 3.20641 1.70823 2.86357 2.05107C2.52073 2.39391 2.32813 2.8589 2.32812 3.34375V11.875C2.32812 12.0366 2.39233 12.1916 2.50661 12.3059C2.62089 12.4202 2.77588 12.4844 2.9375 12.4844H10.25C10.4116 12.4844 10.5666 12.4202 10.6809 12.3059C10.7952 12.1916 10.8594 12.0366 10.8594 11.875C10.8594 11.7134 10.7952 11.5584 10.6809 11.4441C10.5666 11.3298 10.4116 11.2656 10.25 11.2656H3.54688V11.0625C3.54688 10.9009 3.61108 10.7459 3.72536 10.6316C3.83964 10.5173 3.99463 10.4531 4.15625 10.4531H11.0625C11.2241 10.4531 11.3791 10.3889 11.4934 10.2746C11.6077 10.1604 11.6719 10.0054 11.6719 9.84375V2.125C11.6719 1.96338 11.6077 1.80839 11.4934 1.69411C11.3791 1.57983 11.2241 1.51562 11.0625 1.51562ZM10.4531 9.23438H4.15625C3.94862 9.23398 3.74248 9.26937 3.54688 9.33898V3.34375C3.54688 3.18213 3.61108 3.02714 3.72536 2.91286C3.83964 2.79858 3.99463 2.73438 4.15625 2.73438H10.4531V9.23438Z" fill="black"/>
@@ -133,7 +131,7 @@ import ResourceGridDA from '../components/ResourceGridDA.astro';
                         <div class="text-blg tracking-wide text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-light">
                             Books</div>
                         </a>
-                    <a href="resources-da" class="px-[8px] py-[4px] flex flex-row gap-[10px] items-center bg-white bg-opacity-20 hover:border-[1px] border-white border-opacity-70 rounded-[10px]">
+                    <a href="resources-da" class="px-[8px] py-[4px] flex flex-row gap-[10px] items-center hover:bg-white hover:bg-opacity-20 hover:border-[1px] border-white border-opacity-70 rounded-[10px]">
                         <div class="bg-[#FF0000] w-[20px] h-[20px] flex items-center justify-center rounded-[5px]">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                                 <g clip-path="url(#clip0_596_127)">
@@ -206,15 +204,14 @@ import ResourceGridDA from '../components/ResourceGridDA.astro';
         <ResourceCard Link='https://toolfolio.io/' Img='screenshots/toolfolio.png' Title='Toolfolio' Category='Design Blogs' CategoryLink='*/'/>
     </div>
     <div class="pt-[110px] md:pt-[100px] col-span-10 flex flex-col gap-10">
-    
-      <!-- Design Agencies -->
+      <!-- Books -->
       <div class="flex flex-col gap-5">
-        <div class="text-tlg tracking-wide">Design Agencies</div>
+        <div class="text-tlg tracking-wide">Books</div>
         <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
-          <ResourceGridDA/> 
+          <ResourceGridBooks/> 
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>
