@@ -117,7 +117,7 @@ import ResourceGridWUI from '../components/ResourceGridWUI.astro';
                         </div>
                         <div class="text-blg tracking-wide text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-light">Mockups</div>
                       </a>
-                    <a href="resources-archive" class="px-[8px] py-[4px] flex flex-row gap-[10px] items-center hover:bg-white hover:bg-opacity-20 hover:border-[1px] border-white border-opacity-70 rounded-[10px]">
+                    <a href="resources-archive" class="px-[8px] py-[4px] flex flex-row gap-[10px] items-center bg-white bg-opacity-20 hover:border-[1px] border-white border-opacity-70 rounded-[10px]">
                         <div class="bg-[#FFD932] w-[20px] h-[20px] flex items-center justify-center rounded-[5px]">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                                 <path d="M11.875 2.73438H2.125C1.85564 2.73438 1.59731 2.84138 1.40684 3.03184C1.21638 3.22231 1.10938 3.48064 1.10938 3.75V4.96875C1.10933 5.20288 1.19017 5.42984 1.33823 5.61121C1.48629 5.79259 1.69247 5.91724 1.92188 5.96406V10.25C1.92188 10.5194 2.02888 10.7777 2.21934 10.9682C2.40981 11.1586 2.66814 11.2656 2.9375 11.2656H11.0625C11.3319 11.2656 11.5902 11.1586 11.7807 10.9682C11.9711 10.7777 12.0781 10.5194 12.0781 10.25V5.96406C12.3075 5.91724 12.5137 5.79259 12.6618 5.61121C12.8098 5.42984 12.8907 5.20288 12.8906 4.96875V3.75C12.8906 3.48064 12.7836 3.22231 12.5932 3.03184C12.4027 2.84138 12.1444 2.73438 11.875 2.73438ZM2.32812 3.95312H11.6719V4.76562H2.32812V3.95312ZM3.14062 10.0469V5.98438H10.8594V10.0469H3.14062ZM8.82812 7.40625C8.82812 7.56787 8.76392 7.72286 8.64964 7.83714C8.53536 7.95142 8.38037 8.01562 8.21875 8.01562H5.78125C5.61963 8.01562 5.46464 7.95142 5.35036 7.83714C5.23608 7.72286 5.17188 7.56787 5.17188 7.40625C5.17188 7.24463 5.23608 7.08964 5.35036 6.97536C5.46464 6.86108 5.61963 6.79688 5.78125 6.79688H8.21875C8.38037 6.79688 8.53536 6.86108 8.64964 6.97536C8.76392 7.08964 8.82812 7.24463 8.82812 7.40625Z" fill="black"/>
@@ -217,15 +217,13 @@ import ResourceGridWUI from '../components/ResourceGridWUI.astro';
         <ResourceCard Link='https://toolfolio.io/' Img='screenshots/toolfolio.png' Title='Toolfolio' Category='Design Blogs' CategoryLink='*/'/>
     </div>
     <div class="pt-[110px] md:pt-[100px] col-span-10 flex flex-col gap-10">
-    
-      <!-- Icons -->
-      <div class="flex flex-col gap-10">
-        <div class="text-tlg tracking-wide">Icons</div>
+      <!-- Archive -->
+      <div class="flex flex-col gap-5">
+        <div class="text-tlg tracking-wide">Archive</div>
         <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
-          <ResourceGridIcons/>
+          <ResourceGridArchive/>
         </div>
       </div>
-      
 
     </div>
   </div>

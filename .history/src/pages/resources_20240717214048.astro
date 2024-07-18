@@ -21,6 +21,7 @@ import ResourceGridDR from '../components/ResourceGridDR.astro';
 import ResourceGridImagery from '../components/ResourceGridImagery.astro';
 import ResourceGridMockups from '../components/ResourceGridMockups.astro';
 import ResourceGridWUI from '../components/ResourceGridWUI.astro';
+import ResourceGridAll from "../components/ResourceGridAll.astro";
 
 ---
 
@@ -63,6 +64,7 @@ import ResourceGridWUI from '../components/ResourceGridWUI.astro';
         }
         
         </style>
+       
 </head>
 <Gtag/>
 <body class="bg-white dark:bg-black box-border">
@@ -217,7 +219,24 @@ import ResourceGridWUI from '../components/ResourceGridWUI.astro';
         <ResourceCard Link='https://toolfolio.io/' Img='screenshots/toolfolio.png' Title='Toolfolio' Category='Design Blogs' CategoryLink='*/'/>
     </div>
     <div class="pt-[110px] md:pt-[100px] col-span-10 flex flex-col gap-10">
-    
+    <div class="flex flex-col gap-5">
+    <div class="text-tlg tracking-wide">Design Blogs & Catlogs</div>
+    <ResourceGridAll>
+    </div>
+    <!-- Colors -->
+    <div class="flex flex-col gap-5">
+        <div class="text-tlg tracking-wide">Color</div>
+        <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
+        <ResourceGridColor/>   
+        </div>
+      </div>
+      <!-- Typography -->
+      <div class="flex flex-col gap-10">
+        <div class="text-tlg tracking-wide">Typography</div>
+        <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
+          <ResourceGridType/>   
+        </div>
+      </div>
       <!-- Icons -->
       <div class="flex flex-col gap-10">
         <div class="text-tlg tracking-wide">Icons</div>
@@ -225,7 +244,62 @@ import ResourceGridWUI from '../components/ResourceGridWUI.astro';
           <ResourceGridIcons/>
         </div>
       </div>
-      
+      <!-- Imagery -->
+      <div class="flex flex-col gap-5">
+        <div class="text-tlg tracking-wide">Imagery</div>
+        <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
+          <ResourceGridImagery/>
+        </div>
+      </div>
+      <!-- Web & UI -->
+      <div class="flex flex-col gap-5">
+        <div class="text-tlg tracking-wide">Web & UI</div>
+        <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
+          <ResourceGridWUI/>
+        </div>
+      </div>
+      <!-- Mockups -->
+      <div class="flex flex-col gap-5">
+        <div class="text-tlg tracking-wide">Mockups</div>
+        <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
+          <ResourceGridMockups/> 
+        </div>
+      </div>
+      <!-- Design Agencies -->
+      <div class="flex flex-col gap-5">
+        <div class="text-tlg tracking-wide">Design Agencies</div>
+        <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
+          <ResourceGridDA/> 
+        </div>
+      </div>
+      <!-- Books -->
+      <div class="flex flex-col gap-5">
+        <div class="text-tlg tracking-wide">Books</div>
+        <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
+          <ResourceGridBooks/> 
+        </div>
+      </div>
+      <!-- Decks -->
+      <div class="flex flex-col gap-5">
+        <div class="text-tlg tracking-wide">Decks</div>
+        <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
+          <ResourceGridDecks/>
+        </div>
+      </div>
+      <!-- Design Research -->
+      <div class="flex flex-col gap-5">
+        <div class="text-tlg tracking-wide">Design Research</div>
+        <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
+          <ResourceGridDR/>
+        </div>
+      </div>
+      <!-- Archive -->
+      <div class="flex flex-col gap-5">
+        <div class="text-tlg tracking-wide">Archive</div>
+        <div class="md:grid grid-cols-2 md:grid-cols-4 lg:gap-[20px] md:gap-y-[40px]">
+          <ResourceGridArchive/>
+        </div>
+      </div>
 
     </div>
   </div>

@@ -1,0 +1,40 @@
+---
+import ResourceCard from './ResourceCard.astro';
+import ResourceGridDB from '../components/ResourceGridDB.astro';
+import ResourceGridColor from '../components/ResourceGridColor.astro';
+import ResourceGridType from '../components/ResourceGridType.astro';
+import ResourceGridIcons from '../components/ResourceGridIcons.astro';
+import ResourceGridArchive from '../components/ResourceGridArchive.astro';
+import ResourceGridBooks from '../components/ResourceGridBooks.astro';
+import ResourceGridDA from '../components/ResourceGridDA.astro';
+import ResourceGridDecks from '../components/ResourceGridDecks.astro';
+import ResourceGridDR from '../components/ResourceGridDR.astro';
+import ResourceGridImagery from '../components/ResourceGridImagery.astro';
+import ResourceGridMockups from '../components/ResourceGridMockups.astro';
+import ResourceGridWUI from '../components/ResourceGridWUI.astro';
+---
+
+
+
+<div class="grid grid-cols-2 gap-x-2 gap-y-5 md:grid-cols-4 md:gap-x-[20px] md:gap-y-[40px]" id="resource-list">
+<ResourceCard Link='https://www.navbar.gallery/' Img='screenshot-website/screenshots/navbar_gallery___navbar_design_inspiration.png' Title='Navbar Gallery – Navbar Design Inspiration' Category='Web & UI' CategoryLink='resources-wui'/>
+<ResourceCard Link='https://www.darkmodedesign.com/' Img='screenshot-website/screenshots/dark_mode_design____handpicked_website_inspiration.png' Title='Dark Mode Design 🌘 Handpicked website inspiration' Category='Web & UI' CategoryLink='resources-wui'/>
+<ResourceCard Link='https://www.footer.design/styles/grid'	Img='screenshot-website/screenshots/footer___grid_footers___the_only_footer_gallery_on_earth_.png'	Title='Footer | Grid Footers — The only footer gallery on earth.' Category='Web & UI' CategoryLink='resources-wui'/>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const resourceList = document.getElementById('resource-list');
+        const resourceCards = Array.from(resourceList.children);
+        
+        // Shuffle the resource cards array
+        for (let i = resourceCards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [resourceCards[i], resourceCards[j]] = [resourceCards[j], resourceCards[i]];
+        }
+
+        // Clear the resource list and append the shuffled resource cards
+        resourceList.innerHTML = '';
+        resourceCards.forEach(card => resourceList.appendChild(card));
+    });
+</script>
