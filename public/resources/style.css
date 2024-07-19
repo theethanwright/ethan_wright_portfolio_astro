@@ -1,0 +1,80 @@
+    @media (max-width: 976px) {  
+
+    .sidebar {
+        position: fixed;
+        left: 16.923vw;
+        bottom: 11px;
+        width: 258px;
+        height: 56px;
+        z-index: 50;
+        transition: 0.3s ease;
+    }
+     
+    .sidebar a,
+    .sidebar .break {
+        opacity: 0;
+        display: none;
+        transition: 0.3s ease;
+    }
+
+    .sidebar.closed .tab-grid {
+       display: grid;
+       grid-template-columns: repeat(2, minmax(0, 1fr));
+       transition: 0.3s ease;
+    }
+
+    .sidebar.closed {
+        left: 4.103vw;
+        width: 358px;
+        height: 285px;
+        transition: 0.3s ease;
+    }
+
+    .sidebar.closed a,
+    .sidebar.closed .break {
+            opacity: 1;
+            display: flex;
+            transition: 0.3s ease;
+        }
+
+    .sidebar .closeButton {
+        rotate: 90deg;
+    }
+
+    .sidebar.closed .closeButton {
+        rotate: 270deg;
+    }
+}
+    
+    @media (min-width: 976px) {
+
+        .sidebar {
+            width: 258px;
+            transition: width 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .sidebar.closed {
+            width: 65px;
+        }
+        
+        .sidebar.closed .w-full > div,
+        .sidebar.closed div > a > .font-mono {
+            opacity: 0;
+            display: none;
+            transition: 0.3s ease;
+        }
+
+        .sidebar.closed .closeButton {
+            rotate: 180deg;
+        }
+
+        .sidebar.closed .closeButtonContainer {
+            justify-content: center;
+        }
+        
+        .sidebar .w-full > div,
+        .sidebar div > a > .font-mono {
+            opacity: 1;
+            transition: 0.3s ease;
+        }
+    }
