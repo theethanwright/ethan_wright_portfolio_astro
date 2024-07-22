@@ -1,30 +1,64 @@
 ---
-import ResourceGridDB from '../components/ResourceGridDB.astro';
-import ResourceGridColor from '../components/ResourceGridColor.astro';
-import ResourceGridType from '../components/ResourceGridType.astro';
-import ResourceGridIcons from '../components/ResourceGridIcons.astro';
-import ResourceGridArchive from '../components/ResourceGridArchive.astro';
-import ResourceGridBooks from '../components/ResourceGridBooks.astro';
-import ResourceGridDA from '../components/ResourceGridDA.astro';
-import ResourceGridDecks from '../components/ResourceGridDecks.astro';
-import ResourceGridDR from '../components/ResourceGridDR.astro';
-import ResourceGridImagery from '../components/ResourceGridImagery.astro';
-import ResourceGridMockups from '../components/ResourceGridMockups.astro';
-import ResourceGridWUI from '../components/ResourceGridWUI.astro';
+import ResourceGridDB from './ResourceGridDB.astro';
+import ResourceGridColor from './ResourceGridColor.astro';
+import ResourceGridType from './ResourceGridType.astro';
+import ResourceGridIcons from './ResourceGridIcons.astro';
+import ResourceGridArchive from './ResourceGridArchive.astro';
+import ResourceGridBooks from './ResourceGridBooks.astro';
+import ResourceGridDA from './ResourceGridDA.astro';
+import ResourceGridDecks from './ResourceGridDecks.astro';
+import ResourceGridDR from './ResourceGridDR.astro';
+import ResourceGridImagery from './ResourceGridImagery.astro';
+import ResourceGridMockups from './ResourceGridMockups.astro';
+import ResourceGridWUI from './ResourceGridWUI.astro';
 ---
 
 <div class="grid grid-cols-2 gap-x-2 gap-y-5 md:grid-cols-4 md:gap-x-[20px] md:gap-y-[40px]" id="resource-list">
-<ResourceGridDB/>
-<ResourceGridColor/>
-<ResourceGridType/>
-<ResourceGridDA/>
-<ResourceGridIcons/>
-<ResourceGridArchive/>
-<ResourceGridBooks/>
-<ResourceGridDecks/>
-<ResourceGridDR/>
-<ResourceGridImagery/>
-<ResourceGridMockups/>
-<ResourceGridWUI/>
+    <ResourceGridDB/>
+    <ResourceGridColor/>
+    <ResourceGridType/>
+    <ResourceGridDA/>
+    <ResourceGridIcons/>
+    <ResourceGridArchive/>
+    <ResourceGridBooks/>
+    <ResourceGridDecks/>
+    <ResourceGridDR/>
+    <ResourceGridImagery/>
+    <ResourceGridMockups/>
+    <ResourceGridWUI/>
 </div>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM fully loaded and parsed");
+
+    const resourceList = document.getElementById('resource-list');
+    if (!resourceList) {
+        console.error("Element with id 'resource-list' not found");
+        return;
+    }
+    console.log("resourceList:", resourceList);
+
+    const resourceCards = Array.from(resourceList.children);
+    console.log("Initial resourceCards:", resourceCards);
+
+    // Shuffle the resource cards array
+    for (let i = resourceCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        console.log(`Swapping elements at indices ${i} and ${j}`);
+        [resourceCards[i], resourceCards[j]] = [resourceCards[j], resourceCards[i]];
+        console.log("resourceCards after swap:", resourceCards);
+    }
+
+    // Clear the resource list and append the shuffled resource cards
+    resourceList.innerHTML = ' ';
+    console.log("resourceList cleared");
+
+    resourceCards.forEach(card => {
+        resourceList.appendChild(card);
+        console.log("Appended card:", card);
+    });
+
+    console.log("Final resourceCards:", resourceCards);
+});
+</script>

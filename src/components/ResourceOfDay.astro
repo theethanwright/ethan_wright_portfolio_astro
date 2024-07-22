@@ -1,36 +1,9 @@
 ---
-import ResourceGridDB from './ResourceGridDB.astro';
-import ResourceGridColor from './ResourceGridColor.astro';
-import ResourceGridType from './ResourceGridType.astro';
-import ResourceGridIcons from './ResourceGridIcons.astro';
-import ResourceGridArchive from './ResourceGridArchive.astro';
-import ResourceGridBooks from './ResourceGridBooks.astro';
-import ResourceGridDA from './ResourceGridDA.astro';
-import ResourceGridDecks from './ResourceGridDecks.astro';
-import ResourceGridDR from './ResourceGridDR.astro';
-import ResourceGridImagery from './ResourceGridImagery.astro';
-import ResourceGridMockups from './ResourceGridMockups.astro';
-import ResourceGridWUI from './ResourceGridWUI.astro';
-import ResourceCard from './ResourceCard.astro';
-import Resources from '../pages/resources.astro';
+
 ---
 
 
 <div class="block" id="resource-of-day"></div>
-<div class="hidden" id="resource-list">
-    <ResourceGridDB/>
-    <ResourceGridColor/>
-    <ResourceGridType/>
-    <ResourceGridDA/>
-    <ResourceGridIcons/>
-    <ResourceGridArchive/>
-    <ResourceGridBooks/>
-    <ResourceGridDecks/>
-    <ResourceGridDR/>
-    <ResourceGridImagery/>
-    <ResourceGridMockups/>
-    <ResourceGridWUI/>    
-</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
