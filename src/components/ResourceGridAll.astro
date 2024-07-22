@@ -13,8 +13,6 @@ import ResourceGridMockups from '../components/ResourceGridMockups.astro';
 import ResourceGridWUI from '../components/ResourceGridWUI.astro';
 ---
 
-
-
 <div class="grid grid-cols-2 gap-x-2 gap-y-5 md:grid-cols-4 md:gap-x-[20px] md:gap-y-[40px]" id="resource-list">
 <ResourceGridDB/>
 <ResourceGridColor/>
@@ -30,19 +28,3 @@ import ResourceGridWUI from '../components/ResourceGridWUI.astro';
 <ResourceGridWUI/>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const resourceList = document.getElementById('resource-list');
-        const resourceCards = Array.from(resourceList.children);
-        
-        // Shuffle the resource cards array
-        for (let i = resourceCards.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [resourceCards[i], resourceCards[j]] = [resourceCards[j], resourceCards[i]];
-        }
-
-        // Clear the resource list and append the shuffled resource cards
-        resourceList.innerHTML = '';
-        resourceCards.forEach(card => resourceList.appendChild(card));
-    });
-</script>

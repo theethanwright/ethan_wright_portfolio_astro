@@ -8,7 +8,7 @@ import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
 import SideBarNav from '../components/SideBarNav.astro';
-import ResourceCard from '../components/ResourceCard.astro';
+import ResourceOfDay from "../components/ResourceOfDay.astro";
 import ResourceGridBooks from '../components/ResourceGridBooks.astro';
 
 ---
@@ -27,7 +27,7 @@ import ResourceGridBooks from '../components/ResourceGridBooks.astro';
     <Menu />
   <!--header-->
   <div class="h-full flex flex-row lg:gap-x-5 px-3 pt-[30px] lg:pt-20 pb-20 md:px-8">
-    <div class="z-50 w-0 lg:w-auto h-full">
+    <div class="z-50 w-0 lg:w-auto">
         <div class="sticky lg:top-[20px]">
             <!--Sidebar -->
             <div class="sidebar flex flex-col bg-[#303030] p-[15px] rounded-2xl lg:h-[84svh]">
@@ -157,7 +157,7 @@ import ResourceGridBooks from '../components/ResourceGridBooks.astro';
     </div>
     <div class="pt-20 col-span-10 md:col-span-3 md:col-start-8 lg:col-start-8 flex flex-col md:pt-[20px]">
         <div class="text-bmd tracking-wide text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-light pb-[15px]">Resource of the Day</div>
-        <ResourceCard Link='https://toolfolio.io/' Img='screenshots/toolfolio.png' Title='Toolfolio' Category='Design Blogs' CategoryLink='*/'/>
+        <ResourceOfDay/>
     </div>
     <div class="pt-[110px] md:pt-[100px] col-span-10 flex flex-col gap-10">
       <!-- Books -->
