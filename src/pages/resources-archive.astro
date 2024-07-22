@@ -8,7 +8,7 @@ import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
 import SideBarNav from '../components/SideBarNav.astro';
-import ResourceCard from '../components/ResourceCard.astro';
+import ResourceOfDay from "../components/ResourceOfDay.astro";
 import ResourceGridArchive from '../components/ResourceGridArchive.astro';
 
 ---
@@ -161,7 +161,7 @@ import ResourceGridArchive from '../components/ResourceGridArchive.astro';
     </div>
     <div class="pt-20 col-span-10 md:col-span-3 md:col-start-8 lg:col-start-8 flex flex-col md:pt-[20px]">
         <div class="text-bmd tracking-wide text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-light pb-[15px]">Resource of the Day</div>
-        <ResourceCard Link='https://toolfolio.io/' Img='screenshots/toolfolio.png' Title='Toolfolio' Category='Design Blogs' CategoryLink='*/'/>
+        <ResourceOfDay/>
     </div>
     <div class="pt-[110px] md:pt-[100px] col-span-10 flex flex-col gap-10">
       <!-- Archive -->
