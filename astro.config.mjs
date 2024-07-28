@@ -10,14 +10,14 @@ export default defineConfig({
 	  }),
 	],
 	 
-	// build: {
-	//   // Example: Generate `page.html` instead of `page/index.html` during build.
-	//   format: 'file'
-	// },
+	build: {
+	  // Example: Generate `page.html` instead of `page/index.html` during build.
+	  format: 'file'
+	},
 
 	
-	// base: '/docs',
-   	// trailingSlash: "never"
+	base: '/docs',
+   	trailingSlash: "never"
 	 
 
   });
