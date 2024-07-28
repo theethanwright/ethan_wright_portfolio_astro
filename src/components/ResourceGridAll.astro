@@ -30,35 +30,27 @@ import ResourceGridWUI from './ResourceGridWUI.astro';
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM fully loaded and parsed");
 
     const resourceList = document.getElementById('resource-list');
     if (!resourceList) {
         console.error("Element with id 'resource-list' not found");
         return;
     }
-    console.log("resourceList:", resourceList);
 
     const resourceCards = Array.from(resourceList.children);
-    console.log("Initial resourceCards:", resourceCards);
 
     // Shuffle the resource cards array
     for (let i = resourceCards.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        console.log(`Swapping elements at indices ${i} and ${j}`);
         [resourceCards[i], resourceCards[j]] = [resourceCards[j], resourceCards[i]];
-        console.log("resourceCards after swap:", resourceCards);
     }
 
     // Clear the resource list and append the shuffled resource cards
     resourceList.innerHTML = ' ';
-    console.log("resourceList cleared");
 
     resourceCards.forEach(card => {
         resourceList.appendChild(card);
-        console.log("Appended card:", card);
     });
 
-    console.log("Final resourceCards:", resourceCards);
 });
 </script>
