@@ -2,7 +2,7 @@
 
     .sidebar {
         position: fixed;
-        left: 16.923vw;
+        left: calc(50% - 129px);
         bottom: 11px;
         width: 258px;
         height: 56px;
@@ -24,7 +24,7 @@
     }
 
     .sidebar.closed {
-        left: 4.103vw;
+        left: calc(50% - 179px);
         width: 358px;
         height: 285px;
         transition: 0.3s ease;
