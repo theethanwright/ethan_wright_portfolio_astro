@@ -28,6 +28,12 @@
   .header {
     @apply text-hsm font-sans tracking-wide text-black dark:text-white
   }
+  .header-info {
+    @apply text-bmd tracking-wide text-black dark:text-white font-mono
+  }
+  .body-info {
+    @apply font-light
+  }
   .img-full {
     @apply rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal
   }
