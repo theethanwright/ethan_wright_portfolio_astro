@@ -19,4 +19,22 @@
   .grid-cols-scale {
     @apply w-full grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12
   }
+  .body-copy {
+    @apply text-blg text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-light
+  }
+  .headline {
+    @apply text-dsm text-black dark:text-white tracking-widest font-sans font-medium 
+  }
+  .header {
+    @apply text-hsm font-sans tracking-wide text-black dark:text-white
+  }
+  .img-full {
+    @apply rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal
+  }
+  .img-left {
+    @apply rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal
+  }
+  .img-right {
+    @apply rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal
+  }
 };
