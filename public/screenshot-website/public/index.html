@@ -22,60 +22,105 @@
     <h1>Upload an Array of Websites for Screenshots</h1>
     <textarea id="urls" placeholder="Enter one URL per line" rows="10" cols="50"></textarea><br>
     <button id="submitBtn">Submit</button>
+    
+    <h2>Select Category</h2>
+    <div id="category-select">
+        <label><input type="radio" name="category" value="Archive" checked> Archive</label>
+        <label><input type="radio" name="category" value="Books"> Books</label>
+        <label><input type="radio" name="category" value="Colors"> Colors</label>
+        <label><input type="radio" name="category" value="Design Agencies"> Design Agencies</label>
+        <label><input type="radio" name="category" value="Design Blogs"> Design Blogs</label>
+        <label><input type="radio" name="category" value="Design Research"> Design Research</label>
+        <label><input type="radio" name="category" value="Icons"> Icons</label>
+        <label><input type="radio" name="category" value="Imagery"> Imagery</label>
+        <label><input type="radio" name="category" value="Mockups"> Mockups</label>
+        <label><input type="radio" name="category" value="Type"> Type</label>
+        <label><input type="radio" name="category" value="Web & UI"> Web & UI</label>
+    </div>
     <div id="result"></div>
-
 
     <script>
         document.getElementById('submitBtn').addEventListener('click', async (event) => {
-    console.log('Button clicked');
     event.preventDefault();
     const urls = document.getElementById('urls').value.split('\n').map(url => url.trim()).filter(url => url);
     if (urls.length === 0) {
         alert('Please enter at least one URL.');
         return;
     }
-    console.log('URLs parsed:', urls);
+
     try {
-        console.log('Sending fetch request');
         const response = await fetch('http://localhost:4000/screenshot', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ urls })
         });
-        console.log('Fetch response received');
+
         if (!response.ok) {
             const errorText = await response.text();
             throw new Error(`Server responded with status ${response.status}: ${errorText}`);
         }
+
         const result = await response.json();
-        console.log('Results received:', result);
         displayResults(result);
-        console.log('Results displayed');
+
     } catch (error) {
         console.error('Error occurred:', error);
         document.getElementById('result').innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
     }
 });
 
-function displayResults(results) {
-    console.log('Displaying results');
-    const resultDiv = document.getElementById('result');
-    let tableHTML = '<table><tr><th>Website</th><th>Screenshot</th><th>Title</th></tr>';
-    results.forEach(result => {
+    async function saveCode(code) {
+        const category = document.querySelector('input[name="category"]:checked').value;
+        try {
+            const response = await fetch('http://localhost:4000/save-code', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code, category })
+            });
+
+            if (response.ok) {
+                console.log('Code saved successfully.');
+            } else {
+                console.error('Error saving the code:', await response.text());
+            }
+        } catch (error) {
+            console.error('Network error:', error);
+        }
+    }
+
+        function displayResults(results) {
+            console.log('Displaying results');
+            const category = document.querySelector('input[name="category"]:checked').value;
+            const categoryMap = {
+                'Archive': { Category: 'Archive', CategoryLink: 'resources-archive' },
+                'Books': { Category: 'Books', CategoryLink: 'resources-books' },
+                'Colors': { Category: 'Color', CategoryLink: 'resources-color' },
+                'Design Agencies': { Category: 'Design Agencies', CategoryLink: 'resources-da' },
+                'Design Blogs': { Category: 'Design Blogs & Catalogs', CategoryLink: 'resources-db' },
+                'Design Research': { Category: 'Design Research', CategoryLink: 'resources-dr' },
+                'Icons': { Category: 'Icons', CategoryLink: 'resources-icons' },
+                'Imagery': { Category: 'Imagery', CategoryLink: 'resources-imagery' },
+                'Mockups': { Category: 'Mockups', CategoryLink: 'resources-mockups' },
+                'Type': { Category: 'Typography', CategoryLink: 'resources-type' },
+                'Web & UI': { Category: 'Web & UI', CategoryLink: 'resources-wui' },
+            };
+            const selectedCategory = categoryMap[category];
+            const resultDiv = document.getElementById('result');
+            let tableHTML = '<table><tr><th>Website</th><th>Screenshot</th><th>Title</th></tr>';
+                results.forEach(result => {
         if (result.error) {
             tableHTML += `<tr><td colspan="3" style="color: red;">Error: ${result.error}</td></tr>`;
         } else {
-            tableHTML += `
-                <tr>
-                    <td>~ResourceCard Link='${result.url}' Img='${result.filePath}' Title='${result.title}' Category='Mockups' CategoryLink='resources-mockups'/></td>
-                </tr>
-            `;
+            const resourceCard = `<ResourceCard Link='${result.url}' Img='${result.filePath}' Title='${result.title}' Category='${selectedCategory.Category}' CategoryLink='${selectedCategory.CategoryLink}'/>`;
+            tableHTML += `<tr><td>${resourceCard}</td></tr>`;
+            saveCode(resourceCard); // Save the generated ResourceCard code
         }
-    });
-    tableHTML += '</table>';
-    resultDiv.innerHTML = tableHTML;
-    console.log('Results table generated');
-}
+            });
+
+            tableHTML += '</table>';
+            resultDiv.innerHTML = tableHTML;
+            console.log('Results table generated');
+        }
     </script>
 </body>
 </html>

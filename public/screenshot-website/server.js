@@ -64,6 +64,38 @@ app.post('/screenshot', async (req, res) => {
     res.json(results);
 });
 
+const categoryToFilePath = {
+    'Archive': '/Users/ethanwright/Code_Projects/Website/ethan_wright_portfolio_astro/src/components/ResourceGridArchive.astro',
+    'Books': '/Users/ethanwright/Code_Projects/Website/ethan_wright_portfolio_astro/src/components/ResourceGridBooks.astro',
+    'Colors': '/Users/ethanwright/Code_Projects/Website/ethan_wright_portfolio_astro/src/components/ResourceGridColor.astro',
+    'Design Agencies': '/Users/ethanwright/Code_Projects/Website/ethan_wright_portfolio_astro/src/components/ResourceGridDA.astro',
+    'Design Blogs': '/Users/ethanwright/Code_Projects/Website/ethan_wright_portfolio_astro/src/components/ResourceGridDB.astro',
+    'Design Research': '/Users/ethanwright/Code_Projects/Website/ethan_wright_portfolio_astro/src/components/ResourceGridDR.astro',
+    'Icons': '/Users/ethanwright/Code_Projects/Website/ethan_wright_portfolio_astro/src/components/ResourceGridIcons.astro',
+    'Imagery': '/Users/ethanwright/Code_Projects/Website/ethan_wright_portfolio_astro/src/components/ResourceGridImagery.astro',
+    'Mockups': '/Users/ethanwright/Code_Projects/Website/ethan_wright_portfolio_astro/src/components/ResourceGridMockups.astro',
+    'Type': '/Users/ethanwright/Code_Projects/Website/ethan_wright_portfolio_astro/src/components/ResourceGridType.astro',
+    'Web & UI': '/Users/ethanwright/Code_Projects/Website/ethan_wright_portfolio_astro/src/components/ResourceGridWUI.astro',
+};
+
+app.post('/save-code', (req, res) => {
+    const { code, category } = req.body; // Destructure 'code' and 'category' from the request body
+
+    const filePath = categoryToFilePath[category];
+
+    if (!filePath) {
+        return res.status(400).json({ message: 'Invalid category selected' });
+    }
+
+    fs.appendFile(filePath, code + '\n', (err) => {
+        if (err) {
+            console.error('Error appending to the file:', err);
+            return res.status(500).json({ message: 'Error appending to the file.' });
+        }
+        res.status(200).json({ message: 'File appended successfully.' });
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
