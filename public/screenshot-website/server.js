@@ -81,13 +81,18 @@ const categoryToFilePath = {
 app.post('/save-code', (req, res) => {
     const { code, category } = req.body; // Destructure 'code' and 'category' from the request body
 
+    const pathToRemove = '/Users/ethanwright/Code_Projects/Website/ethan_wright_portfolio_astro/public/';
+    
+    // Remove the specified path part from the code
+    const cleanCode = code.replace(pathToRemove, '');
+
     const filePath = categoryToFilePath[category];
 
     if (!filePath) {
         return res.status(400).json({ message: 'Invalid category selected' });
     }
 
-    fs.appendFile(filePath, code + '\n', (err) => {
+    fs.appendFile(filePath, cleanCode + '\n', (err) => {
         if (err) {
             console.error('Error appending to the file:', err);
             return res.status(500).json({ message: 'Error appending to the file.' });

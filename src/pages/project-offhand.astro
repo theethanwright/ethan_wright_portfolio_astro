@@ -6,6 +6,8 @@ import Gtag from '../components/gtag.astro'
 import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
+import ProjectHeader from '../components/ProjectHeader.astro'
+
 ---
 
 <html lang="en">
@@ -19,11 +21,15 @@ import Footer from '../components/Footer.astro'
     <!--Project-->
     <img src="project-offhand/public/images/1.jpg" alt="" class="h-lvh w-full object-cover">
     <div class="grid-cols-scale gap-x-5 p-3 pt-9 md:px-8 md:pt-10">
-          <div class="text-dsm text-secondary font-medium col-start-1 md:text-dmd lg:text-dlg lg:col-start-2 reveal">OFFHAND</div>
-          <div class="body-copy mt-2 mb-14 col-start-1 col-span-4 md:col-span-8 lg:col-start-2 lg:col-span-6 row-span-2 reveal">"Offhand, Adventure Cards" address South Carolina's low well-being rankings by utilizing a deck of 52 cards focused on health, wellness, and community. The game encourages spontaneous adventures by combining cards with activities, places, and topics. Research highlighted the importance of minimizing social isolation. The cards' colors reflect the associated emotions, and user testing led to adjustments, ensuring an engaging final product that promotes well-being through shared experiences.</div>
-          <div class="text-bmd tracking-wide text-black dark:text-white font-mono mb-14 col-start-1 col-span-2 md:col-start-1 md:col-span-2 lg:col-start-9 lg:col-span-2 reveal">Skills Used:<div class="text-opacity-50 dark:text-opacity-50 mt-2 flex flex-col gap-2"><li>Lofi Prototyping</li><li>Icon Design</li><li>Illustration</li></div></div>
-          <div class="text-bmd tracking-wide text-black dark:text-white font-mono mb-14 col-start-3 col-span-2 md:col-start-5 md:col-span-2 lg:col-start-11 lg:col-span-2 reveal">Tools Used:<div class="text-opacity-50 dark:text-opacity-50 mt-2 flex flex-col gap-2"><li>Illustrator</li><li>Photoshop</li></div></div>
-          <img src="project-offhand/public/images/2.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
+      <ProjectHeader 
+                        Title='OFFHAND' 
+            Visible1=`` Info1='Lofi Prototyping, Icon Design, Illustration'
+            Visible2=`` Info2='Illustrator, Photoshop'
+            Visible3=`hidden` Info3=''
+            Visible4=`hidden` Info4=''
+                        Body=`"Offhand, Adventure Cards" address South Carolina's low well-being rankings by utilizing a deck of 52 cards focused on health, wellness, and community. The game encourages spontaneous adventures by combining cards with activities, places, and topics. Research highlighted the importance of minimizing social isolation. The cards' colors reflect the associated emotions, and user testing led to adjustments, ensuring an engaging final product that promotes well-being through shared experiences.`
+            />
+          <img src="project-offhand/public/images/2.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal">
           <img src="project-offhand/public/images/3.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
           <img src="project-offhand/public/images/6.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
           <img src="project-offhand/public/images/5.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">

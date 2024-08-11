@@ -1,30 +1,90 @@
-<div class="menu grid-cols-scale px-3 py-4 md:px-8 md:py-8 bg-black dark:bg-white w-full h-dvh" id="menu">
-    <a href="javascript:void(0);" class="col-start-4 md:col-start-8 lg:col-start-12 justify-self-end" onclick="closeNav()">
+<style>
+.menu {
+    position: fixed;
+    z-index: 41;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: translateX(100%);
+    transform-origin: top right;
+    overflow-x: hidden;
+    border-radius: 50% 0 0 50%;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), border-radius 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.menu.open {
+    transform: translateX(0);
+    border-radius: 0;
+}
+
+.menu .menu-item {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.menu.open .menu-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Staggered animation */
+.menu .menu-item:nth-child(1) {
+    transition-delay: 0.1s;
+}
+.menu .menu-item:nth-child(2) {
+    transition-delay: 0.15s;
+}
+.menu .menu-item:nth-child(3) {
+    transition-delay: 0.2s;
+}
+.menu .menu-item:nth-child(4) {
+    transition-delay: 0.25s;
+}
+.menu .menu-item:nth-child(5) {
+    transition-delay: 0.3s;
+}
+.menu .menu-item:nth-child(6) {
+    transition-delay: 0.35s;
+}
+.menu .menu-item:nth-child(8) {
+    transition-delay: 0.4s;
+}
+.menu .menu-item:nth-child(9) {
+    transition-delay: 0.45s;
+}
+</style>
+
+<div class="menu grid-cols-scale px-3 py-4 md:px-8 md:py-8 bg-black dark:bg-white" id="menu">
+    <button class="col-start-4 md:col-start-8 lg:col-start-12 justify-self-end" onclick="toggleMenu()">
         <i id="closeButton"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <rect x="19.4717" y="2.26416" width="3.16981" height="24" transform="rotate(45 19.4717 2.26416)" class="dark:fill-black fill-white"/>
             <rect x="21.7358" y="19.2347" width="3.16981" height="24" transform="rotate(135 21.7358 19.2347)" class="dark:fill-black fill-white"/>
           </svg></i>
-        </a>
-    <div class="text-white dark:text-black opacity-50 text-lsm md:text-lmd lg:text-llg mt-16 md:mt-28 lg:mt-0 col-start-2">Navigation</div>
-    <div class="pt-10 flex flex-row gap-3 items-center col-start-2 md:col-start-2 col-span-4 md:col-span-7 lg:col-span-11 lg:col-start-2">
+    </button>
+
+    <!-- Individual menu items with class 'menu-item' -->
+    <div class="menu-item text-white dark:text-black opacity-50 text-lsm md:text-lmd lg:text-llg mt-16 md:mt-28 lg:mt-0 col-start-2">Navigation</div>
+    <div class="menu-item pt-10 flex flex-row gap-3 items-center col-start-2 md:col-start-2 col-span-4 md:col-span-7 lg:col-span-11 lg:col-start-2">
         <div class="text-white dark:text-black font-medium text-hsm md:text-hmd lg:text-dlg"><a href="work" id="work">WORK</a></div>
         <div class="w-full border-y-white dark:border-y-black border-t-[0.25px] pb-1"></div>
     </div>
-    <div class="pt-10 flex flex-row gap-3 items-center col-start-2 md:col-start-2 col-span-4 md:col-span-7 lg:col-span-11 lg:col-start-2">
+    <div class="menu-item pt-10 flex flex-row gap-3 items-center col-start-2 md:col-start-2 col-span-4 md:col-span-7 lg:col-span-11 lg:col-start-2">
         <div class="text-white dark:text-black font-medium text-hsm md:text-hmd lg:text-dlg"><a href="about" id="about">ABOUT</a></div>
         <div class="w-full border-y-white dark:border-y-black border-t-[0.25px] pb-1"></div>
     </div>
-    <div class="pt-10 flex flex-row gap-3 items-center col-start-2 md:col-start-2 col-span-4 md:col-span-7 lg:col-span-11 lg:col-start-2">
+    <div class="menu-item pt-10 flex flex-row gap-3 items-center col-start-2 md:col-start-2 col-span-4 md:col-span-7 lg:col-span-11 lg:col-start-2">
         <div class="text-white dark:text-black font-medium text-hsm md:text-hmd lg:text-dlg"><a href="resources" id="resources">RESOURCES</a></div>
         <div class="w-full border-y-white dark:border-y-black border-t-[0.25px] pb-1"></div>
     </div>
-    <div class="pt-10 flex flex-row gap-3 items-center col-start-2 md:col-start-2 col-span-4 md:col-span-7 lg:col-span-11 lg:col-start-2">
+    <div class="menu-item pt-10 flex flex-row gap-3 items-center col-start-2 md:col-start-2 col-span-4 md:col-span-7 lg:col-span-11 lg:col-start-2">
         <div class="text-white dark:text-black font-medium text-hsm md:text-hmd lg:text-dlg"><a href="playground" id="playground">PLAYGROUND</a></div>
         <div class="w-full border-y-white dark:border-y-black border-t-[0.25px] pb-1"></div>
     </div>
-    <div class="h-full col-span-4 min-h-1"></div>
-    <div class="text-white dark:text-black opacity-50 text-lsm self-end md:text-lmd lg:text-lg lg:mt-3 col-start-2">Social</div>
-    <div class="mt-5 col-start-2 flex flex-col lg:flex-row gap-5 lg:col-start-2 lg:col-span-10 lg:justify-between">
+    <div class="menu-item h-full col-span-4 min-h-1"></div>
+    <div class="menu-item text-white dark:text-black opacity-50 text-lsm self-end md:text-lmd lg:text-lg lg:mt-3 col-start-2">Social</div>
+    <div class="menu-item mt-5 col-start-2 flex flex-col lg:flex-row gap-5 lg:col-start-2 lg:col-span-10 lg:justify-between">
         <div class="text-white dark:text-black font-mono text-bsm md:text-blg" id="arena"><a href="https://www.are.na/ethan-wright" target="_blank" rel="noopener noreferrer">Are.na</a></div>
         <div class="text-white dark:text-black font-mono text-bsm md:text-blg" id="behance"><a href="https://www.behance.net/theethanwright" target="_blank" rel="noopener noreferrer">Behance</a></div>
         <div class="text-white dark:text-black font-mono text-bsm md:text-blg" id="dribble"><a href="https://dribbble.com/Theethanwright" target="_blank" rel="noopener noreferrer">Dribble</a></div>

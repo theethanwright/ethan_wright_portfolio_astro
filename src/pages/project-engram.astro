@@ -6,6 +6,7 @@ import Gtag from '../components/gtag.astro'
 import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
+import ProjectHeader from '../components/ProjectHeader.astro'
 
 ---
 
@@ -20,12 +21,15 @@ import Footer from '../components/Footer.astro'
     <!--Project-->
     <img src="project-engram/public/images/1.jpg" alt="" class="h-lvh w-full object-cover">
     <div class="grid-cols-scale gap-x-5 p-3 pt-9 md:px-8 md:pt-10">
-          <div class="text-dsm text-black dark:text-white font-medium col-start-1 md:text-dmd lg:text-dlg lg:col-start-2 reveal">ENGRAM</div>
-          <div class="body-copy mt-2 mb-14 col-start-1 col-span-4 md:col-span-8 lg:col-start-2 lg:col-span-6 lg:row-span-2 reveal">The Form Theory project involved a team collaboration to design and build "The Engram Chair" for young adults in compact living spaces. Influenced by design principles from Rams, Tschichold, and Le Corbusier, the chair prioritizes modularity, comfort, and adaptability. Its form is simple and provisional, using natural and raw materials. The design process included prototyping and a digital 3D model for precision. Challenges included refining the philosophical statement, integrating raw materials, and maintaining design integrity. "The Engram Chair" visually represents the team's design philosophies and serves as a functional, minimalist solution for small spaces.</div>
-          <div class="text-bmd tracking-wide text-black dark:text-white font-mono mb-14 col-start-1 col-span-2 md:col-start-1 md:col-span-2 lg:col-start-9 lg:col-span-2 reveal">Skills Used:<div class="text-opacity-50 dark:text-opacity-50 mt-2 flex flex-col gap-2"><li>Prototyping</li><li>Creative Direction</li><li>Project Management</li></div></div>
-          <div class="text-bmd tracking-wide text-black dark:text-white font-mono mb-14 col-start-3 col-span-2 md:col-start-5 md:col-span-2 lg:col-start-11 lg:col-span-2 reveal">Tools Used:<div class="text-opacity-50 dark:text-opacity-50 mt-2 flex flex-col gap-2"><li>Onshape</li><li>Illustrator</li><li>CNC Mill</li></div></div>
-          <div class="text-bmd tracking-wide text-black dark:text-white font-mono mb-14 col-start-3 col-span-2 md:col-start-5 md:col-span-2 lg:col-start-9 lg:col-span-2 reveal">Collaborators:<div class="text-opacity-50 dark:text-opacity-50 mt-2 flex flex-col gap-2"><li>Ellie Gramm</li><li>Rebekah Smith</li></div></div>
-          <img src="project-engram/public/images/3.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
+      <ProjectHeader 
+                          Title='ENGRAM' 
+            Visible1=`` Info1='Prototyping, Creative Direction, Project Management'
+            Visible2=`` Info2='Onshape, Illustrator, CNC Mill'
+            Visible3=`` Info3='Ellie Gramm, Rebekah Smith'
+            Visible4=`hidden` Info4=''
+                          Body=`The Form Theory project involved a team collaboration to design and build "The Engram Chair" for young adults in compact living spaces. Influenced by design principles from Rams, Tschichold, and Le Corbusier, the chair prioritizes modularity, comfort, and adaptability. Its form is simple and provisional, using natural and raw materials. The design process included prototyping and a digital 3D model for precision. Challenges included refining the philosophical statement, integrating raw materials, and maintaining design integrity. "The Engram Chair" visually represents the team's design philosophies and serves as a functional, minimalist solution for small spaces.`
+            />
+          <img src="project-engram/public/images/3.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal">
           <img src="project-engram/public/images/4.gif" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
           <img src="project-engram/public/images/5.gif" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
           <img src="project-engram/public/images/6.gif" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">

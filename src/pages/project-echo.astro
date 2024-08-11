@@ -6,6 +6,7 @@ import Gtag from '../components/gtag.astro'
 import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
+import ProjectHeader from '../components/ProjectHeader.astro'
 
 ---
 
@@ -20,11 +21,15 @@ import Footer from '../components/Footer.astro'
     <!--Project-->
     <img src="project-echo/images/1.jpg" alt="" class="h-lvh w-full object-cover">
     <div class="grid-cols-scale gap-x-5 p-3 pt-9 md:px-8 md:pt-10">
-          <div class="text-dsm text-secondary font-medium col-start-1 md:text-dmd lg:text-dlg lg:col-start-2 reveal">ECHO</div>
-          <div class="body-copy mt-2 mb-14 col-start-1 col-span-4 md:col-span-8 lg:col-start-2 lg:col-span-6 lg:row-span-2 reveal">In this project, a team of 15 students undertook a three-phase approach to address the issue of separation within the Anderson community. In Phase 1, the team identified the root causes of disunity and organized into four teams: connections, branding, production, and leadership, each with specific roles in addressing the community's concerns. Phase 2 involved collecting stories from the community through distributed cards with a prompt about personal journeys. In Phase 3, the team repurposed an unfinished building in downtown Anderson to create an exhibition space. They displayed the collected stories, encouraging viewers to not only read but also interact by categorizing them based on core emotions.</div>
-          <div class="text-bmd tracking-wide text-black dark:text-white font-mono mb-14 col-start-1 col-span-2 md:col-start-1 md:col-span-2 lg:col-start-9 lg:col-span-2 reveal">Skills Used:<div class="text-opacity-50 dark:text-opacity-50 mt-2 flex flex-col gap-2"><li>Project Management</li><li>Creative Direction</li><li>Exhibition Design</li><li>Event Branding</li></div></div>
-          <div class="text-bmd tracking-wide text-black dark:text-white font-mono mb-14 col-start-3 col-span-2 md:col-start-5 md:col-span-2 lg:col-start-11 lg:col-span-2 reveal">Tools Used:<div class="text-opacity-50 dark:text-opacity-50 mt-2 flex flex-col gap-2"><li>Illustrator</li><li>SketchUp</li><li>Installation Hardware</li></div></div>
-          <img src="project-echo/images/2.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
+      <ProjectHeader 
+                          Title='ECHO' 
+            Visible1=`` Info1='Book Design, Poster Design'
+            Visible2=`` Info2='InDesign, Illustrator, Figma'
+            Visible3=`` Info3='AMERICAN ADVERTISING AWARDS GREENVILLE 2024: Silver Addy - Direct Marketing'
+            Visible4=`` Info4='Knoxie le Roux, Sydney Welch, Isabelle Rigsbee, Tabby Lo'
+                          Body='The Art+Design program at the South Carolina School of the Arts, Anderson University, is dedicated to helping students grow both as designers and individuals. This mail-out mini zine and fold-out poster provide comprehensive information that current students believe is essential for incoming students making their college decisions.'
+            />
+          <img src="project-echo/images/2.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal">
           <img src="project-echo/images/3.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
           <img src="project-echo/images/4.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
           <img src="project-echo/images/5.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">

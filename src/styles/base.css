@@ -20,16 +20,16 @@
     @apply w-full grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12
   }
   .body-copy {
-    @apply text-blg text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-light
+    @apply text-blg text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-extralight
   }
   .headline {
-    @apply text-dsm text-black dark:text-white tracking-widest font-sans font-medium 
+    @apply text-dsm md:text-[clamp(50px,8vw,100px)] lg:text-[clamp(50px,3.911vw,70px)] leading-[70px] tracking-wide text-black dark:text-white font-sans font-medium 
   }
   .header {
     @apply text-hsm font-sans tracking-wide text-black dark:text-white
   }
   .header-info {
-    @apply text-bmd tracking-wide text-black dark:text-white font-mono
+    @apply text-bsm leading-5 tracking-widest text-black dark:text-white text-opacity-50 dark:text-opacity-50 font-mono font-light
   }
   .body-info {
     @apply font-light

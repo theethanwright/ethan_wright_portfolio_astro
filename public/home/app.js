@@ -13,15 +13,13 @@ var project2 = document.getElementById('project2');
 var project3 = document.getElementById('project3');
 
 hamburger.addEventListener('touchend', function() {
-  document.getElementById("menu").style.transform = "translateX(0%)";
-  document.getElementById("menu").style.zIndex = "2";
-  document.getElementById("navbar").style.zIndex = "1";
+  const sidebar = document.getElementById('menu');
+  sidebar.classList.toggle('open');
 });
 
 closeButton.addEventListener('touchend', function() {
-  document.getElementById("menu").style.transform = "translateX(100%)";
-  document.getElementById("menu").style.zIndex = "1";
-  document.getElementById("navbar").style.zIndex = "2";
+  const sidebar = document.getElementById('menu');
+  sidebar.classList.toggle('open');
 });
 
 work.addEventListener('touchend', function() {
