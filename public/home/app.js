@@ -59,7 +59,7 @@ project1.addEventListener('touchend', function() {
 });
 
 project2.addEventListener('touchend', function() {
-  window.location.href = 'project-echo';
+  window.location.href = 'project-campaign';
 });
 
 project3.addEventListener('touchend', function() {
