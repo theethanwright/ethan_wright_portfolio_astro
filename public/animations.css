@@ -63,17 +63,6 @@
     height: calc(max(var(--viewportHeight) * 1px));
   }
 
-  .menu {
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    transform: translateX(100%);
-    transform-origin: top right;
-    overflow-x: hidden;
-    transition: 0.5s;
-  }
-
   .pimg {
     transform: scaleX(1);
     transition-property: position;
