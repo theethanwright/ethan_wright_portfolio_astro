@@ -68,3 +68,61 @@
     transition-property: position;
     transition: 0.5s;
   }
+
+  /* Menu */
+
+  .menu {
+    position: fixed;
+    z-index: 41;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100lvh;
+    transform: translateX(100%);
+    transform-origin: top right;
+    overflow-x: hidden;
+    border-radius: 30% 0 0 30%;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), border-radius 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.menu.open {
+    transform: translateX(0);
+    border-radius: 0;
+}
+
+.menu .menu-item {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.menu.open .menu-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Staggered animation */
+.menu .menu-item:nth-child(1) {
+    transition-delay: 0.1s;
+}
+.menu .menu-item:nth-child(2) {
+    transition-delay: 0.15s;
+}
+.menu .menu-item:nth-child(3) {
+    transition-delay: 0.2s;
+}
+.menu .menu-item:nth-child(4) {
+    transition-delay: 0.25s;
+}
+.menu .menu-item:nth-child(5) {
+    transition-delay: 0.3s;
+}
+.menu .menu-item:nth-child(6) {
+    transition-delay: 0.35s;
+}
+.menu .menu-item:nth-child(8) {
+    transition-delay: 0.4s;
+}
+.menu .menu-item:nth-child(9) {
+    transition-delay: 0.45s;
+}
