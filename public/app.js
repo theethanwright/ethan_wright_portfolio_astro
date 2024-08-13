@@ -14,76 +14,27 @@ function toggleMenu() {
   sidebar.classList.toggle('open');
 }
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   let isScrolling;
-//   let lastScrollPosition = 0;
-//   let currentScrollPosition = 0;
-//   let scrollSpeed = 0;
-//   const easeFactor = 0.05; // Adjust this value for more or less easing
+window.addEventListener("scroll", setScrollVar)
+window.addEventListener ("resize", setScrollVar)
 
-//   function smoothScroll() {
-//       // Calculate the difference between the current and last scroll positions
-//       const scrollDifference = currentScrollPosition - lastScrollPosition;
+function setScrollVar() {
+  const footerElement = document.querySelector(".footer"); // Use querySelector to get a single element
+  const htmlElement = document.documentElement;
+  
+  // Calculate the percentage of screen height scrolled
+  const percentOfScreenHeightScrolled = (htmlElement.scrollTop / (htmlElement.scrollHeight - htmlElement.clientHeight) * 100);
 
-//       // Apply easing to the scroll position
-//       scrollSpeed += scrollDifference * easeFactor;
+  // Set the --scroll custom property
+  htmlElement.style.setProperty("--viewportHeight", (htmlElement.scrollHeight / htmlElement.scrollHeight) * 100);
 
-//       // Update the last scroll position
-//       lastScrollPosition += scrollSpeed;
+  // Set the --scroll custom property
+  htmlElement.style.setProperty("--scroll", Math.max(percentOfScreenHeightScrolled, 0));
 
-//       // Apply the scroll position to the window
-//       window.scrollTo(0, lastScrollPosition);
+  // Set the --footerHeight custom property (assuming footerHeight is a variable)
+  const footerHeight = footerElement.getBoundingClientRect().height;
+  htmlElement.style.setProperty("--footerHeight", Math.max((htmlElement.scrollHeight - footerHeight + 100) / htmlElement.scrollHeight) * 100);
 
-//       // Decelerate the scroll speed
-//       scrollSpeed *= 0.9;
+}
 
-//       // Continue the animation if there's still movement
-//       if (Math.abs(scrollSpeed) > 0.1) {
-//           requestAnimationFrame(smoothScroll);
-//       }
-//   }
 
-//   window.addEventListener("scroll", () => {
-//       currentScrollPosition = window.scrollY;
-
-//       // Clear timeout if user is still scrolling
-//       window.clearTimeout(isScrolling);
-
-//       // Start the smooth scroll effect
-//       requestAnimationFrame(smoothScroll);
-
-//       // Set a timeout to stop updating scroll when the user stops scrolling
-//       isScrolling = setTimeout(() => {
-//           scrollSpeed = 0; // Reset speed when scrolling stops
-//       }, 100);
-//   });
-// });
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   let scrollPosition = 0;
-//   let targetScrollPosition = 0;
-//   const lagFactor = 0.5; // The lower the value, the more lag
-
-//   // Function to update scroll position with a lag effect
-//   function smoothScroll() {
-//       // Calculate the difference between the current scroll and the target scroll
-//       const diff = targetScrollPosition - scrollPosition;
-      
-//       // Update the scroll position by adding a portion of the difference (lag effect)
-//       scrollPosition += diff * lagFactor;
-
-//       // Apply the scroll position to the window
-//       window.scrollTo(0, scrollPosition);
-
-//       // Continue the animation if there's still a difference
-//       if (Math.abs(diff) > 0.5) {
-//           requestAnimationFrame(smoothScroll);
-//       }
-//   }
-
-//   // Event listener to capture the actual scroll position set by the user
-//   window.addEventListener("scroll", () => {
-//       targetScrollPosition = window.scrollY;
-//       requestAnimationFrame(smoothScroll);
-//   });
-// });
+setScrollVar()

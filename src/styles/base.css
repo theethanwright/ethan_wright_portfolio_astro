@@ -35,12 +35,24 @@
     @apply font-light
   }
   .img-full {
-    @apply rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal
+    @apply rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full 
   }
   .img-left {
-    @apply rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal
+    @apply rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full 
   }
   .img-right {
-    @apply rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal
+    @apply rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full 
+  }
+
+  .block-full {
+    @apply col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-10 mt-14
+  }
+
+  .block-left {
+    @apply col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 mt-14
+  }
+
+  .block-right {
+    @apply col-span-4 md:col-start-2 md:col-span-6 lg:col-start-7 lg:col-span-4 mt-14
   }
 };

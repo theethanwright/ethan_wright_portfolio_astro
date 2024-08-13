@@ -55,8 +55,13 @@
   }
 
   .rounded-scroll {
-    border-top-left-radius: calc((max(var(--scroll) - var(--footerHeight)) * 240px / 100 + 0px));
-    border-top-right-radius: calc((max(var(--scroll) - var(--footerHeight)) * 240px / 100 + 0px));
+    border-top-left-radius: calc(max(0px - (max(var(--scroll) - var(--viewportHeight)) * 20px)));
+    border-top-right-radius: calc(max(0px - (max(var(--scroll) - var(--viewportHeight)) * 20px)));
+  }
+
+  .footer-animation {
+    transform: translateY(calc(max(0px - (max(var(--scroll) - var(--viewportHeight)) * 10px))));
+    opacity: calc(1 - (max(var(--scroll) - var(--viewportHeight)) * -0.1));
   }
   
   .height {
