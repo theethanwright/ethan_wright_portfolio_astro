@@ -9,23 +9,23 @@ interface Props {
 const { Primary, PrimaryLink, Secondary, SecondaryLink } = Astro.props;
 ---
 
-<div class="relative z-50 grid-cols-scale h-dvh bg-black dark:bg-white footer p-3 pt-7 lg:p-6 lg:pt-9 rounded-t-2xl">
+<div class="relative z-50 grid-cols-scale h-dvh bg-black dark:bg-white footer p-3 pt-7 lg:p-6 lg:pt-9 rounded-scroll" id="footer">
     <div class="rotate-180 col-start-4 self-baseline justify-self-center md:col-start-1 md:row-start-1 md:justify-self-center md:rotate-0 lg:justify-self-start">
-        <a href={SecondaryLink}><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none" class="">
+        <a href={SecondaryLink}><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none" class="footer-animation-arrows">
             <path d="M11.8963 22.1978L2.82083 13.1223M2.82083 13.1223L11.8963 4.04687M2.82083 13.1223L23.6699 13.1223" class="stroke-white dark:stroke-black" stroke-width="3"/>
           </svg></a>
     </div>
-    <div class="text-hmd text-white dark:text-black font-medium tracking-wider col-start-1 col-span-2 row-start-1 self-baseline md:col-end-8 md:row-start-1 md:text-right lg:col-end-12"><a href={PrimaryLink}>{Primary}</a></div>
-    <div class="text-hmd text-white dark:text-black font-medium tracking-wider col-start-1 col-span-3 self-baseline md:col-start-2 md:row-start-1"><a href={SecondaryLink}>{Secondary}</a></div>
+    <div class="text-hmd text-white dark:text-black font-medium tracking-wider col-start-1 col-span-2 row-start-1 self-baseline md:col-end-8 md:row-start-1 md:text-right lg:col-end-12 footer-animation-text"><a href={PrimaryLink}>{Primary}</a></div>
+    <div class="text-hmd text-white dark:text-black font-medium tracking-wider col-start-1 col-span-3 self-baseline md:col-start-2 md:row-start-1 footer-animation-text"><a href={SecondaryLink}>{Secondary}</a></div>
     <div class=" col-start-4 self-baseline justify-self-center mt-10 md:col-start-8 md:row-start-1 md:justify-self-center md:m-0 lg:col-start-12 lg:justify-self-end">
-        <a href={PrimaryLink}><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none" class="">
+        <a href={PrimaryLink}><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none" class="footer-animation-arrows">
             <path d="M14.1039 3.80218L23.1794 12.8777M23.1794 12.8777L14.1039 21.9531M23.1794 12.8777L2.33035 12.8777" class="stroke-white dark:stroke-black" stroke-width="3"/>
           </svg></a>
     </div>
-    <div class="text-white dark:text-black font-sans text-fsm font-medium col-start-1 col-span-4 pt-20 self-end md:text-fmd md:col-start-2 md:col-span-6 lg:text-flg lg:pt-24">
+    <div class="text-white dark:text-black font-sans text-fsm font-medium col-start-1 col-span-4 pt-20 self-end md:text-fmd md:col-start-2 md:col-span-6 lg:text-flg lg:pt-24 footer-animation-text">
       LET’S<br>CONNECT
   </div>
-  <a href="mailto:theethanwright@gmail.com" class="text-black dark:text-white self-start justify-self-start box-content btn-primary tracking-wider hover:scale-110 transition-transform duration-120 ease-out col-start-1 mt-3 md:col-start-2">Contact</a>
+  <a href="mailto:theethanwright@gmail.com" class="text-black dark:text-white self-start justify-self-start box-content btn-primary tracking-wider hover:scale-110 transition-transform duration-120 ease-out col-start-1 mt-3 md:col-start-2 footer-animation-text">Contact</a>
       <div class="flex flex-row gap-5 md:justify-between col-start-1 self-start justify-self-stretch pt-10 md:pt-24 md:col-start-2 lg:col-start-2 col-span-4 md:col-span-6 lg:col-span-10 lg:pt-10">
               <div class="text-white dark:text-black text-opacity-75 dark:text-opacity-75 font-mono text-bsm md:text-blg"><a href="https://www.are.na/ethan-wright" target="_blank" rel="noopener noreferrer">Are.na</a></div>
               <div class="text-white dark:text-black text-opacity-75 dark:text-opacity-75 font-mono text-bsm md:text-blg"><a href="https://www.behance.net/theethanwright" target="_blank" rel="noopener noreferrer">Behance</a></div>

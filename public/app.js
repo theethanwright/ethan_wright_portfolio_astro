@@ -14,27 +14,65 @@ function toggleMenu() {
   sidebar.classList.toggle('open');
 }
 
-window.addEventListener("scroll", setScrollVar)
-window.addEventListener ("resize", setScrollVar)
+// Observer for footer animation
 
-function setScrollVar() {
-  const footerElement = document.querySelector(".footer"); // Use querySelector to get a single element
-  const htmlElement = document.documentElement;
-  
-  // Calculate the percentage of screen height scrolled
-  const percentOfScreenHeightScrolled = (htmlElement.scrollTop / (htmlElement.scrollHeight - htmlElement.clientHeight) * 100);
+const footer = document.getElementById('footer');
+let hasScrolledToBottom = false; // Flag to control the scroll behavior
+let lastVisibility = 0; // To track the last visibility percentage
 
-  // Set the --scroll custom property
-  htmlElement.style.setProperty("--viewportHeight", (htmlElement.scrollHeight / htmlElement.scrollHeight) * 100);
+let options = {
+  root: null,
+  rootMargin: "0px",
+  threshold: Array.from({ length: 101 }, (_, i) => i / 100), // Generate thresholds from 0 to 1 at 0.01 intervals
+};
 
-  // Set the --scroll custom property
-  htmlElement.style.setProperty("--scroll", Math.max(percentOfScreenHeightScrolled, 0));
+let observerFooter = new IntersectionObserver(callback, options);
 
-  // Set the --footerHeight custom property (assuming footerHeight is a variable)
-  const footerHeight = footerElement.getBoundingClientRect().height;
-  htmlElement.style.setProperty("--footerHeight", Math.max((htmlElement.scrollHeight - footerHeight + 100) / htmlElement.scrollHeight) * 100);
-
+// Ease-Out Cubic function for smooth easing
+function easeOutCubic(t) {
+  return 1 - Math.pow(1 - t, 3);
 }
 
+function scrollToBottom(duration) {
+  const start = window.scrollY;
+  const end = document.documentElement.scrollHeight;
+  const distance = end - start;
+  let startTime = null;
 
-setScrollVar()
+  function animation(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const run = easeOutCubic(timeElapsed / duration) * distance + start;
+
+    window.scrollTo(0, run);
+
+    if (timeElapsed < duration) requestAnimationFrame(animation);
+  }
+
+  requestAnimationFrame(animation);
+}
+
+function callback(entries) {
+  entries.forEach(entry => {
+    const currentVisibility = entry.intersectionRatio * 100;
+    document.documentElement.style.setProperty("--visiblePct", Math.max(entry.intersectionRatio, 0));
+
+    // Check if the visibility is increasing and has reached at least 25%
+    if (currentVisibility >= 25 && currentVisibility > lastVisibility && !hasScrolledToBottom) {
+      // Scroll to the bottom of the page with a custom duration
+      scrollToBottom(1500); // Duration in milliseconds, adjust as needed
+
+      // Set the flag to true to prevent continuous scrolling to the bottom
+      hasScrolledToBottom = true;
+    } else if (currentVisibility < 25) {
+      // Reset the flag when the footer is less than 25% visible
+      hasScrolledToBottom = false;
+    }
+
+    // Update the last visibility percentage
+    lastVisibility = currentVisibility;
+  });
+}
+
+// Start observing the footer element
+observerFooter.observe(footer);

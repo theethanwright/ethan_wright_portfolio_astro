@@ -45,14 +45,14 @@
   }
 
   .block-full {
-    @apply col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-10 mt-14
+    @apply mt-14 col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-10 
   }
 
   .block-left {
-    @apply col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 mt-14
+    @apply mt-14 col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-5 lg:pr-10
   }
 
   .block-right {
-    @apply col-span-4 md:col-start-2 md:col-span-6 lg:col-start-7 lg:col-span-5 mt-14
+    @apply mt-14 col-span-4 md:col-start-2 md:col-span-6 lg:col-start-7 lg:col-span-5 lg:pl-3
   }
 };
