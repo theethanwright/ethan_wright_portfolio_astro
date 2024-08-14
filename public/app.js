@@ -28,9 +28,8 @@ let options = {
 
 let observerFooter = new IntersectionObserver(callback, options);
 
-// Ease-Out Cubic function for smooth easing
-function easeOutCubic(t) {
-  return 1 - Math.pow(1 - t, 3);
+function easeInOutQuad(t) {
+  return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 }
 
 function scrollToBottom(duration) {
@@ -42,7 +41,7 @@ function scrollToBottom(duration) {
   function animation(currentTime) {
     if (startTime === null) startTime = currentTime;
     const timeElapsed = currentTime - startTime;
-    const run = easeOutCubic(timeElapsed / duration) * distance + start;
+    const run = easeInOutQuad(timeElapsed / duration) * distance + start;
 
     window.scrollTo(0, run);
 
@@ -76,3 +75,4 @@ function callback(entries) {
 
 // Start observing the footer element
 observerFooter.observe(footer);
+
