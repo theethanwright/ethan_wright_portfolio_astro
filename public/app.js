@@ -28,29 +28,6 @@ let options = {
 
 let observerFooter = new IntersectionObserver(callback, options);
 
-function easeInOutQuad(t) {
-  return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-}
-
-function scrollToBottom(duration) {
-  const start = window.scrollY;
-  const end = document.documentElement.scrollHeight;
-  const distance = end - start;
-  let startTime = null;
-
-  function animation(currentTime) {
-    if (startTime === null) startTime = currentTime;
-    const timeElapsed = currentTime - startTime;
-    const run = easeInOutQuad(timeElapsed / duration) * distance + start;
-
-    window.scrollTo(0, run);
-
-    if (timeElapsed < duration) requestAnimationFrame(animation);
-  }
-
-  requestAnimationFrame(animation);
-}
-
 function callback(entries) {
   entries.forEach(entry => {
     const currentVisibility = entry.intersectionRatio * 100;
@@ -58,8 +35,11 @@ function callback(entries) {
 
     // Check if the visibility is increasing and has reached at least 25%
     if (currentVisibility >= 25 && currentVisibility > lastVisibility && !hasScrolledToBottom) {
-      // Scroll to the bottom of the page with a custom duration
-      scrollToBottom(1600); // Duration in milliseconds, adjust as needed
+      // Scroll to the bottom of the page
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth' // Optional: adds smooth scrolling effect
+      });
 
       // Set the flag to true to prevent continuous scrolling to the bottom
       hasScrolledToBottom = true;
@@ -75,4 +55,5 @@ function callback(entries) {
 
 // Start observing the footer element
 observerFooter.observe(footer);
+
 
