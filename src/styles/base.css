@@ -53,6 +53,6 @@
   }
 
   .block-right {
-    @apply col-span-4 md:col-start-2 md:col-span-6 lg:col-start-8 lg:col-span-4 mt-14
+    @apply col-span-4 md:col-start-2 md:col-span-6 lg:col-start-7 lg:col-span-5 mt-14
   }
 };
