@@ -59,7 +59,7 @@ function callback(entries) {
     // Check if the visibility is increasing and has reached at least 25%
     if (currentVisibility >= 25 && currentVisibility > lastVisibility && !hasScrolledToBottom) {
       // Scroll to the bottom of the page with a custom duration
-      scrollToBottom(1500); // Duration in milliseconds, adjust as needed
+      scrollToBottom(1600); // Duration in milliseconds, adjust as needed
 
       // Set the flag to true to prevent continuous scrolling to the bottom
       hasScrolledToBottom = true;
