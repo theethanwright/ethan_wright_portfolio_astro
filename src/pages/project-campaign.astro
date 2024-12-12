@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
 import ProjectHeader from '../components/ProjectHeader.astro'
+import { Image } from 'astro:assets'
 
 ---
 <html lang="en">
@@ -24,7 +25,13 @@ import ProjectHeader from '../components/ProjectHeader.astro'
       </svg>
       <div class="text-llg tracking-widest mt-1">SILVER ADDY AWARD</div>
     </div>
-    <img src="project-campaign/images/14.jpg" alt="" class="h-lvh w-full object-cover">
+    <Image 
+      src="/project-campaign/images/14.jpg" 
+      alt="" 
+      width={1920} 
+      height={1080} 
+      class="h-lvh w-full object-cover"
+    />
     <div class="grid-cols-scale gap-x-5 p-3 pb-20 pt-9 md:px-8 md:pt-10">
           <ProjectHeader 
                           Title='CAMPAIGN' 
@@ -35,20 +42,80 @@ import ProjectHeader from '../components/ProjectHeader.astro'
                           Body=`The Art+Design program at the South Carolina School of the Arts, Anderson University, fosters growth in both design skills and personal development. This playful and engaging mini zine and fold-out poster offer essential insights from current students to help you make informed college decisions. Featuring student-designed typefaces, artwork, and copy, the zine covers program benefits, clubs, faculty, internships, and future preparation. The fold-out poster showcases the program's excellence with key statistics, alumni quotes, and high-quality student work, highlighting the vibrant and supportive community within our Art+Design department.`
             />
           <video src="project-campaign/images/13.mp4" class="rounded-2xl col-span-4 mt-14 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal" autoplay loop muted playsinline playsinline data-object-fit="cover"></video>
-          <img src="project-campaign/images/1.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal">
-          <img src="project-campaign/images/2.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 lg:row-span-2 w-full reveal">
-          <img src="project-campaign/images/4.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal">
-          <img src="project-campaign/images/5.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
-          <img src="project-campaign/images/6.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal">
-          <img src="project-campaign/images/7.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal">
-          <img src="project-campaign/images/8.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
-          <img src="project-campaign/images/9.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
-          <img src="project-campaign/images/12.jpg" alt="" class="self-center rounded-2xl col-span-4 mb-3 mt-14 md:col-span-8 lg:col-start-2 lg:col-span-4 w-full reveal">
+          <Image 
+            src="/project-campaign/images/1.jpg" 
+            alt="" 
+            width={800} 
+            height={600} 
+            class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal"
+          />
+          <Image 
+            src="/project-campaign/images/2.jpg" 
+            alt="" 
+            width={800} 
+            height={600} 
+            class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 lg:row-span-2 w-full reveal"
+          />
+          <Image 
+            src="/project-campaign/images/4.jpg" 
+            alt="" 
+            width={800} 
+            height={600} 
+            class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal"
+          />
+          <Image 
+            src="/project-campaign/images/5.jpg" 
+            alt="" 
+            width={800} 
+            height={600} 
+            class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"
+          />
+          <Image 
+            src="/project-campaign/images/6.jpg" 
+            alt="" 
+            width={800} 
+            height={600} 
+            class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal"
+          />
+          <Image 
+            src="/project-campaign/images/7.jpg" 
+            alt="" 
+            width={800} 
+            height={600} 
+            class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal"
+          />
+          <Image 
+            src="/project-campaign/images/8.jpg" 
+            alt="" 
+            width={800} 
+            height={600} 
+            class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"
+          />
+          <Image 
+            src="/project-campaign/images/9.jpg" 
+            alt="" 
+            width={800} 
+            height={600} 
+            class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"
+          />
+          <Image 
+            src="/project-campaign/images/12.jpg" 
+            alt="" 
+            width={800} 
+            height={600} 
+            class="self-center rounded-2xl col-span-4 mb-3 mt-14 md:col-span-8 lg:col-start-2 lg:col-span-4 w-full reveal"
+          />
           <div class="self-center col-span-4 md:col-start-2 md:col-span-6 lg:col-start-7 lg:col-span-4 mt-14 reveal">
             <div class="header">Mini Zine Design</div>
             <div class="body-copy mt-2 mb-14">Designed to be playful and engaging, the Mini Zine features printer marks, color-coded sections for organization, dotted grid elements, and, most excitingly, student-designed typefaces and artwork! The copy was entirely crafted by students, offering genuine perspectives on program benefits, clubs and organizations, faculty, internships, location, and preparation for the future.</div>
           </div>
-          <img src="project-campaign/images/3.jpg" alt="" class="self-center rounded-2xl col-span-4 mb-3 md:col-span-8 lg:col-start-7 lg:col-span-4 w-full reveal">
+          <Image 
+            src="/project-campaign/images/3.jpg" 
+            alt="" 
+            width={800} 
+            height={600} 
+            class="self-center rounded-2xl col-span-4 mb-3 md:col-span-8 lg:col-start-7 lg:col-span-4 w-full reveal"
+          />
           <div class="self-center col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 lg:row-start-[12] mt-14 reveal">
             <div class="header">Fold-Out Poster Design</div>
             <div class="body-copy mt-2 md: mb-14">The fold-out poster highlights the excellence of the Design Program at the South Carolina School of the Arts, Anderson University. Through effective typographic hierarchy, we present key statistics, alumni quotes, and details about the AU Design Program. The interior showcases the high-quality student work produced within the Art+Design department.</div>

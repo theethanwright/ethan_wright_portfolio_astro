@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
 import ProjectHeader from '../components/ProjectHeader.astro'
+import { Image } from 'astro:assets';
 
 ---
 
@@ -18,7 +19,7 @@ import ProjectHeader from '../components/ProjectHeader.astro'
 <body class="bg-primary box-border overflow-x-clip">
   <Navbar />
   <Menu />
-    <img src="project-notion/public/images/1.jpg" alt="" class="h-lvh w-full object-cover">
+    <Image src="/project-notion/images/1.jpg" alt="Notion project image" width="1080" height="1920" class="h-lvh w-full object-cover">
     <div class="grid-cols-scale gap-x-5 p-3 pt-9 md:px-8 md:pt-10">
       <ProjectHeader 
                   Title='NOTION' 
@@ -28,11 +29,11 @@ import ProjectHeader from '../components/ProjectHeader.astro'
       Visible4=`hidden` Info4=''
                   Body=`This project aims to create a customizable app for education, catering to various learning styles. The app offers three learning methods (reading, watching, doing) to accommodate different learning styles. It incorporates a friendly interface with soft aesthetics and calming colors. Testing methods align with each learning style, ensuring comprehensive understanding. The app aims to make learning enjoyable and accessible, empowering students to embrace education in their preferred way.`
       />  
-          <img src="project-notion/public/images/1.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal">
-          <img src="project-notion/public/images/2.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
-          <img src="project-notion/public/images/3.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
-          <img src="project-notion/public/images/4.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
-          <img src="project-notion/public/images/5.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
+          <Image src="/project-notion/images/1.jpg" alt="Notion project image" width="800" height="600" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal" width={1920} height={1080} />
+          <Image src="/project-notion/images/2.jpg" alt="Notion project image" width="800" height="600" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" width={1920} height={1080} />
+          <Image src="/project-notion/images/3.jpg" alt="Notion project image" width="800" height="600" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" width={1920} height={1080} />
+          <Image src="/project-notion/images/4.jpg" alt="Notion project image" width="800" height="600" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" width={1920} height={1080} />
+          <Image src="/project-notion/images/5.jpg" alt="Notion project image" width="800" height="600" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" width={1920} height={1080} />
           <div class="col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-10 mt-14 reveal">
             <div class="header">Brief</div>
             <div class="body-copy font-light mt-2 mb-14">What if there was a way people could choose how they learn? Learning is a part of everyday life. It is impossible to escape it, but often people form a contempt for learning. This is a result of their experiences with learning in academic settings. Different people learn in different ways but, schools tend to teach using only methods that favor the majority. This leaves the minority lost and with a disdain for education. We must find a way to make instruction conform to the student rather than the student to the instruction.<br><br>
