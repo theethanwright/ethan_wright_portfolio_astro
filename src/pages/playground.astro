@@ -6,6 +6,29 @@ import Gtag from '../components/gtag.astro'
 import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
+import { Image } from 'astro:assets';
+import earthDayPoster from '../assets/images/earth_day_poster/1.png';
+import tennisBall from '../assets/images/photography/Tennins_Ball_Bounce-optimized.gif';
+import sunRises from '../assets/images/the_sun_always_rises/DSC01707 copy 2.jpg';
+import ballColumn from '../assets/images/ball column/BallColumn.png';
+import spinLock from '../assets/images/travel_safe_animation/Spin-Lock.gif';
+import r5Photo from '../assets/images/photography/R5.jpg';
+import img1191 from '../assets/images/photography/IMG_1191.jpeg';
+import farmCloud from '../assets/images/Illustrations/Farm-&-Cloud.gif';
+import dsc01480 from '../assets/images/photography/DSC01480 copy.jpg';
+import dsc04056 from '../assets/images/photography/DSC04056.jpg';
+import dsc03858 from '../assets/images/photography/DSC03858.jpg';
+import image1 from '../assets/images/photography/Image1.jpg';
+import ivySpin from '../assets/images/Ivy_Animation/ivy_spin_animation_text-2.gif';
+import sun from '../assets/images/Illustrations/Sun.jpg';
+import spinSphere from '../assets/images/travel_safe_animation/Spinning-sphere.gif';
+import muchosObjectivos from '../assets/images/Illustrations/Muchos Objectivos.jpg';
+import donQuixote from '../assets/images/Book Covers/Don Quixote Mockup-1 2.png';
+import ivyPoster from '../assets/images/Ivy_Animation/SCCT-ivy_its_here_poster-r2.png';
+import dsc04071 from '../assets/images/photography/DSC04071.jpg';
+import dsc01735 from '../assets/images/the_sun_always_rises/DSC01735-WEB.jpg';
+import dsc00952 from '../assets/images/photography/DSC00952.jpg';
+import img1418 from '../assets/images/the_sun_always_rises/IMG_1418.jpeg';
 
 ---
 
@@ -27,41 +50,44 @@ import Footer from '../components/Footer.astro'
   <!--Image Gallery-->
   <div class="col-span-4 md:col-span-8 lg:col-start-2 lg:col-span-10 pt-20 w-full grid grid-cols-2 md:grid-cols-4 gap-5">
     <div class="flex flex-col gap-5">
-        <img src="playground/images/earth_day_poster/1.png" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <img src="playground/images/photography/Tennins_Ball_Bounce-optimized.gif" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <img src="playground/images/the_sun_always_rises/DSC01707 copy 2.jpg" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <video src="playground/images/colorado_trip/Colorado 2023.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline playsinline data-object-fit="cover"></video>
-        <img src="playground/images/ball column/BallColumn.png" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <img src="playground/images/travel_safe_animation/Spin-Lock.gif" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
+        <Image src={earthDayPoster} alt="Earth Day poster" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <Image src={tennisBall} alt="Tennis ball bounce animation" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <Image src={sunRises} alt="Sunrise photograph" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <video src="/playground/images/colorado_trip/Colorado 2023.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline data-object-fit="cover"></video>
+        <Image src={ballColumn} alt="Ball column visualization" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <Image src={spinLock} alt="Spinning lock animation" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
     </div>
+
     <div class="flex flex-col gap-5">
-        <img src="playground/images/photography/R5.jpg" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <video src="playground/images/hot_coffee/That's an awfully hot coffee pot.mov" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline playsinline data-object-fit="cover"></video>
-        <img src="playground/images/photography/IMG_1191.jpeg" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <img src="playground/images/Illustrations/Farm-&-Cloud.gif" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <img src="playground/images/photography/DSC01480 copy.jpg" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <img src="playground/images/photography/DSC04056.jpg" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <img src="playground/images/photography/DSC03858.jpg" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <video src="playground/images/particle_cloud/0001-0250.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline playsinline data-object-fit="cover"></video>
+        <Image src={r5Photo} alt="R5 photograph" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <video src="/playground/images/hot_coffee/That's an awfully hot coffee pot.mov" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline data-object-fit="cover"></video>
+        <Image src={img1191} alt="Photography piece" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <Image src={farmCloud} alt="Farm and cloud illustration" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <Image src={dsc01480} alt="Photography piece" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <Image src={dsc04056} alt="Photography piece" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <Image src={dsc03858} alt="Photography piece" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <video src="/playground/images/particle_cloud/0001-0250.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline data-object-fit="cover"></video>
     </div>
+
     <div class="flex flex-col gap-5">
-        <video src="playground/images/airplane_red_carpet/red carpet for private jet looping60fps.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline playsinline data-object-fit="cover"></video>
-        <img src="playground/images/photography/Image1.jpg" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <img src="playground/images/Ivy_Animation/ivy_spin_animation_text-2.gif" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <img src="playground/images/Illustrations/Sun.jpg" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <video src="playground/images/its_a_beautiful_world/its a beautiful world-R4.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline playsinline data-object-fit="cover"></video>
-        <img src="playground/images/travel_safe_animation/Spinning-sphere.gif" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <img src="playground/images/Illustrations/Muchos Objectivos.jpg" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <img src="playground/images/Book Covers/Don Quixote Mockup-1 2.png" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
+        <video src="/playground/images/airplane_red_carpet/red carpet for private jet looping60fps.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline data-object-fit="cover"></video>
+        <Image src={image1} alt="Photography piece" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <Image src={ivySpin} alt="Ivy spin animation" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <Image src={sun} alt="Sun illustration" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <video src="/playground/images/its_a_beautiful_world/its a beautiful world-R4.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline data-object-fit="cover"></video>
+        <Image src={spinSphere} alt="Spinning sphere animation" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <Image src={muchosObjectivos} alt="Muchos Objectivos illustration" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <Image src={donQuixote} alt="Don Quixote book cover" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
     </div>
+
     <div class="flex flex-col gap-5">
-        <img src="playground/images/Ivy_Animation/SCCT-ivy_its_here_poster-r2.png" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <video src="playground/images/ladder_shatter/Ladder Shatter PR Final.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline playsinline data-object-fit="cover"></video>
-        <img src="playground/images/photography/DSC04071.jpg" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <video src="playground/images/chronological_alphabet/The Chronological Alphabet_1.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline playsinline data-object-fit="cover"></video>
-        <img src="playground/images/the_sun_always_rises/DSC01735-WEB.jpg" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <img src="playground/images/photography/DSC00952.jpg" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
-        <img src="playground/images/the_sun_always_rises/IMG_1418.jpeg" alt="" class="pg-img-cover cursor-pointer col-span-2 rounded-lg">
+        <Image src={ivyPoster} alt="Ivy poster" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <video src="/playground/images/ladder_shatter/Ladder Shatter PR Final.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline data-object-fit="cover"></video>
+        <Image src={dsc04071} alt="Photography piece" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <video src="/playground/images/chronological_alphabet/The Chronological Alphabet_1.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline data-object-fit="cover"></video>
+        <Image src={dsc01735} alt="Sunrise photograph" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <Image src={dsc00952} alt="Photography piece" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <Image src={img1418} alt="Photography piece" width={800} height={600} class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
     </div>
   </div>
 </div>
