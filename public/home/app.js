@@ -90,6 +90,42 @@ class SphericalImageGallery {
         this.createImageSphere();
         this.setupPostProcessing();
         
+        // Camera rotation parameters
+        this.rotationVelocity = new THREE.Vector2(0, 0);
+        this.mouseDelta = new THREE.Vector2(0, 0);
+        this.lastMousePosition = new THREE.Vector2(0, 0);
+        this.isMouseMoving = false;
+        
+        // Movement configuration
+        this.friction = 0.95;          // How quickly rotation slows down (0-1)
+        this.sensitivity = 0.001;      // How much mouse movement affects rotation
+        this.maxVelocity = 0.05;       // Maximum rotation speed
+        this.rotationBounds = {        // Limit vertical rotation to avoid flipping
+            minY: -Math.PI / 3,        // -60 degrees
+            maxY: Math.PI / 3          // 60 degrees
+        };
+        
+        // Initialize camera rotation
+        this.cameraRotation = new THREE.Vector2(0, 0);
+        
+        // Debug settings
+        this.debug = {
+            enabled: true,
+            showOverlay: true,
+            showConsole: false,
+            values: {
+                rotation: new THREE.Vector2(),
+                velocity: new THREE.Vector2(),
+                mouseDelta: new THREE.Vector2(),
+                distanceFromCenter: 0
+            }
+        };
+
+        // Create debug overlay if enabled
+        if (this.debug.enabled && this.debug.showOverlay) {
+            this.createDebugOverlay();
+        }
+        
         // Start animation
         this.boundAnimate();
     }
@@ -101,7 +137,7 @@ class SphericalImageGallery {
 
     initCamera() {
         this.camera = new THREE.PerspectiveCamera(
-            75,
+            25,
             window.innerWidth / window.innerHeight,
             0.1,
             1000
@@ -287,8 +323,26 @@ class SphericalImageGallery {
     }
 
     onMouseMove(event) {
-        this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        // Calculate mouse movement (delta)
+        const currentMouseX = event.clientX;
+        const currentMouseY = event.clientY;
+        
+        this.mouseDelta.x = currentMouseX - this.lastMousePosition.x;
+        this.mouseDelta.y = currentMouseY - this.lastMousePosition.y;
+        
+        // Update rotation velocity based on mouse movement
+        this.rotationVelocity.x += (this.mouseDelta.x * this.sensitivity);
+        this.rotationVelocity.y += (this.mouseDelta.y * this.sensitivity);
+        
+        // Clamp velocity
+        this.rotationVelocity.x = Math.max(Math.min(this.rotationVelocity.x, this.maxVelocity), -this.maxVelocity);
+        this.rotationVelocity.y = Math.max(Math.min(this.rotationVelocity.y, this.maxVelocity), -this.maxVelocity);
+        
+        // Store current position for next frame
+        this.lastMousePosition.x = currentMouseX;
+        this.lastMousePosition.y = currentMouseY;
+        
+        this.isMouseMoving = true;
     }
 
     onClick(event) {
@@ -305,11 +359,122 @@ class SphericalImageGallery {
         }
     }
 
+    updateCamera() {
+        // Apply velocity to camera rotation
+        this.cameraRotation.x += this.rotationVelocity.x;
+        this.cameraRotation.y += this.rotationVelocity.y;
+        
+        // Clamp vertical rotation to avoid flipping
+        this.cameraRotation.y = Math.max(
+            Math.min(this.cameraRotation.y, this.rotationBounds.maxY),
+            this.rotationBounds.minY
+        );
+        
+        // Apply friction when mouse isn't moving
+        if (!this.isMouseMoving) {
+            this.rotationVelocity.multiplyScalar(this.friction);
+            
+            // Stop completely if movement is very small
+            if (Math.abs(this.rotationVelocity.x) < 0.0001) this.rotationVelocity.x = 0;
+            if (Math.abs(this.rotationVelocity.y) < 0.0001) this.rotationVelocity.y = 0;
+        }
+        
+        // Reset mouse moving flag
+        this.isMouseMoving = false;
+        
+        // Apply rotation to camera
+        const radius = 20; // Distance from center
+        this.camera.position.x = radius * Math.sin(this.cameraRotation.x) * Math.cos(this.cameraRotation.y);
+        this.camera.position.y = radius * Math.sin(this.cameraRotation.y);
+        this.camera.position.z = radius * Math.cos(this.cameraRotation.x) * Math.cos(this.cameraRotation.y);
+        
+        // Look at center
+        this.camera.lookAt(this.scene.position);
+        
+        // Update debug info
+        this.updateDebugInfo();
+    }
+
     animate() {
         requestAnimationFrame(this.boundAnimate);
+        
+        // Update camera position
+        this.updateCamera();
+        
+        // Existing animation code
         this.imageGroup.rotation.y += this.rotationSpeedY;
         this.imageGroup.rotation.x += this.rotationSpeedX
         this.composer.render();
+    }
+
+    createDebugOverlay() {
+        this.debugOverlay = document.createElement('div');
+        this.debugOverlay.style.cssText = `
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            z-index: 1000;
+            pointer-events: none;
+            border-radius: 4px;
+        `;
+        document.body.appendChild(this.debugOverlay);
+    }
+
+    updateDebugInfo() {
+        if (!this.debug.enabled) return;
+
+        // Update debug values
+        this.debug.values.rotation = new THREE.Vector2(
+            (this.cameraRotation.x * 180 / Math.PI).toFixed(2),
+            (this.cameraRotation.y * 180 / Math.PI).toFixed(2)
+        );
+        this.debug.values.velocity = new THREE.Vector2(
+            (this.rotationVelocity.x * 180 / Math.PI).toFixed(4),
+            (this.rotationVelocity.y * 180 / Math.PI).toFixed(4)
+        );
+        this.debug.values.mouseDelta = new THREE.Vector2(
+            this.mouseDelta.x.toFixed(2),
+            this.mouseDelta.y.toFixed(2)
+        );
+
+        // Update overlay if enabled
+        if (this.debug.showOverlay && this.debugOverlay) {
+            this.debugOverlay.innerHTML = `
+                Camera Rotation (deg): (${this.debug.values.rotation.x}, ${this.debug.values.rotation.y})<br>
+                Rotation Velocity (deg/s): (${this.debug.values.velocity.x}, ${this.debug.values.velocity.y})<br>
+                Mouse Delta: (${this.debug.values.mouseDelta.x}, ${this.debug.values.mouseDelta.y})<br>
+                Mouse Moving: ${this.isMouseMoving}<br>
+            `;
+        }
+
+        // Console logging if enabled
+        if (this.debug.showConsole) {
+            console.log('Debug Values:', this.debug.values);
+        }
+    }
+
+    // Add debug methods
+    toggleDebug() {
+        this.debug.enabled = !this.debug.enabled;
+        if (this.debug.enabled && this.debug.showOverlay) {
+            this.createDebugOverlay();
+        } else if (this.debugOverlay) {
+            this.debugOverlay.remove();
+        }
+    }
+
+    setDebugOptions(options) {
+        Object.assign(this.debug, options);
+        if (!this.debug.showOverlay && this.debugOverlay) {
+            this.debugOverlay.remove();
+        } else if (this.debug.showOverlay && this.debug.enabled && !this.debugOverlay) {
+            this.createDebugOverlay();
+        }
     }
 }
 
@@ -338,7 +503,24 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://picsum.photos/500/500?random=20'
     ];
     
-    // Increase the radius to accommodate more images
-    const radius = 12; // Adjusted from 12 to 15
-    new SphericalImageGallery(images, 0x1a1a2e, radius);
+    // Create gallery instance
+    const gallery = new SphericalImageGallery(images, 0x1a1a2e, 15);
+    // Configure rotation
+    gallery.sensitivity = 0.00001;   // Smaller value for rotation
+    gallery.friction = 0.95;       // Smooth slowdown
+    gallery.maxVelocity = 0.005;    // Maximum rotation speed
+    
+    // Make gallery accessible globally for debugging
+    window.gallery = gallery;
+
+    // Debug controls example:
+    console.log(`
+        Debug Controls Available:
+        - gallery.toggleDebug()
+        - gallery.setDebugOptions({ showOverlay: true/false, showConsole: true/false })
+        - gallery.sensitivity = value
+        - gallery.friction = value
+        - gallery.maxVelocity = value
+        - gallery.boundaryRadius = value
+    `);
 });
