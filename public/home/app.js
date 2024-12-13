@@ -128,6 +128,17 @@ class SphericalImageGallery {
         
         // Start animation
         this.boundAnimate();
+
+        // Add mobile motion parameters
+        this.isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        this.motionEnabled = false;
+        this.deviceRotation = new THREE.Vector2(0, 0);
+        this.motionSensitivity = 0.5;
+
+        // Create enable motion button for mobile
+        if (this.isMobile) {
+            this.createMotionEnableButton();
+        }
     }
 
     initScene(backgroundColor) {
@@ -456,6 +467,17 @@ class SphericalImageGallery {
         if (this.debug.showConsole) {
             console.log('Debug Values:', this.debug.values);
         }
+
+        // Add mobile-specific debug info
+        if (this.debug.showOverlay && this.debugOverlay) {
+            this.debugOverlay.innerHTML += `
+                <br>
+                Mobile Controls:<br>
+                Device: ${this.isMobile ? 'Yes' : 'No'}<br>
+                Motion Enabled: ${this.motionEnabled}<br>
+                Motion Sensitivity: ${this.motionSensitivity}<br>
+            `;
+        }
     }
 
     // Add debug methods
@@ -475,6 +497,102 @@ class SphericalImageGallery {
         } else if (this.debug.showOverlay && this.debug.enabled && !this.debugOverlay) {
             this.createDebugOverlay();
         }
+    }
+
+    createMotionEnableButton() {
+        this.motionButton = document.createElement('button');
+        this.motionButton.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 8px;
+            font-family: sans-serif;
+            font-size: 16px;
+            color: black;
+            z-index: 1000;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        `;
+        this.motionButton.textContent = 'Enable Motion Controls';
+        
+        this.motionButton.addEventListener('click', () => {
+            this.initMobileControls();
+        });
+        
+        document.body.appendChild(this.motionButton);
+    }
+
+    initMobileControls() {
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+            // iOS 13+ devices
+            DeviceOrientationEvent.requestPermission()
+                .then(permissionState => {
+                    if (permissionState === 'granted') {
+                        this.enableMotionControls();
+                        this.motionButton.style.display = 'none';
+                    } else {
+                        this.motionButton.textContent = 'Permission Denied';
+                    }
+                })
+                .catch(error => {
+                    console.error('Motion permission error:', error);
+                    this.motionButton.textContent = 'Error Enabling Motion';
+                });
+        } else {
+            // Non-iOS devices
+            this.enableMotionControls();
+            this.motionButton.style.display = 'none';
+        }
+    }
+
+    enableMotionControls() {
+        this.motionEnabled = true;
+        
+        // Device motion handler
+        window.addEventListener('devicemotion', (event) => {
+            if (!this.motionEnabled) return;
+
+            const rotationRate = event.rotationRate;
+            if (!rotationRate) return;
+
+            // Convert rotation rate to camera rotation velocity
+            this.rotationVelocity.x += (rotationRate.beta || 0) * this.motionSensitivity * 0.001;
+            this.rotationVelocity.y += (rotationRate.alpha || 0) * this.motionSensitivity * 0.001;
+
+            // Clamp velocity
+            this.rotationVelocity.x = Math.max(Math.min(this.rotationVelocity.x, this.maxVelocity), -this.maxVelocity);
+            this.rotationVelocity.y = Math.max(Math.min(this.rotationVelocity.y, this.maxVelocity), -this.maxVelocity);
+
+            this.isMouseMoving = true;
+        }, true);
+
+        console.log('Motion controls enabled successfully');
+        
+        // Show success message
+        const successMessage = document.createElement('div');
+        successMessage.style.cssText = `
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 24px;
+            background: rgba(0, 255, 0, 0.2);
+            border-radius: 8px;
+            font-family: sans-serif;
+            color: white;
+            z-index: 1000;
+        `;
+        successMessage.textContent = 'Motion Controls Enabled';
+        document.body.appendChild(successMessage);
+        
+        // Remove success message after 2 seconds
+        setTimeout(() => {
+            successMessage.remove();
+        }, 2000);
     }
 }
 
@@ -503,12 +621,48 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://picsum.photos/500/500?random=20'
     ];
     
-    // Create gallery instance
-    const gallery = new SphericalImageGallery(images, 0x1a1a2e, 15);
+    // Add theme configuration with debugging
+    const darkMode = 0x101010;
+    const lightMode = 0xFFFFFF;
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    let isDarkMode = prefersDarkScheme.matches;
+    
+    // Debug log initial theme state
+    console.log('[Theme Debug] Initial state:', {
+        systemPrefersDark: prefersDarkScheme.matches,
+        selectedMode: isDarkMode ? 'dark' : 'light',
+        colorValue: isDarkMode ? darkMode : lightMode,
+        colorValueHex: isDarkMode ? darkMode.toString(16) : lightMode.toString(16)
+    });
+    
+    // Create gallery instance with system preference
+    const gallery = new SphericalImageGallery(images, isDarkMode ? darkMode : lightMode, 15);
+    
+    // Listen for system theme changes with debugging
+    prefersDarkScheme.addEventListener('change', (e) => {
+        isDarkMode = e.matches;
+        const newColor = isDarkMode ? darkMode : lightMode;
+        
+        console.log('[Theme Debug] Theme changed:', {
+            newMode: isDarkMode ? 'dark' : 'light',
+            newColor: newColor,
+            newColorHex: newColor.toString(16),
+            timestamp: new Date().toISOString()
+        });
+        
+        try {
+            gallery.scene.background = new THREE.Color(newColor);
+            console.log('[Theme Debug] Theme updated successfully');
+        } catch (error) {
+            console.error('[Theme Debug] Error updating theme:', error);
+        }
+    });
+
     // Configure rotation
-    gallery.sensitivity = 0.00001;   // Smaller value for rotation
-    gallery.friction = 0.95;       // Smooth slowdown
-    gallery.maxVelocity = 0.005;    // Maximum rotation speed
+    gallery.sensitivity = 0.000005;
+    gallery.motionSensitivity = 0.5;
+    gallery.friction = 0.95;
+    gallery.maxVelocity = 0.005;
     
     // Make gallery accessible globally for debugging
     window.gallery = gallery;
@@ -518,9 +672,9 @@ document.addEventListener('DOMContentLoaded', () => {
         Debug Controls Available:
         - gallery.toggleDebug()
         - gallery.setDebugOptions({ showOverlay: true/false, showConsole: true/false })
-        - gallery.sensitivity = value
+        - gallery.sensitivity = value          // Mouse sensitivity
+        - gallery.motionSensitivity = value   // Device motion sensitivity
         - gallery.friction = value
         - gallery.maxVelocity = value
-        - gallery.boundaryRadius = value
     `);
 });

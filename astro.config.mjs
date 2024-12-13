@@ -16,7 +16,11 @@ export default defineConfig({
 
 	
 	base: '/',
-   	trailingSlash: "never"
+   	trailingSlash: "never",
 	 
+
+	
+	server: { port: 1234, host: true}
+
 
   });
