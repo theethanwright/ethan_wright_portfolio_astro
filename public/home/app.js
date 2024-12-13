@@ -59,7 +59,6 @@ class SphericalImageGallery {
         // Cache frequently used values
         this.rotationSpeedY = -0.001;
         this.rotationSpeedX = 0.0001;
-        this.rotationSpeedZ = 0.0005;
         this.imageSize = 5;
         this.images = images;
         this.radius = radius;
@@ -173,7 +172,7 @@ class SphericalImageGallery {
         const lensDistortionShader = {
             uniforms: {
                 "tDiffuse": { value: null },
-                "k": { value: -0.15 },
+                "k": { value: -0.12 },
                 "kcube": { value: -0.5 },
                 "debug": { value: false },        // Debug flag
                 "debugGrid": { value: false }     // Show debug grid
@@ -310,7 +309,6 @@ class SphericalImageGallery {
         requestAnimationFrame(this.boundAnimate);
         this.imageGroup.rotation.y += this.rotationSpeedY;
         this.imageGroup.rotation.x += this.rotationSpeedX
-        this.imageGroup.rotation.z += this.rotationSpeedZ;
         this.composer.render();
     }
 }
