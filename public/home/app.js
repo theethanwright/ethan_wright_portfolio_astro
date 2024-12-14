@@ -59,7 +59,7 @@ class SphericalImageGallery {
         // Cache frequently used values
         this.rotationSpeedY = -0.001;
         this.rotationSpeedX = 0.0001;
-        this.imageSize = 5;
+        this.imageSize = 10;
         this.images = images;
         this.radius = radius;
         
@@ -148,7 +148,7 @@ class SphericalImageGallery {
 
     initCamera() {
         this.camera = new THREE.PerspectiveCamera(
-            115,
+            25,
             window.innerWidth / window.innerHeight,
             0.1,
             1000
@@ -180,30 +180,44 @@ class SphericalImageGallery {
         // Pre-calculate values
         const imagePromises = this.images.map((imageUrl, index) => {
             return new Promise((resolve) => {
-                this.textureLoader.load(imageUrl, (texture) => {
-                    texture.generateMipmaps = true;
-                    texture.minFilter = THREE.LinearMipmapLinearFilter;
-                    texture.magFilter = THREE.LinearFilter;
+                // Create a temporary HTML image to get dimensions
+                const img = new Image();
+                img.onload = () => {
+                    // Calculate aspect ratio
+                    const aspectRatio = img.width / img.height;
                     
-                    const material = new THREE.MeshBasicMaterial({ map: texture });
-                    const mesh = new THREE.Mesh(this.geometry, material);
-                    
-                    // Fibonacci sphere distribution
-                    const phi = Math.acos(1 - 2 * (index + 0.5) / imageCount);
-                    const theta = 2 * Math.PI * index / goldenRatio;
-                    
-                    mesh.position.set(
-                        this.radius * Math.sin(phi) * Math.cos(theta),
-                        this.radius * Math.sin(phi) * Math.sin(theta),
-                        this.radius * Math.cos(phi)
-                    );
-                    
-                    mesh.lookAt(this.scene.position);
-                    mesh.userData = { index, url: imageUrl };
-                    
-                    this.imageGroup.add(mesh);
-                    resolve(mesh);
-                });
+                    // Load the texture
+                    this.textureLoader.load(imageUrl, (texture) => {
+                        texture.generateMipmaps = true;
+                        texture.minFilter = THREE.LinearMipmapLinearFilter;
+                        texture.magFilter = THREE.LinearFilter;
+                        
+                        // Create plane geometry with correct aspect ratio
+                        const width = this.imageSize;
+                        const height = width / aspectRatio;
+                        const geometry = new THREE.PlaneGeometry(width, height);
+                        
+                        const material = new THREE.MeshBasicMaterial({ map: texture });
+                        const mesh = new THREE.Mesh(geometry, material);
+                        
+                        // Fibonacci sphere distribution
+                        const phi = Math.acos(1 - 2 * (index + 0.5) / imageCount);
+                        const theta = 2 * Math.PI * index / goldenRatio;
+                        
+                        mesh.position.set(
+                            this.radius * Math.sin(phi) * Math.cos(theta),
+                            this.radius * Math.sin(phi) * Math.sin(theta),
+                            this.radius * Math.cos(phi)
+                        );
+                        
+                        mesh.lookAt(this.scene.position);
+                        mesh.userData = { index, url: imageUrl };
+                        
+                        this.imageGroup.add(mesh);
+                        resolve(mesh);
+                    });
+                };
+                img.src = imageUrl;
             });
         });
 
@@ -599,26 +613,24 @@ class SphericalImageGallery {
 // Initialize gallery when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     const images = [
-        'https://picsum.photos/500/500?random=1',
-        'https://picsum.photos/500/500?random=2',
-        'https://picsum.photos/500/500?random=3',
-        'https://picsum.photos/500/500?random=4',
-        'https://picsum.photos/500/500?random=5',
-        'https://picsum.photos/500/500?random=6',
-        'https://picsum.photos/500/500?random=7',
-        'https://picsum.photos/500/500?random=8',
-        'https://picsum.photos/500/500?random=9',
-        'https://picsum.photos/500/500?random=10',
-        'https://picsum.photos/500/500?random=11',
-        'https://picsum.photos/500/500?random=12',
-        'https://picsum.photos/500/500?random=13',
-        'https://picsum.photos/500/500?random=14',
-        'https://picsum.photos/500/500?random=15',
-        'https://picsum.photos/500/500?random=16',
-        'https://picsum.photos/500/500?random=17',
-        'https://picsum.photos/500/500?random=18',
-        'https://picsum.photos/500/500?random=19',
-        'https://picsum.photos/500/500?random=20'
+        '/images/1.jpg',
+        '/images/2.jpg',
+        '/images/3.jpg',
+        '/images/4.jpg',
+        '/images/5.jpg',
+        '/images/6.jpg',
+        '/images/7.jpg',
+        '/images/8.jpg',
+        '/images/9.jpg',
+        '/images/10.jpg',
+        '/images/11.jpg',
+        '/images/12.jpg',
+        '/images/13.jpg',
+        '/images/14.jpg',
+        '/images/14.png',
+        '/images/15.jpg',
+        '/images/16.jpg',
+        '/images/Cover.png',
     ];
     
     // Add theme configuration with debugging

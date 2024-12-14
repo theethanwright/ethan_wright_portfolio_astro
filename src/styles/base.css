@@ -2,7 +2,14 @@
 
 @font-face {
   font-family: "Nohemi";
+  src: url('/fonts/Nohemi-Black.woff2') format('woff2');
+  src: url('/fonts/Nohemi-Bold.woff2') format('woff2');
+  src: url('/fonts/Nohemi-ExtraBold.woff2') format('woff2');
+  src: url('/fonts/Nohemi-Extralight.woff2') format('woff2');
   src: url('/fonts/Nohemi-Medium.woff2') format('woff2');
+  src: url('/fonts/Nohemi-Regular.woff2') format('woff2');
+  src: url('/fonts/Nohemi-SemiBold.woff2') format('woff2');
+  src: url('/fonts/Nohemi-Thin.woff2') format('woff2');
 };
 
 @tailwind base;
@@ -20,7 +27,7 @@
     @apply w-full grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12
   }
   .body-copy {
-    @apply text-blg text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-mono font-extralight
+    @apply text-blg text-black dark:text-white text-opacity-85 dark:text-opacity-85 font-sans-ibm font-extralight tracking-wider
   }
   .headline {
     @apply text-dsm md:text-[clamp(50px,8vw,100px)] lg:text-[clamp(50px,3.911vw,70px)] leading-[70px] tracking-wide text-black dark:text-white font-sans font-medium 
