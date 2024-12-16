@@ -89,15 +89,12 @@
   .img-right {
     @apply rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full 
   }
-
   .block-full {
     @apply mt-14 col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-10 
   }
-
   .block-left {
     @apply mt-14 col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-5 lg:pr-10
   }
-
   .block-right {
     @apply mt-14 col-span-4 md:col-start-2 md:col-span-6 lg:col-start-7 lg:col-span-5 lg:pl-3
   }
