@@ -625,12 +625,13 @@ document.addEventListener('DOMContentLoaded', () => {
         '/images/10.jpg',
         '/images/11.jpg',
         '/images/12.jpg',
-        '/images/13.jpg',
+        '/images/13.png',
         '/images/14.jpg',
         '/images/14.png',
         '/images/15.jpg',
         '/images/16.jpg',
         '/images/Cover.png',
+        '/images/3_copy.jpg',
     ];
     
     // Add theme configuration with debugging
