@@ -12,15 +12,19 @@ const { Primary, PrimaryLink, Secondary, SecondaryLink } = Astro.props;
 <div class="relative z-50 grid-cols-scale h-dvh bg-black dark:bg-white footer p-3 pt-7 lg:p-6 lg:pt-9 rounded-scroll" id="footer">
     <div class="scale-[-1] row-start-2 col-start-4 self-baseline justify-self-center md:col-start-1 md:row-start-1 md:justify-self-center md:scale-100 lg:justify-self-start">
         <a href={SecondaryLink}><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none" class="footer-animation-arrows">
-            <path d="M11.8963 22.1978L2.82083 13.1223M2.82083 13.1223L11.8963 4.04687M2.82083 13.1223L23.6699 13.1223" class="stroke-white dark:stroke-black" stroke-width="3"/>
-          </svg></a>
+            <svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.87659 12.2648L12.3914 18.7796L10.2701 20.9009L0.13395 10.7648L10.2701 0.628676L12.3914 2.75L5.87659 9.26481L23.1043 9.26481L23.1043 12.2648L5.87659 12.2648Z" class="fill-white dark:fill-black"/>
+            </svg>                
+        </a>
     </div>
     <div class="text-hmd text-white dark:text-black font-medium tracking-wider col-start-1 col-span-2 row-start-1 self-baseline md:col-end-8 md:row-start-1 md:text-right lg:col-end-12 footer-animation-text"><a href={PrimaryLink}>{Primary}</a></div>
     <div class="text-hmd text-white dark:text-black font-medium tracking-wider col-start-1 col-span-3 self-baseline md:col-start-2 md:row-start-1 footer-animation-text"><a href={SecondaryLink}>{Secondary}</a></div>
     <div class="row-start-1 col-start-4 self-baseline justify-self-center mt-10 md:col-start-8 md:row-start-1 md:justify-self-center md:m-0 lg:col-start-12 lg:justify-self-end">
-        <a href={PrimaryLink}><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none" class="footer-animation-arrows">
-            <path d="M14.1039 3.80218L23.1794 12.8777M23.1794 12.8777L14.1039 21.9531M23.1794 12.8777L2.33035 12.8777" class="stroke-white dark:stroke-black" stroke-width="3"/>
-          </svg></a>
+        <a href={PrimaryLink}><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none" class="footer-animation-arrows rotate-180">
+            <svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.87659 12.2648L12.3914 18.7796L10.2701 20.9009L0.13395 10.7648L10.2701 0.628676L12.3914 2.75L5.87659 9.26481L23.1043 9.26481L23.1043 12.2648L5.87659 12.2648Z" class="fill-white dark:fill-black"/>
+            </svg>
+        </a>
     </div>
     <div class="text-white dark:text-black font-sans text-fsm font-medium col-start-1 col-span-4 pt-20 self-end md:text-fmd md:col-start-2 md:col-span-6 lg:text-flg lg:pt-24 footer-animation-text">
       LET’S<br>CONNECT

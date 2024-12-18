@@ -37,3 +37,12 @@ body {
   top: 77.798vh;
   right: 11vw;
 }
+
+.image-hover-effect {
+    transition: all 0.3s ease;
+}
+
+.image-hover-effect:hover {
+    border-radius: 16px;
+    box-shadow: 0 0 15px #0017F8;
+}

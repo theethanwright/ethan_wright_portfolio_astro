@@ -58,7 +58,7 @@ class SphericalImageGallery {
     constructor(images, backgroundColor = 0x000000, radius = 12) {
         // Cache frequently used values
         this.rotationSpeedY = -0.001;
-        this.rotationSpeedX = 0.0001;
+        this.rotationSpeedX = 0;
         this.imageSize = 10;
         this.images = images;
         this.radius = radius;
@@ -110,7 +110,7 @@ class SphericalImageGallery {
         
         // Debug settings
         this.debug = {
-            enabled: true,
+            enabled: false,
             showOverlay: true,
             showConsole: false,
             values: {
@@ -178,7 +178,7 @@ class SphericalImageGallery {
         const goldenRatio = (1 + Math.sqrt(5)) / 2;
         
         // Pre-calculate values
-        const imagePromises = this.images.map((imageUrl, index) => {
+        const imagePromises = this.images.map((image, index) => {
             return new Promise((resolve) => {
                 // Create a temporary HTML image to get dimensions
                 const img = new Image();
@@ -187,7 +187,7 @@ class SphericalImageGallery {
                     const aspectRatio = img.width / img.height;
                     
                     // Load the texture
-                    this.textureLoader.load(imageUrl, (texture) => {
+                    this.textureLoader.load(image.src, (texture) => {
                         texture.generateMipmaps = true;
                         texture.minFilter = THREE.LinearMipmapLinearFilter;
                         texture.magFilter = THREE.LinearFilter;
@@ -211,13 +211,13 @@ class SphericalImageGallery {
                         );
                         
                         mesh.lookAt(this.scene.position);
-                        mesh.userData = { index, url: imageUrl };
+                        mesh.userData = { index, url: image.url };
                         
                         this.imageGroup.add(mesh);
                         resolve(mesh);
                     });
                 };
-                img.src = imageUrl;
+                img.src = image.src;
             });
         });
 
@@ -422,6 +422,9 @@ class SphericalImageGallery {
 
     animate() {
         requestAnimationFrame(this.boundAnimate);
+
+        // Update rotation speed
+        this.rotationSpeedX = Math.sin(Date.now() * 0.0001) * 0.0005;
         
         // Update camera position
         this.updateCamera();
@@ -513,33 +516,6 @@ class SphericalImageGallery {
         }
     }
 
-    createMotionEnableButton() {
-        this.motionButton = document.createElement('button');
-        this.motionButton.style.cssText = `
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 12px 24px;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            border-radius: 8px;
-            font-family: sans-serif;
-            font-size: 16px;
-            color: black;
-            z-index: 1000;
-            cursor: pointer;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        `;
-        this.motionButton.textContent = 'Enable Motion Controls';
-        
-        this.motionButton.addEventListener('click', () => {
-            this.initMobileControls();
-        });
-        
-        document.body.appendChild(this.motionButton);
-    }
-
     initMobileControls() {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
             // iOS 13+ devices
@@ -613,25 +589,22 @@ class SphericalImageGallery {
 // Initialize gallery when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     const images = [
-        '/images/1.jpg',
-        '/images/2.jpg',
-        '/images/3.jpg',
-        '/images/4.jpg',
-        '/images/5.jpg',
-        '/images/6.jpg',
-        '/images/7.jpg',
-        '/images/8.jpg',
-        '/images/9.jpg',
-        '/images/10.jpg',
-        '/images/11.jpg',
-        '/images/12.jpg',
-        '/images/13.png',
-        '/images/14.jpg',
-        '/images/14.png',
-        '/images/15.jpg',
-        '/images/16.jpg',
-        '/images/Cover.png',
-        '/images/3_copy.jpg',
+        { src: '/images/1.jpg', url: '/project-campaign' },
+        { src: '/images/2.png', url: '/project-KIR' },
+        { src: '/images/3.png', url: '/project-leBlond' },
+        { src: '/images/4.png', url: '/project-leBlond' },
+        { src: '/images/5.png', url: '/project-leBlond' },
+        { src: '/images/6.jpg', url: '/project-notion' },
+        { src: '/images/7.jpg', url: '/project-play' },
+        { src: '/images/8.jpg', url: '/project-play' },
+        { src: '/images/9.jpg', url: '/project-postHouse' },
+        { src: '/images/10.png', url: '/project-postHuse' },
+        { src: '/images/11.png', url: '/playground' },
+        { src: '/images/12.jpg', url: '/playground' },
+        { src: '/images/13.jpg', url: '/playground' },
+        { src: '/images/14.jpg', url: '/playground' },
+        { src: '/images/15.png', url: '/project-KIR' },
+        { src: '/images/16.png', url: '/project-leBlond' },
     ];
     
     // Add theme configuration with debugging
