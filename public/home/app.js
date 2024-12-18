@@ -594,17 +594,19 @@ document.addEventListener('DOMContentLoaded', () => {
         { src: '/images/3.png', url: '/project-leBlond' },
         { src: '/images/4.png', url: '/project-leBlond' },
         { src: '/images/5.png', url: '/project-leBlond' },
-        { src: '/images/6.jpg', url: '/project-notion' },
+        { src: '/images/6.jpg', url: '/project-babaAna' },
         { src: '/images/7.jpg', url: '/project-play' },
         { src: '/images/8.jpg', url: '/project-play' },
         { src: '/images/9.jpg', url: '/project-postHouse' },
         { src: '/images/10.png', url: '/project-postHuse' },
         { src: '/images/11.png', url: '/playground' },
-        { src: '/images/12.jpg', url: '/playground' },
+        { src: '/images/12.jpg', url: '/project-KIR' },
         { src: '/images/13.jpg', url: '/playground' },
         { src: '/images/14.jpg', url: '/playground' },
         { src: '/images/15.png', url: '/project-KIR' },
-        { src: '/images/16.png', url: '/project-leBlond' },
+        { src: '/images/16.png', url: '/project-KIR' },
+        { src: '/images/17.png', url: '/project-leBlond' },
+        { src: '/images/18.png', url: '/project-play' },
     ];
     
     // Add theme configuration with debugging

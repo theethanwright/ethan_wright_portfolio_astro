@@ -1,15 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="b" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="323.566" height="156.868" viewBox="0 0 323.566 156.868">
-  <g id="c" data-name="Layer 1">
-    <g>
-      <g>
-        <path d="M180.566,0h0c-5.523,0-10,4.477-10,10v110.868c0,19.882,16.118,36,36,36s36-16.118,36-36v-58.868c0-34.242-27.758-62-62-62Z" fill="#fff" stroke-width="0"/>
-        <path d="M313.566,0h0c-34.242,0-62,27.758-62,62v58.868c0,19.882,16.118,36,36,36s36-16.118,36-36V10c0-5.523-4.477-10-10-10Z" fill="#fff" stroke-width="0"/>
-      </g>
-      <g>
-        <path d="M143,0H36C16.118,0,0,16.118,0,36s16.118,36,36,36h55c34.242,0,62-27.758,62-62h0c0-5.523-4.477-10-10-10Z" fill="#fff" stroke-width="0"/>
-        <path d="M91,81h-55C16.118,81,0,97.118,0,117s16.118,36,36,36h107c5.523,0,10-4.477,10-10h0c0-34.242-27.758-62-62-62Z" fill="#fff" stroke-width="0"/>
-      </g>
-    </g>
-  </g>
+<svg width="39" height="18" viewBox="0 0 39 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="30" cy="9" rx="9" ry="9" transform="rotate(-180 30 9)" fill="white"/>
+<rect x="18" y="18" width="18" height="18" transform="rotate(-180 18 18)" fill="white"/>
 </svg>
