@@ -8,7 +8,6 @@ import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
 import ProjectHeader from '../components/ProjectHeader.astro'
 import { Image } from 'astro:assets';
-import cover from '../assets/images/project-play/cover.jpg'
 import img1 from '../assets/images/project-play/1.jpg'
 import img2 from '../assets/images/project-play/2.jpg'
 import img3 from '../assets/images/project-play/3.jpg'
@@ -54,7 +53,7 @@ import img29 from '../assets/images/project-play/29.jpg'
       </svg>
       <div class="text-llg tracking-widest mt-1">GOLD ADDY AWARD</div>
     </div>
-    <Image src="/project-play/public/images/1.jpg" alt="" width="1920" height="1080" class="h-lvh w-full object-cover" />
+    <Image src={img1} alt="" class="h-lvh w-full object-cover" />
     <div class="grid-cols-scale gap-x-5 p-3 pb-20 pt-9 md:px-8 md:pt-10">
           <ProjectHeader 
           Title='PLAY' 
@@ -65,7 +64,7 @@ import img29 from '../assets/images/project-play/29.jpg'
           Body=`"Play" is a conceptual exhibition sponsored by für Gestaltung Zürich, designed for children to explore independently. The exhibition aims to highlight the universal nature of play that is rooted in modernist ideals. It features works by toy designers from Czechia, America, Switzerland, Netherlands, and Germany, all active between 1920 and 1970. The project showcases how Bauhaus and Modernist principles in toy design can transcend international boundaries, asserting that play is a universal language. To enhance the experience, age-specific field guides and an informative booklet for caregivers were created, embracing the Swiss international style. The exhibition's identity, utilizing basic shapes and the Akzidenz Grotesk typeface, provides a cohesive and recognizable experience across diverse cultures, aiming to offer insights into the interaction between design, children, and parental considerations.`
           />
           <video src="project-play/public/images/1.mp4" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal" autoplay loop muted playsinline playsinline data-object-fit="cover"></video>
-          <Image src={img1} alt="Image 1" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal" />
+          <Image src={img2} alt="Image 1" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal" />
             <Image src={img3} alt="Image 3" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal" />
             <Image src={img4} alt="Image 4" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal" />
             <Image src={img5} alt="Image 5" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal" />
