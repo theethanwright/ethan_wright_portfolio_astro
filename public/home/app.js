@@ -606,7 +606,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { src: '/images/15.png', url: '/project-KIR' },
         { src: '/images/16.png', url: '/project-KIR' },
         { src: '/images/17.png', url: '/project-leBlond' },
-        { src: '/images/18.png', url: '/project-play' },
+        { src: '/images/18.jpg', url: '/project-play' },
     ];
     
     // Add theme configuration with debugging

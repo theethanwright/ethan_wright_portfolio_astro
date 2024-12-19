@@ -136,3 +136,18 @@
 .menu .menu-item:nth-child(9) {
     transition-delay: 0.45s;
 }
+
+.transition-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 100%;
+  background-color: white;
+  z-index: 9999;
+  transition: left 0.5s ease-in-out;
+}
+
+.transition-overlay.active {
+  left: 0;
+}
