@@ -6,11 +6,11 @@
   font-weight: 100;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Nohemi";
   src: url('/fonts/Nohemi-Extralight2.woff2') format('woff2');
   font-weight: 200;
-}
+} */
 
 @font-face {
   font-family: "Nohemi";
