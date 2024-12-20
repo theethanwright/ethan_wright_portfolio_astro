@@ -59,7 +59,7 @@ class SphericalImageGallery {
         // Cache frequently used values
         this.rotationSpeedY = -0.001;
         this.rotationSpeedX = 0;
-        this.imageSize = 10;
+        this.imageSize = 7;
         this.images = images;
         this.radius = radius;
         
