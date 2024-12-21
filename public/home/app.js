@@ -139,6 +139,10 @@ class SphericalImageGallery {
         if (this.isMobile) {
             this.createMotionEnableButton();
         }
+
+        this.hoveredMesh = null;
+        this.hoverScale = 1.02;
+        console.log('GSAP available:', typeof gsap !== 'undefined'); // Debug GSAP loading
     }
 
     initScene(backgroundColor) {
@@ -200,6 +204,9 @@ class SphericalImageGallery {
                         const material = new THREE.MeshBasicMaterial({ map: texture });
                         const mesh = new THREE.Mesh(geometry, material);
                         
+                        // Store original scale for hover effect
+                        mesh.userData.originalScale = mesh.scale.clone();
+                        
                         // Fibonacci sphere distribution
                         const phi = Math.acos(1 - 2 * (index + 0.5) / imageCount);
                         const theta = 2 * Math.PI * index / goldenRatio;
@@ -211,7 +218,7 @@ class SphericalImageGallery {
                         );
                         
                         mesh.lookAt(this.scene.position);
-                        mesh.userData = { index, url: image.url };
+                        mesh.userData.url = image.url;
                         
                         this.imageGroup.add(mesh);
                         resolve(mesh);
@@ -348,26 +355,56 @@ class SphericalImageGallery {
     }
 
     onMouseMove(event) {
-        // Calculate mouse movement (delta)
+        // Existing rotation logic
         const currentMouseX = event.clientX;
         const currentMouseY = event.clientY;
         
         this.mouseDelta.x = currentMouseX - this.lastMousePosition.x;
         this.mouseDelta.y = currentMouseY - this.lastMousePosition.y;
         
-        // Update rotation velocity based on mouse movement
         this.rotationVelocity.x += (this.mouseDelta.x * this.sensitivity);
         this.rotationVelocity.y += (this.mouseDelta.y * this.sensitivity);
         
-        // Clamp velocity
         this.rotationVelocity.x = Math.max(Math.min(this.rotationVelocity.x, this.maxVelocity), -this.maxVelocity);
         this.rotationVelocity.y = Math.max(Math.min(this.rotationVelocity.y, this.maxVelocity), -this.maxVelocity);
         
-        // Store current position for next frame
         this.lastMousePosition.x = currentMouseX;
         this.lastMousePosition.y = currentMouseY;
         
         this.isMouseMoving = true;
+
+        // Hover animation logic with GSAP
+        this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        
+        this.raycaster.setFromCamera(this.mouse, this.camera);
+        const intersects = this.raycaster.intersectObjects(this.imageGroup.children);
+        
+        const intersectedMesh = intersects[0]?.object;
+        
+        if (this.hoveredMesh !== intersectedMesh) {
+            if (this.hoveredMesh) {
+                gsap.to(this.hoveredMesh.scale, {
+                    x: this.hoveredMesh.userData.originalScale.x,
+                    y: this.hoveredMesh.userData.originalScale.y,
+                    z: this.hoveredMesh.userData.originalScale.z,
+                    duration: 0.3,
+                    ease: "back.out(1.7)"
+                });
+            }
+            
+            if (intersectedMesh) {
+                gsap.to(intersectedMesh.scale, {
+                    x: intersectedMesh.userData.originalScale.x * this.hoverScale,
+                    y: intersectedMesh.userData.originalScale.y * this.hoverScale,
+                    z: intersectedMesh.userData.originalScale.z * this.hoverScale,
+                    duration: 0.3,
+                    ease: "back.out(1.7)"
+                });
+            }
+            
+            this.hoveredMesh = intersectedMesh;
+        }
     }
 
     onClick(event) {
@@ -603,7 +640,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { src: '/images/12.jpg', url: '/project-KIR' },
         { src: '/images/13.jpg', url: '/playground' },
         { src: '/images/14.jpg', url: '/playground' },
-        { src: '/images/15.png', url: '/project-KIR' },
+        { src: '/images/15.png', url: '/playground' },
         { src: '/images/16.png', url: '/project-KIR' },
         { src: '/images/17.png', url: '/project-leBlond' },
         { src: '/images/18.jpg', url: '/project-play' },
