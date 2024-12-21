@@ -141,7 +141,7 @@ class SphericalImageGallery {
         }
 
         this.hoveredMesh = null;
-        this.hoverScale = 1.02;
+        this.hoverScale = 1.1;
         console.log('GSAP available:', typeof gsap !== 'undefined'); // Debug GSAP loading
     }
 
@@ -635,7 +635,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { src: '/images/7.jpg', url: '/project-play' },
         { src: '/images/8.jpg', url: '/project-play' },
         { src: '/images/9.jpg', url: '/project-postHouse' },
-        { src: '/images/10.png', url: '/project-postHuse' },
+        { src: '/images/10.png', url: '/project-postHouse' },
         { src: '/images/11.png', url: '/playground' },
         { src: '/images/12.jpg', url: '/project-KIR' },
         { src: '/images/13.jpg', url: '/playground' },
