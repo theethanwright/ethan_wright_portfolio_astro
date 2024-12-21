@@ -362,7 +362,7 @@ class SphericalImageGallery {
         this.mouseDelta.x = currentMouseX - this.lastMousePosition.x;
         this.mouseDelta.y = currentMouseY - this.lastMousePosition.y;
         
-        this.rotationVelocity.x += (this.mouseDelta.x * this.sensitivity);
+        this.rotationVelocity.x += (-this.mouseDelta.x * this.sensitivity);
         this.rotationVelocity.y += (this.mouseDelta.y * this.sensitivity);
         
         this.rotationVelocity.x = Math.max(Math.min(this.rotationVelocity.x, this.maxVelocity), -this.maxVelocity);
