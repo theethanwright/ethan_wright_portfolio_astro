@@ -7,7 +7,8 @@ for (var i = 0; i < dots.length; i++) {
         // Clone the clicked element
         var clickedElement = this.cloneNode(true);
         clickedElement.classList.remove("col-span-2");
-        clickedElement.classList.add("max-h-full");
+        clickedElement.style.maxHeight = "100%";
+        clickedElement.style.width = "auto";
         if (clickedElement.tagName.toLowerCase() === 'video') {
             clickedElement.muted = false;
         }
