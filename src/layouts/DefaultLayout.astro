@@ -4,9 +4,8 @@ interface Props {
   title: string;
   description: string;
   shareImage: string;
-  children: any;
 }
-const { title, description, shareImage, children } = Astro.props;
+const { title, description, shareImage, } = Astro.props;
 ---
 <html lang="en">
   <head>
@@ -28,8 +27,14 @@ const { title, description, shareImage, children } = Astro.props;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:image" content={shareImage} />
     <title>{title}</title>
+
+    <link rel="icon" type="image/x-icon" media="(prefers-color-scheme: light)" href="favicon-light.svg">
+    <link rel="icon" type="image/x-icon" media="(prefers-color-scheme: dark)" href="favicon-dark.svg">
+    <link rel="stylesheet" href="animations.css">
+
     <!-- Place additional links, favicons, and scripts here -->
     <script defer src="app.js"></script>
+    
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -39,6 +44,6 @@ const { title, description, shareImage, children } = Astro.props;
     <!-- End Google Tag Manager -->
   </head>
   <body class="bg-white dark:bg-black">
-    {children}
+    <slot />
   </body>
 </html>
