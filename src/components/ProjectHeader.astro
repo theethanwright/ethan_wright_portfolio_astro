@@ -5,6 +5,7 @@ interface Props {
     Info2: string;
     Info3: string;
     Info4: string;
+    work: string;
     Body: string;
     Visible1: string;
     Visible2: string;
@@ -12,11 +13,11 @@ interface Props {
     Visible4: string; 
 }
 
-const { Title, Info1, Info2, Info3, Info4, Body, Visible1, Visible2, Visible3, Visible4 } = Astro.props;
+const { Title, Info1, Info2, Info3, Info4, Body, Visible1, Visible2, Visible3, Visible4, work } = Astro.props;
 ---
 
 
-<div class="headline col-start-1 col-span-4 lg:col-start-2 lg:col-span-4 reveal">{Title}</div>
+<div class="headline col-start-1 col-span-4 lg:col-start-2 lg:col-span-4 lg:row-start-1 reveal">{Title}</div>
           <div class="header-info mt-3 mb-5 col-start-1 gap-3 col-span-4 md:col-start-5 md:col-span-4 lg:mt-5 lg:col-start-2 lg:col-span-4 lg:pr-6 grid grid-cols-2 lg:gap-x-8 lg:gap-y-6 reveal">
             <div class={Visible1}><b class="font-medium font-mono">Skills Used:<br/></b>{Info1}</div>
             <div class={Visible2}><b class="font-medium font-mono">Tools Used:<br/></b>{Info2}</div>
@@ -24,3 +25,4 @@ const { Title, Info1, Info2, Info3, Info4, Body, Visible1, Visible2, Visible3, V
             <div class={Visible4}><b class="font-medium font-mono">Awards:<br/></b>{Info4}</div>
             </div>
           <div class="body-copy mt-10 mb-14 col-start-1 col-span-4 md:col-span-8 lg:mt-0 lg:col-start-6 lg:col-span-6 lg:row-span-3 lg:row-start-1 reveal">{Body}</div>
+          <!-- <div class= "font-mono font-light text-tsm col-start-1 col-span-4 lg:col-start-2 lg:col-span-4 lg:row-start-1 lg:text-right reveal">{work}</div> -->
