@@ -1,7 +1,7 @@
 ---
 // Component Imports
 import '../styles/base.css';
-import Head from '../components/Head.astro'
+import DefaultLayout from '../layouts/DefaultLayout.astro';
 import Gtag from '../components/gtag.astro'
 import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
@@ -37,11 +37,14 @@ import img26 from '../assets/images/project-play/26.jpg'
 import img27 from '../assets/images/project-play/27.jpg'
 import img28 from '../assets/images/project-play/28.jpg'
 import img29 from '../assets/images/project-play/29.jpg'
+
+const seo = {
+  title: 'Play',
+  description: `"Play" is a conceptual exhibition sponsored by für Gestaltung Zürich, designed for children to explore independently. The exhibition aims to highlight the universal nature of play that is rooted in modernist ideals. It features works by toy designers from Czechia, America, Switzerland, Netherlands, and Germany, all active between 1920 and 1970. The project showcases how Bauhaus and Modernist principles in toy design can transcend international boundaries, asserting that play is a universal language. To enhance the experience, age-specific field guides and an informative booklet for caregivers were created, embracing the Swiss international style. The exhibition's identity, utilizing basic shapes and the Akzidenz Grotesk typeface, provides a cohesive and recognizable experience across diverse cultures, aiming to offer insights into the interaction between design, children, and parental considerations.`,
+  shareImage: '../assets/images/project-play/1.jpg'
+};
 ---
-<html lang="en">
-<head>
-  <Head Title='Play'/>
-</head>
+<DefaultLayout title={seo.title} description={seo.description} shareImage={seo.shareImage}>
 <Gtag/>
 <body class="bg-white dark:bg-black box-border overflow-x-clip">
     <Navbar />
@@ -61,7 +64,8 @@ import img29 from '../assets/images/project-play/29.jpg'
           Visible2=`` Info2='InDesign, Illustrator, Photoshop, Cinema 4D'
           Visible3=`` Info3='Ellie Gramm, Jackson Knight, Rebekah Smith'
           Visible4=`` Info4='AMERICAN ADVERTISING AWARDS GREENVILLE 2024: Gold Addy - Special Event Materials'
-          Body=`"Play" is a conceptual exhibition sponsored by für Gestaltung Zürich, designed for children to explore independently. The exhibition aims to highlight the universal nature of play that is rooted in modernist ideals. It features works by toy designers from Czechia, America, Switzerland, Netherlands, and Germany, all active between 1920 and 1970. The project showcases how Bauhaus and Modernist principles in toy design can transcend international boundaries, asserting that play is a universal language. To enhance the experience, age-specific field guides and an informative booklet for caregivers were created, embracing the Swiss international style. The exhibition's identity, utilizing basic shapes and the Akzidenz Grotesk typeface, provides a cohesive and recognizable experience across diverse cultures, aiming to offer insights into the interaction between design, children, and parental considerations.`
+          Body={seo.description}
+          studentWork=''
           />
           <video src="project-play/public/images/1.mp4" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal" autoplay loop muted playsinline playsinline data-object-fit="cover"></video>
           <Image src={img2} alt="Image 1" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal" />
@@ -117,5 +121,4 @@ import img29 from '../assets/images/project-play/29.jpg'
 </div>
 <!--Footer-->
 <Footer Primary='Next Project' PrimaryLink='project-engram' Secondary='Check Out the Playground' SecondaryLink='playground'/></div>
-</body>
-</html>
+</DefaultLayout>

@@ -1,7 +1,7 @@
 ---
 // Component Imports
 import '../styles/base.css';
-import Head from '../components/Head.astro'
+import DefaultLayout from '../layouts/DefaultLayout.astro';
 import Gtag from '../components/gtag.astro'
 import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
@@ -13,12 +13,14 @@ import img2 from '../assets/images/project-noted/images/2.jpg';
 import img3 from '../assets/images/project-noted/images/3.jpg';
 import img4 from '../assets/images/project-noted/images/4.jpg';
 import img5 from '../assets/images/project-noted/images/5.jpg';
----
 
-<html lang="en">
-<head>
-  <Head Title='Noted'/>
-</head>
+const seo = {
+  title: 'Noted',
+  description: `This project aims to create a customizable app for education, catering to various learning styles. The app offers three learning methods (reading, watching, doing) to accommodate different learning styles. It incorporates a friendly interface with soft aesthetics and calming colors. Testing methods align with each learning style, ensuring comprehensive understanding. The app aims to make learning enjoyable and accessible, empowering students to embrace education in their preferred way.`,
+  shareImage: '../assets/images/project-noted/images/1.jpg'
+};
+---
+<DefaultLayout title={seo.title} description={seo.description} shareImage={seo.shareImage}>
 <Gtag/>
 <body class="bg-white dark:bg-black box-border overflow-x-clip">
   <Navbar />
@@ -31,7 +33,8 @@ import img5 from '../assets/images/project-noted/images/5.jpg';
       Visible2=`` Info2='Figma, Photoshop'
       Visible3=`hidden` Info3=''
       Visible4=`hidden` Info4=''
-      Body=`This project aims to create a customizable app for education, catering to various learning styles. The app offers three learning methods (reading, watching, doing) to accommodate different learning styles. It incorporates a friendly interface with soft aesthetics and calming colors. Testing methods align with each learning style, ensuring comprehensive understanding. The app aims to make learning enjoyable and accessible, empowering students to embrace education in their preferred way.`
+      Body={seo.description}
+      studentWork=''
       />  
           <Image src={img1} alt="noted project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal"/>
           <Image src={img2} alt="noted project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"/>
@@ -173,5 +176,4 @@ import img5 from '../assets/images/project-noted/images/5.jpg';
   </div>
 </div>
 <Footer Primary='Next Project' PrimaryLink='project-offhand' Secondary='Check Out the Playground' SecondaryLink='playground'/>
-</body>
-</html>
+</DefaultLayout>

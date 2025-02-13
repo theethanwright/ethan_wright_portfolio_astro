@@ -1,7 +1,7 @@
 ---
 // Component Imports
 import '../styles/base.css';
-import Head from '../components/Head.astro'
+import DefaultLayout from '../layouts/DefaultLayout.astro';
 import Gtag from '../components/gtag.astro'
 import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
@@ -16,12 +16,14 @@ import img5 from '../assets/images/project-offhand/images/5.jpg'
 import img6 from '../assets/images/project-offhand/images/6.jpg'
 import img7 from '../assets/images/project-offhand/images/7.jpg'
 import img8 from '../assets/images/project-offhand/images/8.jpg'
----
 
-<html lang="en">
-<head>
-    <Head Title='Offhand'/>
-</head>
+const seo = {
+  title: 'Offhand',
+  description: `"Offhand, Adventure Cards" address South Carolina's low well-being rankings by utilizing a deck of 52 cards focused on health, wellness, and community. The game encourages spontaneous adventures by combining cards with activities, places, and topics. Research highlighted the importance of minimizing social isolation. The cards' colors reflect the associated emotions, and user testing led to adjustments, ensuring an engaging final product that promotes well-being through shared experiences.`,
+  shareImage: '../assets/images/project-offhand/images/1.jpg'
+};
+---
+<DefaultLayout title={seo.title} description={seo.description} shareImage={seo.shareImage}>
 <Gtag/>
 <body class="bg-primary box-border overflow-x-clip">
     <Navbar />
@@ -35,7 +37,8 @@ import img8 from '../assets/images/project-offhand/images/8.jpg'
             Visible2=`` Info2='Illustrator, Photoshop'
             Visible3=`hidden` Info3=''
             Visible4=`hidden` Info4=''
-            Body=`"Offhand, Adventure Cards" address South Carolina's low well-being rankings by utilizing a deck of 52 cards focused on health, wellness, and community. The game encourages spontaneous adventures by combining cards with activities, places, and topics. Research highlighted the importance of minimizing social isolation. The cards' colors reflect the associated emotions, and user testing led to adjustments, ensuring an engaging final product that promotes well-being through shared experiences.`
+            Body={seo.description}
+            studentWork=''
             />
           <Image src={img2} alt="Offhand project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal"  />
           <Image src={img3} alt="Offhand project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"  />

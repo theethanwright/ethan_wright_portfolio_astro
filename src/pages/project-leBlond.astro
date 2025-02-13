@@ -1,7 +1,7 @@
 ---
 // Component Imports
 import '../styles/base.css';
-import Head from '../components/Head.astro'
+import DefaultLayout from '../layouts/DefaultLayout.astro';
 import Gtag from '../components/gtag.astro'
 import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
@@ -29,11 +29,15 @@ import img29 from '../assets/images/project-leBlond/29.png'
 import img30 from '../assets/images/project-leBlond/30.png'
 import img31 from '../assets/images/project-leBlond/31.png'
 import img32 from '../assets/images/project-leBlond/32.png'
+
+const seo = {
+  title: 'Le Blond',
+  description: `Le Blond is an outdoor apparel brand and retail store based in Spokane, Washington, targeting women ages 45-65 who embrace outdoor living. Inspired by the resilience of historical outdoor women like Elizabeth le Blond, the brand values dependability, authenticity, legacy, and community. It makes clothing designed to empower women to perform their best in the outdoors, embodying confidence and resilience. It’s apparel that understands you—gear you can trust, no matter where the journey leads.`,
+  shareImage: '../assets/images/project-leBlond/Cover.png'
+};
 ---
-<html lang="en">
-<head>
-  <Head Title='Le Blond'/>
-</head>
+
+<DefaultLayout title={seo.title} description={seo.description} shareImage={seo.shareImage}>
 <Gtag/>
 <body class="bg-white dark:bg-black box-border overflow-x-clip">
     <Navbar />
@@ -47,7 +51,7 @@ import img32 from '../assets/images/project-leBlond/32.png'
             Visible2=`` Info2='Illustrator, Photoshop, After Effects, Figma'
             Visible3=`hidden` Info3=''
             Visible4=`hidden` Info4=' '
-            Body=`Le Blond is an outdoor apparel brand and retail store based in Spokane, Washington, targeting women ages 45-65 who embrace outdoor living. Inspired by the resilience of historical outdoor women like Elizabeth le Blond, the brand values dependability, authenticity, legacy, and community. It makes clothing designed to empower women to perform their best in the outdoors, embodying confidence and resilience. It’s apparel that understands you—gear you can trust, no matter where the journey leads.`
+            Body={seo.description}
             studentWork=''
             />
           <Image src={img1} alt="" class="img-full reveal lg:mt-32" />
@@ -115,5 +119,4 @@ import img32 from '../assets/images/project-leBlond/32.png'
 </div>
 <!--Footer-->
 <Footer Primary='Next Project' PrimaryLink='project-postHouse' Secondary='Check Out the Playground' SecondaryLink='playground'/></div>
-</body>
-</html>
+</DefaultLayout>

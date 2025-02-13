@@ -1,7 +1,7 @@
 ---
 // Component Imports
 import '../styles/base.css';
-import Head from '../components/Head.astro'
+import DefaultLayout from '../layouts/DefaultLayout.astro';
 import Gtag from '../components/gtag.astro'
 import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
@@ -9,12 +9,13 @@ import Footer from '../components/Footer.astro'
 import ProjectHeader from '../components/ProjectHeader.astro'
 import { Image } from 'astro:assets'
 
+const seo = {
+  title: 'Engram',
+  description: `The Form Theory project involved a team collaboration to design and build "The Engram Chair" for young adults in compact living spaces. Influenced by design principles from Rams, Tschichold, and Le Corbusier, the chair prioritizes modularity, comfort, and adaptability. Its form is simple and provisional, using natural and raw materials. The design process included prototyping and a digital 3D model for precision. Challenges included refining the philosophical statement, integrating raw materials, and maintaining design integrity. "The Engram Chair" visually represents the team's design philosophies and serves as a functional, minimalist solution for small spaces.`,
+  shareImage: '/project-engram/public/images/1.jpg'
+};
 ---
-
-<html lang="en">
-<head>
-  <Head Title='Engram'/>
-</head>
+<DefaultLayout title={seo.title} description={seo.description} shareImage={seo.shareImage}>
 <Gtag/>
 <body class="bg-white dark:bg-black box-border">
     <Navbar />
@@ -23,12 +24,13 @@ import { Image } from 'astro:assets'
     <Image src="/project-engram/public/images/1.jpg" alt="" width={1920} height={1080} class="h-lvh w-full object-cover" />
     <div class="grid-cols-scale gap-x-5 p-3 pt-9 md:px-8 md:pt-10">
       <ProjectHeader 
-                          Title='ENGRAM' 
+            Title='ENGRAM' 
             Visible1=`` Info1='Prototyping, Creative Direction, Project Management'
             Visible2=`` Info2='Onshape, Illustrator, CNC Mill'
             Visible3=`` Info3='Ellie Gramm, Rebekah Smith'
             Visible4=`hidden` Info4=''
-                          Body=`The Form Theory project involved a team collaboration to design and build "The Engram Chair" for young adults in compact living spaces. Influenced by design principles from Rams, Tschichold, and Le Corbusier, the chair prioritizes modularity, comfort, and adaptability. Its form is simple and provisional, using natural and raw materials. The design process included prototyping and a digital 3D model for precision. Challenges included refining the philosophical statement, integrating raw materials, and maintaining design integrity. "The Engram Chair" visually represents the team's design philosophies and serves as a functional, minimalist solution for small spaces.`
+            Body={seo.description}
+            studentWork=''
             />
           <Image src="/project-engram/public/images/3.jpg" alt="" width={800} height={600} class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal" />
           <Image src="/project-engram/public/images/4.gif" alt="" width={800} height={600} class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
@@ -130,5 +132,4 @@ import { Image } from 'astro:assets'
     </div>
   </div>
   <Footer Primary='Next Project' PrimaryLink='project-noted' Secondary='Check Out the Playground' SecondaryLink='playground'/>
-</body>
-</html>
+</DefaultLayout>;

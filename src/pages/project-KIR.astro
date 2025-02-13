@@ -1,7 +1,7 @@
 ---
 // Component Imports
 import '../styles/base.css';
-import Head from '../components/Head.astro'
+import DefaultLayout from '../layouts/DefaultLayout.astro';
 import Gtag from '../components/gtag.astro'
 import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
@@ -24,11 +24,14 @@ import img13 from '../assets/images/project-KIR/13.png'
 import img14 from '../assets/images/project-KIR/14.png'
 import img15 from '../assets/images/project-KIR/15.png'
 import img16 from '../assets/images/project-KIR/16.png'
+
+const seo = {
+  title: 'KIR',
+  description: `KIR is a car maintenance subscription box designed for car enthusiasts who value practicality and simplicity. The service takes the guesswork out of vehicle upkeep by creating a personalized maintenance plan tailored to each customer’s specific needs. Customers provide details about their car—its make, model, age, driving frequency, mileage, and available tools. From there, KIR builds a customized plan, sending exactly what’s needed, precisely when it’s needed—nothing more, nothing less. There’s no fluff, no wasted materials, and no cluttered garage shelves—just the right tools and supplies at the right time. KIR is like having a trusted mechanic in a box, enabling car owners to maintain their passion for cars without sacrificing time or space. It’s DIY car care without the “%@#!”`,
+  shareImage: '../assets/images/project-KIR/Cover.png'
+};
 ---
-<html lang="en">
-<head>
-  <Head Title='KIR'/>
-</head>
+<DefaultLayout title={seo.title} description={seo.description} shareImage={seo.shareImage}>
 <Gtag/>
 <body class="bg-white dark:bg-black box-border overflow-x-clip">
     <Navbar />
@@ -43,7 +46,7 @@ import img16 from '../assets/images/project-KIR/16.png'
             Visible3=`hidden` Info3=''
             Visible4=`hidden` Info4=' '
             studentWork=''
-            Body=`KIR is a car maintenance subscription box designed for car enthusiasts who value practicality and simplicity. The service takes the guesswork out of vehicle upkeep by creating a personalized maintenance plan tailored to each customer’s specific needs. Customers provide details about their car—its make, model, age, driving frequency, mileage, and available tools. From there, KIR builds a customized plan, sending exactly what’s needed, precisely when it’s needed—nothing more, nothing less. There’s no fluff, no wasted materials, and no cluttered garage shelves—just the right tools and supplies at the right time. KIR is like having a trusted mechanic in a box, enabling car owners to maintain their passion for cars without sacrificing time or space. It’s DIY car care without the “%@#!”`
+            Body={seo.description}
             />
           <video class="img-full lg:mt-32 reveal" autoplay="" loop="" muted playsinline="" data-object-fit="cover">
             <source src="/project-KIR/1_1.mp4" type="video/mp4"/>
@@ -103,5 +106,4 @@ import img16 from '../assets/images/project-KIR/16.png'
 </div>
 <!--Footer-->
 <Footer Primary='Next Project' PrimaryLink='project-leBlond' Secondary='Check Out the Playground' SecondaryLink='playground'/></div>
-</body>
-</html>
+</DefaultLayout>

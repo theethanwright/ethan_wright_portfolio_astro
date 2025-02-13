@@ -1,15 +1,14 @@
 ---
 interface Props {
     Title: string;
-    Description: string;
-    shareImage: string;
 }
 
-const { Title, Description, shareImage } = Astro.props;
+const { Title } = Astro.props;
+const Description  = `I’m Ethan Wright, a designer focused on building brands that resonate. My approach blends strategy, storytelling, and design to create identities that are not only visually compelling but deeply rooted in purpose. Whether shaping the voice of a business, refining its visual presence, or crafting meaningful experiences, I believe every design choice should serve a function and tell a story.`
 ---
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content={Description}>
+<meta name="description" content= Description>
 <meta name="keywords" content="graphic design, portfolio, visual design, branding, logo design, print design, digital design, web design, UI/UX design, user interface design, user experience design, illustration, typography, motion graphics, infographics, creative design, layout design, Adobe Photoshop, Adobe Illustrator, Adobe InDesign, design projects, design portfolio, freelance graphic designer, professional graphic design, graphic design services, creative portfolio, art direction, concept art, visual communication, graphic art, print media, digital media, marketing materials, business card design, brochure design, poster design, social media graphics, website graphics, packaging design, book cover design">
 
 <!-- Additional Meta Tags -->
@@ -30,7 +29,7 @@ const { Title, Description, shareImage } = Astro.props;
 <!-- Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content={Title}>
-<!-- <meta name="twitter:description" content={description}> -->
+<meta name="twitter:description" content={Description}>
 <meta name="twitter:image" content="share_image.png">
 <meta name="twitter:image:alt" content="A description of the image">
 
@@ -46,7 +45,7 @@ const { Title, Description, shareImage } = Astro.props;
   "@type": "Website",
   "url": "https://www.theethanwright.com",
   "name": {Title},
-  "description": "{{description}}",
+  "description": {Description},
   "publisher": {
     "@type": "Organization",
     "name": "Ethan Wright"
