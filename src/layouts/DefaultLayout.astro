@@ -34,7 +34,7 @@ const { title, description, shareImage, } = Astro.props;
 
     <!-- Place additional links, favicons, and scripts here -->
     <script defer src="app.js"></script>
-    
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -43,7 +43,7 @@ const { title, description, shareImage, } = Astro.props;
     })(window,document,'script','dataLayer','GTM-55T4FLRM');</script>
     <!-- End Google Tag Manager -->
   </head>
-  <body class="bg-white dark:bg-black">
+  <body class="bg-white dark:bg-black box-border overflow-x-clip">
     <slot />
   </body>
 </html>
