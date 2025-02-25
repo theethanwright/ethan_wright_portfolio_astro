@@ -361,7 +361,7 @@ class SphericalImageGallery {
         const intersects = this.raycaster.intersectObjects(this.imageMeshes);
 
         if (intersects.length > 0) {
-            window.open(intersects[0].object.userData.url, '_blank');
+            window.open(intersects[0].object.userData.url, '_self');
         }
     }
 
