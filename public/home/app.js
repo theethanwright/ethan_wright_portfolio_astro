@@ -121,10 +121,25 @@ class SphericalImageGallery {
         this.renderer.domElement.addEventListener('click', this.boundOnClick);
     }
 
+    createBlurredPlaceholder(img) {
+        const canvas = document.createElement('canvas');
+        const size = 20;
+        const aspectRatio = img.width / img.height;
+        canvas.width = size;
+        canvas.height = Math.round(size / aspectRatio);
+        const ctx = canvas.getContext('2d');
+        ctx.filter = 'blur(2px)';
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        const texture = new THREE.CanvasTexture(canvas);
+        texture.minFilter = THREE.LinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        return texture;
+    }
+
     createImageSphere() {
         const imageCount = this.images.length;
         const goldenRatio = (1 + Math.sqrt(5)) / 2;
-        
+
         // Pre-calculate values
         const imagePromises = this.images.map((image, index) => {
             return new Promise((resolve) => {
@@ -133,40 +148,46 @@ class SphericalImageGallery {
                 img.onload = () => {
                     // Calculate aspect ratio
                     const aspectRatio = img.width / img.height;
-                    
-                    // Load the texture
+
+                    // Create plane geometry with correct aspect ratio
+                    const width = this.imageSize;
+                    const height = width / aspectRatio;
+                    const geometry = new THREE.PlaneGeometry(width, height);
+
+                    // Show blurred placeholder immediately
+                    const placeholderTexture = this.createBlurredPlaceholder(img);
+                    const material = new THREE.MeshBasicMaterial({ map: placeholderTexture });
+                    const mesh = new THREE.Mesh(geometry, material);
+
+                    // Store original scale for hover effect
+                    mesh.userData.originalScale = mesh.scale.clone();
+
+                    // Fibonacci sphere distribution
+                    const phi = Math.acos(1 - 2 * (index + 0.5) / imageCount);
+                    const theta = 2 * Math.PI * index / goldenRatio;
+
+                    mesh.position.set(
+                        this.radius * Math.sin(phi) * Math.cos(theta),
+                        this.radius * Math.sin(phi) * Math.sin(theta),
+                        this.radius * Math.cos(phi)
+                    );
+
+                    mesh.lookAt(this.scene.position);
+                    mesh.userData.url = image.url;
+
+                    this.imageGroup.add(mesh);
+
+                    // Load full-res texture and crossfade
                     this.textureLoader.load(image.src, (texture) => {
                         texture.generateMipmaps = true;
                         texture.minFilter = THREE.LinearMipmapLinearFilter;
                         texture.magFilter = THREE.LinearFilter;
-                        
-                        // Create plane geometry with correct aspect ratio
-                        const width = this.imageSize;
-                        const height = width / aspectRatio;
-                        const geometry = new THREE.PlaneGeometry(width, height);
-                        
-                        const material = new THREE.MeshBasicMaterial({ map: texture });
-                        const mesh = new THREE.Mesh(geometry, material);
-                        
-                        // Store original scale for hover effect
-                        mesh.userData.originalScale = mesh.scale.clone();
-                        
-                        // Fibonacci sphere distribution
-                        const phi = Math.acos(1 - 2 * (index + 0.5) / imageCount);
-                        const theta = 2 * Math.PI * index / goldenRatio;
-                        
-                        mesh.position.set(
-                            this.radius * Math.sin(phi) * Math.cos(theta),
-                            this.radius * Math.sin(phi) * Math.sin(theta),
-                            this.radius * Math.cos(phi)
-                        );
-                        
-                        mesh.lookAt(this.scene.position);
-                        mesh.userData.url = image.url;
-                        
-                        this.imageGroup.add(mesh);
-                        resolve(mesh);
+                        mesh.material.map = texture;
+                        mesh.material.needsUpdate = true;
+                        placeholderTexture.dispose();
                     });
+
+                    resolve(mesh);
                 };
                 img.src = image.src;
             });
