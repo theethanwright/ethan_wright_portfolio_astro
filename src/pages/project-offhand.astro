@@ -8,6 +8,7 @@ import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
 import ProjectHeader from '../components/ProjectHeader.astro'
 import { Image } from 'astro:assets';
+import BlurImage from '../components/BlurImage.astro';
 import img1 from '../assets/images/project-offhand/images/1.jpg'
 import img2 from '../assets/images/project-offhand/images/2.jpg'
 import img3 from '../assets/images/project-offhand/images/3.jpg'
@@ -20,7 +21,7 @@ import img8 from '../assets/images/project-offhand/images/8.jpg'
 const seo = {
   title: 'Offhand',
   description: `"Offhand, Adventure Cards" address South Carolina's low well-being rankings by utilizing a deck of 52 cards focused on health, wellness, and community. The game encourages spontaneous adventures by combining cards with activities, places, and topics. Research highlighted the importance of minimizing social isolation. The cards' colors reflect the associated emotions, and user testing led to adjustments, ensuring an engaging final product that promotes well-being through shared experiences.`,
-  shareImage: '../assets/images/project-offhand/images/1.jpg'
+  shareImage: '/project-offhand/public/images/1.jpg'
 };
 ---
 <DefaultLayout title={seo.title} description={seo.description} shareImage={seo.shareImage}>
@@ -39,12 +40,12 @@ const seo = {
             Body={seo.description}
             studentWork=''
             />
-          <Image src={img2} alt="Offhand project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal"  />
-          <Image src={img3} alt="Offhand project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"  />
-          <Image src={img4} alt="Offhand project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"  />
-          <Image src={img5} alt="Offhand project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"  />
-          <Image src={img6} alt="Offhand project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"  />
-          <Image src={img7} alt="Offhand project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"  />
+          <BlurImage src={img2} alt="Offhand project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal"  />
+          <BlurImage src={img3} alt="Offhand project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"  />
+          <BlurImage src={img4} alt="Offhand project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"  />
+          <BlurImage src={img5} alt="Offhand project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"  />
+          <BlurImage src={img6} alt="Offhand project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"  />
+          <BlurImage src={img7} alt="Offhand project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"  />
           <div class="col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 mt-14 reveal">
             <div class="header">Brief</div>
             <div class="body-copy font-light mt-2 mb-14">Well-being is the state of being comfortable, healthy, or happy. Every year, Gallup Healthways examines the well-being of each state. South Carolina consistently ranks near the bottom. I was tasked with designing a set of cards that helped improve the well-being of South Carolina through the specific areas of health & wellness and community. The deck needed to have 52 cards and packaging. The cards needed to be 2.48” x 3.46” with a 1/8th inch bleed. The packaging minimally needed a flip top and to be custom designed.</div>
@@ -72,5 +73,4 @@ const seo = {
   </div>
 </div>
 <Footer Primary='Next Project' PrimaryLink='project-campaign' Secondary='Check Out the Playground' SecondaryLink='playground'/>
-</body>
-</html>
+</DefaultLayout>

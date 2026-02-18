@@ -11,7 +11,7 @@ import ProjectHeader from '../components/ProjectHeader.astro'
 const seo = {
   title: 'Echo',
   description: `In this project, a team of 15 students undertook a three-phase approach to address the issue of separation within the Anderson community. In Phase 1, the team identified the root causes of disunity and organized into four teams: connections, branding, production, and leadership, each with specific roles in addressing the community's concerns. Phase 2 involved collecting stories from the community through distributed cards with a prompt about personal journeys. In Phase 3, the team repurposed an unfinished building in downtown Anderson to create an exhibition space. They displayed the collected stories, encouraging viewers to not only read but also interact by categorizing them based on core emotions.`,
-  shareImage: 'project-echo/images/1.jpg'
+  shareImage: '/project-echo/images/1.jpg'
 };
 ---
 <DefaultLayout title={seo.title} description={seo.description} shareImage={seo.shareImage}>
@@ -19,7 +19,7 @@ const seo = {
     <Navbar />
     <Menu />
     <!--Project-->
-    <img src="project-echo/images/1.jpg" alt="" class="h-lvh w-full object-cover">
+    <img src="/project-echo/images/1.jpg" alt="" class="h-lvh w-full object-cover">
     <div class="grid-cols-scale gap-x-5 p-3 pt-9 md:px-8 md:pt-10">
       <ProjectHeader 
             Title='ECHO' 
@@ -30,20 +30,20 @@ const seo = {
             Body=`In this project, a team of 15 students undertook a three-phase approach to address the issue of separation within the Anderson community. In Phase 1, the team identified the root causes of disunity and organized into four teams: connections, branding, production, and leadership, each with specific roles in addressing the community's concerns. Phase 2 involved collecting stories from the community through distributed cards with a prompt about personal journeys. In Phase 3, the team repurposed an unfinished building in downtown Anderson to create an exhibition space. They displayed the collected stories, encouraging viewers to not only read but also interact by categorizing them based on core emotions.`
             studentWork=''
             />
-          <img src="project-echo/images/2.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal">
-          <img src="project-echo/images/3.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
-          <img src="project-echo/images/4.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
-          <img src="project-echo/images/5.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
-          <img src="project-echo/images/6.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal">
-          <img src="project-echo/images/7.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal">
-          <img src="project-echo/images/8.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
-          <img src="project-echo/images/9.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal">
-          <img src="project-echo/images/10.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal">
+          <img src="/project-echo/images/2.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal">
+          <img src="/project-echo/images/3.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
+          <img src="/project-echo/images/4.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
+          <img src="/project-echo/images/5.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
+          <img src="/project-echo/images/6.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal">
+          <img src="/project-echo/images/7.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal">
+          <img src="/project-echo/images/8.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal">
+          <img src="/project-echo/images/9.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal">
+          <img src="/project-echo/images/10.jpg" alt="" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal">
           <div class="col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full box-border grid grid-cols-1 lg:grid-cols-8 lg:gap-3">
-          <img src="project-echo/images/14.jpg" alt="" class="rounded-2xl mb-3 w-full col-span-1 lg:col-span-2 reveal">
-          <img src="project-echo/images/13.jpg" alt="" class="rounded-2xl mb-3 w-full col-span-1 lg:col-span-2 reveal">
-          <img src="project-echo/images/12.jpg" alt="" class="rounded-2xl mb-3 w-full col-span-1 lg:col-span-2 reveal">
-          <img src="project-echo/images/11.jpg" alt="" class="rounded-2xl mb-3 w-full col-span-1 lg:col-span-2 reveal">
+          <img src="/project-echo/images/14.jpg" alt="" class="rounded-2xl mb-3 w-full col-span-1 lg:col-span-2 reveal">
+          <img src="/project-echo/images/13.jpg" alt="" class="rounded-2xl mb-3 w-full col-span-1 lg:col-span-2 reveal">
+          <img src="/project-echo/images/12.jpg" alt="" class="rounded-2xl mb-3 w-full col-span-1 lg:col-span-2 reveal">
+          <img src="/project-echo/images/11.jpg" alt="" class="rounded-2xl mb-3 w-full col-span-1 lg:col-span-2 reveal">
         </div>
           <div class="col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 mt-14 reveal">
             <div class="header">Phase 1</div>
@@ -65,5 +65,5 @@ const seo = {
             </div>
           </div>
   </div>
-  <Footer Primary='Next Project' PrimaryLink='project-notion' Secondary='Check Out the Playground' SecondaryLink='playground'/>
+  <Footer Primary='Next Project' PrimaryLink='project-noted' Secondary='Check Out the Playground' SecondaryLink='playground'/>
 </DefaultLayout>

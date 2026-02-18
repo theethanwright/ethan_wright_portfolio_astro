@@ -8,6 +8,7 @@ import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
 import ProjectHeader from '../components/ProjectHeader.astro'
 import { Image } from 'astro:assets';
+import BlurImage from '../components/BlurImage.astro';
 import img1 from '../assets/images/project-noted/images/1.jpg';
 import img2 from '../assets/images/project-noted/images/2.jpg';
 import img3 from '../assets/images/project-noted/images/3.jpg';
@@ -17,7 +18,7 @@ import img5 from '../assets/images/project-noted/images/5.jpg';
 const seo = {
   title: 'Noted',
   description: `This project aims to create a customizable app for education, catering to various learning styles. The app offers three learning methods (reading, watching, doing) to accommodate different learning styles. It incorporates a friendly interface with soft aesthetics and calming colors. Testing methods align with each learning style, ensuring comprehensive understanding. The app aims to make learning enjoyable and accessible, empowering students to embrace education in their preferred way.`,
-  shareImage: '../assets/images/project-noted/images/1.jpg'
+  shareImage: '/project-noted/public/images/1.jpg'
 };
 ---
 <DefaultLayout title={seo.title} description={seo.description} shareImage={seo.shareImage}>
@@ -35,11 +36,11 @@ const seo = {
       Body={seo.description}
       studentWork=''
       />  
-          <Image src={img1} alt="noted project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal"/>
-          <Image src={img2} alt="noted project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"/>
-          <Image src={img3} alt="noted project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"/>
-          <Image src={img4} alt="noted project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"/>
-          <Image src={img5} alt="noted project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"/>
+          <BlurImage src={img1} alt="noted project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal"/>
+          <BlurImage src={img2} alt="noted project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"/>
+          <BlurImage src={img3} alt="noted project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"/>
+          <BlurImage src={img4} alt="noted project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"/>
+          <BlurImage src={img5} alt="noted project image" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal"/>
           <div class="col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-10 mt-14 reveal">
             <div class="header">Brief</div>
             <div class="body-copy font-light mt-2 mb-14">What if there was a way people could choose how they learn? Learning is a part of everyday life. It is impossible to escape it, but often people form a contempt for learning. This is a result of their experiences with learning in academic settings. Different people learn in different ways but, schools tend to teach using only methods that favor the majority. This leaves the minority lost and with a disdain for education. We must find a way to make instruction conform to the student rather than the student to the instruction.<br><br>

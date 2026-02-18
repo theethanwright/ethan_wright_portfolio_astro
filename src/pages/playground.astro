@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar.astro'
 import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
 import { Image } from 'astro:assets';
+import BlurImage from '../components/BlurImage.astro';
 import earthDayPoster from '../assets/images/playground/earth_day_poster/1.png';
 import tennisBall from '../assets/images/playground/photography/Tennins_Ball_Bounce-optimized.gif';
 import sunRises from '../assets/images/playground/the_sun_always_rises/DSC01707 copy 2.jpg';
@@ -35,7 +36,7 @@ import img1418 from '../assets/images/playground/the_sun_always_rises/IMG_1418.j
 <html lang="en">
 <head>
     <Head Title='Playground'/>
-    <script defer src="playground/app.js"></script>
+    <script defer src="/playground/app.js" is:inline></script>
 </head>
 <Gtag/>
 <body class="bg-white dark:bg-black box-border">
@@ -51,43 +52,43 @@ import img1418 from '../assets/images/playground/the_sun_always_rises/IMG_1418.j
   <div class="col-span-4 md:col-span-8 lg:col-start-2 lg:col-span-10 pt-20 w-full grid grid-cols-2 md:grid-cols-4 gap-5">
     <div class="flex flex-col gap-5">
         <!-- <Image src={earthDayPoster} alt="Earth Day poster"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/> -->
-        <Image src={tennisBall} alt="Tennis ball bounce animation"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
-        <Image src={sunRises} alt="Sunrise photograph"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={tennisBall} alt="Tennis ball bounce animation"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={sunRises} alt="Sunrise photograph"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
         <video src="/playground/images/colorado_trip/Colorado 2023.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline data-object-fit="cover"></video>
-        <Image src={r5Photo} alt="R5 photograph"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
-        <Image src={ballColumn} alt="Ball column visualization"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
-        <Image src={spinLock} alt="Spinning lock animation"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={r5Photo} alt="R5 photograph"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={ballColumn} alt="Ball column visualization"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={spinLock} alt="Spinning lock animation"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
     </div>
 
     <div class="flex flex-col gap-5">
-        <Image src={spinSphere} alt="Spinning sphere animation"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={spinSphere} alt="Spinning sphere animation"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
         <video src="/playground/images/hot_coffee/That's an awfully hot coffee pot.mov" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline data-object-fit="cover"></video>
-        <Image src={img1191} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
-        <Image src={farmCloud} alt="Farm and cloud illustration"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
-        <Image src={dsc01480} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
-        <Image src={dsc04056} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
-        <Image src={dsc03858} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={img1191} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={farmCloud} alt="Farm and cloud illustration"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={dsc01480} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={dsc04056} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={dsc03858} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
     </div>
 
     <div class="flex flex-col gap-5">
         <video src="/playground/images/airplane_red_carpet/red carpet for private jet looping60fps.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline data-object-fit="cover"></video>
-        <Image src={image1} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
-        <Image src={ivySpin} alt="Ivy spin animation"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
-        <Image src={sun} alt="Sun illustration"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={image1} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={ivySpin} alt="Ivy spin animation"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={sun} alt="Sun illustration"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
         <video src="/playground/images/its_a_beautiful_world/its a beautiful world-R4.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline data-object-fit="cover"></video>
-        <Image src={muchosObjectivos} alt="Muchos Objectivos illustration"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
-        <Image src={donQuixote} alt="Don Quixote book cover"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={muchosObjectivos} alt="Muchos Objectivos illustration"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={donQuixote} alt="Don Quixote book cover"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
         <video src="/playground/images/particle_cloud/0001-0250.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline data-object-fit="cover"></video>
     </div>
 
     <div class="flex flex-col gap-5">
-        <Image src={ivyPoster} alt="Ivy poster"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={ivyPoster} alt="Ivy poster"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
         <video src="/playground/images/ladder_shatter/Ladder Shatter PR Final.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline data-object-fit="cover"></video>
-        <Image src={dsc04071} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={dsc04071} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
         <video src="/playground/images/chronological_alphabet/The Chronological Alphabet_1.mp4" class="pg-img-cover cursor-pointer col-span-2 rounded-lg" autoplay loop muted playsinline data-object-fit="cover"></video>
-        <Image src={dsc01735} alt="Sunrise photograph"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
-        <Image src={dsc00952} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
-        <Image src={img1418} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={dsc01735} alt="Sunrise photograph"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={dsc00952} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
+        <BlurImage src={img1418} alt="Photography piece"  class="pg-img-cover cursor-pointer col-span-2 rounded-lg"/>
     </div>
   </div>
 </div>

@@ -28,15 +28,15 @@ const { title, description, shareImage, } = Astro.props;
     <meta name="twitter:image" content={shareImage} />
     <title>{title}</title>
 
-    <link rel="icon" type="image/x-icon" media="(prefers-color-scheme: light)" href="favicon-light.svg">
-    <link rel="icon" type="image/x-icon" media="(prefers-color-scheme: dark)" href="favicon-dark.svg">
-    <link rel="stylesheet" href="animations.css">
+    <link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: light)" href="/favicon-light.svg">
+    <link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: dark)" href="/favicon-dark.svg">
+    <link rel="stylesheet" href="/animations.css">
 
     <!-- Place additional links, favicons, and scripts here -->
-    <script defer src="app.js"></script>
+    <script defer src="/app.js" is:inline></script>
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);

@@ -1,3 +1,7 @@
+document.querySelectorAll('.blur-image-full').forEach(function(img) {
+  if (img.complete) img.classList.add('loaded');
+});
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -54,7 +58,9 @@ function callback(entries) {
 }
 
 // Start observing the footer element
-observerFooter.observe(footer);
+if (footer) {
+  observerFooter.observe(footer);
+}
 
 
 

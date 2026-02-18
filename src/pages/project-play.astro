@@ -8,6 +8,7 @@ import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
 import ProjectHeader from '../components/ProjectHeader.astro'
 import { Image } from 'astro:assets';
+import BlurImage from '../components/BlurImage.astro';
 import img1 from '../assets/images/project-play/1.jpg'
 import img2 from '../assets/images/project-play/2.jpg'
 import img3 from '../assets/images/project-play/3.jpg'
@@ -66,30 +67,30 @@ const seo = {
           Body={seo.description}
           studentWork=''
           />
-          <video src="project-play/public/images/1.mp4" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal" autoplay loop muted playsinline playsinline data-object-fit="cover"></video>
-          <Image src={img2} alt="Image 1" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal" />
-            <Image src={img3} alt="Image 3" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal" />
-            <Image src={img4} alt="Image 4" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal" />
-            <Image src={img5} alt="Image 5" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal" />
-            <Image src={img10} alt="Image 10" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
-            <Image src={img7} alt="Image 7" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
-            <Image src={img11} alt="Image 11" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
-            <Image src={img8} alt="Image 8" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
-            <Image src={img28} alt="Image 28" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
-            <Image src={img12} alt="Image 12" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
-            <Image src={img13} alt="Image 13" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
-            <Image src={img14} alt="Image 14" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal" />
-            <Image src={img15} alt="Image 15" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal" />
-            <Image src={img16} alt="Image 16" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal" />
-            <Image src={img17} alt="Image 17" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal" />
-            <Image src={img18} alt="Image 18" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
-            <Image src={img19} alt="Image 19" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
-            <Image src={img20} alt="Image 20" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
-            <Image src={img21} alt="Image 21" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-4 w-full reveal" />
-            <Image src={img22} alt="Image 22" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-6 lg:col-span-6 w-full reveal" />
-            <Image src={img23} alt="Image 23" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal" />
-            <Image src={img24} alt="Image 24" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal" />
-            <Image src={img25} alt="Image 25" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
+          <video src="/project-play/public/images/1.mp4" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:mt-32 lg:col-start-2 lg:col-span-10 w-full reveal" autoplay loop muted playsinline data-object-fit="cover"></video>
+          <BlurImage src={img2} alt="Image 1" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal" />
+            <BlurImage src={img3} alt="Image 3" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal" />
+            <BlurImage src={img4} alt="Image 4" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal" />
+            <BlurImage src={img5} alt="Image 5" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal" />
+            <BlurImage src={img10} alt="Image 10" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
+            <BlurImage src={img7} alt="Image 7" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
+            <BlurImage src={img11} alt="Image 11" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
+            <BlurImage src={img8} alt="Image 8" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
+            <BlurImage src={img28} alt="Image 28" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
+            <BlurImage src={img12} alt="Image 12" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
+            <BlurImage src={img13} alt="Image 13" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
+            <BlurImage src={img14} alt="Image 14" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal" />
+            <BlurImage src={img15} alt="Image 15" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal" />
+            <BlurImage src={img16} alt="Image 16" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal" />
+            <BlurImage src={img17} alt="Image 17" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal" />
+            <BlurImage src={img18} alt="Image 18" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
+            <BlurImage src={img19} alt="Image 19" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
+            <BlurImage src={img20} alt="Image 20" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
+            <BlurImage src={img21} alt="Image 21" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-4 w-full reveal" />
+            <BlurImage src={img22} alt="Image 22" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-6 lg:col-span-6 w-full reveal" />
+            <BlurImage src={img23} alt="Image 23" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-5 w-full reveal" />
+            <BlurImage src={img24} alt="Image 24" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-5 w-full reveal" />
+            <BlurImage src={img25} alt="Image 25" class="rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-10 w-full reveal" />
           <div class="col-span-4 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 mt-14 reveal">
             <div class="header">Opportunity</div>
             <div class="body-copy mt-2 mb-14">We wanted to display the ways that Bauhaus and Modernist ideals within toys can be internationally implemented. Play is a universal language that is not bound by borders. Furthermore, we want to reveal the ways that design interacts with children and insight into parents a consideration of these facts.</div>
@@ -98,7 +99,7 @@ const seo = {
             <div class="header">Outcome</div>
             <div class="body-copy mt-2 mb-14">As a team, we created a children’s exhibition sponsored by für Gestaltung Zürich that displays a selection of works by toy designers who embodied reductive and foundational principles. All designers worked between the years of 1920 to 1970 and are from the countries of Czechia, America, Switzerland, Netherlands, or Germany. This exhibit is accompanied by guidebooks for children and an informative booklet for caregivers. In order to make an experience that is cohesive throughout cultures, the exhibit and guidebooks were designed with the Swiss international style.</div>
           </div>
-          <Image src={img27} alt="Image 27" alt="" width="800" height="600" class="self-center rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-4 w-full reveal" />
+          <BlurImage src={img27} alt="Image 27" width="800" height="600" class="self-center rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-2 lg:col-span-4 w-full reveal" />
           <div class="col-span-4 md:col-start-2 md:col-span-6 lg:col-start-7 lg:col-span-5 lg:mt-14 reveal">
             <div class="header">Mark</div>
             <div class="body-copy mt-2 mb-14">The mark was inspired by the typefaces of Josepf Albers, specifically Architype Albers. The forms are simple, modular, and meant to mimic blocks that children play with. The corners are slightly rounded to create a softer expression. Another important aspect of the mark is that there are no concentric forms, which is important since it would need to be capable of being die-cut. The mark can also be deconstructed to create a variety of different patterns.</div>
@@ -115,9 +116,9 @@ const seo = {
             <div class="header">Exhibit</div>
             <div class="body-copy mt-2 mb-14">The exhibit space was designed to promote exploration and self-education within the children and allow for careful examination from the caregivers. The floorplan is extremely open with the different sections of the exhibition following the edges of the space. In the center of the space is a circular seating area for the caregivers. Children are allowed to run free and explore on their own as guided by their booklet. The parents on the other hand are encouraged to sit and watch the children play as they read their booklet. The caregiver can read about the intention and design of each toy and then actually see its effects on the children in real-time.</div>
           </div>
-          <Image src={img29} alt="Image 29" class="self-center rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-4 w-full reveal" />
+          <BlurImage src={img29} alt="Image 29" class="self-center rounded-2xl col-span-4 mb-3 md:col-span-8 md:mb-6 lg:col-start-7 lg:col-span-4 w-full reveal" />
   </div>
 </div>
 <!--Footer-->
-<Footer Primary='Next Project' PrimaryLink='project-engram' Secondary='Check Out the Playground' SecondaryLink='playground'/></div>
+<Footer Primary='Next Project' PrimaryLink='project-engram' Secondary='Check Out the Playground' SecondaryLink='playground'/>
 </DefaultLayout>

@@ -8,6 +8,7 @@ import Menu from '../components/Menu.astro'
 import Footer from '../components/Footer.astro'
 import ProjectHeader from '../components/ProjectHeader.astro'
 import { Image } from 'astro:assets';
+import BlurImage from '../components/BlurImage.astro';
 import cover from '../assets/images/project-leBlond/Cover.png'
 import img1 from '../assets/images/project-leBlond/02.png'
 import img2 from '../assets/images/project-leBlond/03.png'
@@ -53,34 +54,34 @@ const seo = {
             Body={seo.description}
             studentWork=''
             />
-          <Image src={img1} alt="" class="img-full reveal lg:mt-32" />
-          <Image src={img2} alt="" class="img-full mb-0 reveal" />
+          <BlurImage src={img1} alt="" class="img-full reveal lg:mt-32" />
+          <BlurImage src={img2} alt="" class="img-full mb-0 reveal" />
           <div class="block-full my-20 md:my-[175px] reveal">
             <div class="title text-black dark:text-white font-sans font-regular tracking-widest pb-10 md:pb-[50px] ">WHAT IS THE BRAND?</div>
             <div class="body-copy font-mono pb-3 md:pb-[24px]">Le Blond positions itself as...</div>
             <div class="text-hmd text-black dark:text-white font-sans font-extralight tracking-wide md:text-hlg lg:text-dsm lg:leading-tight">The outdoor brand making apparel that reflects the strength, wit, reliability, and legacy of the women who wear it.</div>
           </div>
-          <Image src={img4} alt="" class="img-full reveal" />
+          <BlurImage src={img4} alt="" class="img-full reveal" />
           <video class="img-full reveal" autoplay="" loop="" muted playsinline="" data-object-fit="cover">
             <source src="/project-leBlond/36_1.mp4" type="video/mp4"/>
           </video>
           <div class="block-full my-5 md:my-[175px] flex flex-col md:flex-row items-center md:justify-between gap-7 lg:mx-[8.104vw] reveal">
-            <Image src={img5} alt="" class="img-full mb-3 md:m-0 min-w-60 md:max-w-[28.491vw] reveal"/>
+            <BlurImage src={img5} alt="" class="img-full mb-3 md:m-0 min-w-60 md:max-w-[28.491vw] reveal"/>
             <div class="flex flex-col my-5 gap-5 md:m-0 md:gap-10 lg:gap-[40px]">
               <div class="title text-black dark:text-white font-sans font-regular tracking-widest">WHO IS THIS FOR?</div>
               <div class="headline text-black dark:text-white font-sans font-extralight tracking-wide lg:leading-tight">Ladies who live outdoors.</div>
               <div class="body-copy">For women, ages 45-65 who are active all year.  they hike, bike, ski, camp, kayak, and swim with their friends. They care about performance and reliability over style. They trust brands that know them and have a reputation.  </div>
             </div>
           </div>
-          <Image src={img15} alt="" class="img-full reveal" />
+          <BlurImage src={img15} alt="" class="img-full reveal" />
           <div class="block-full my-5 md:my-[175px] flex flex-col md:flex-row items-center md:justify-between gap-7 lg:mx-[8.104vw] reveal">
-            <Image src={img7} alt="" class="img-full mb-3 md:m-0 min-w-60 md:max-w-[23.984vw] reveal" />
+            <BlurImage src={img7} alt="" class="img-full mb-3 md:m-0 min-w-60 md:max-w-[23.984vw] reveal" />
             <div class="flex flex-col gap-3 md:justify-between h-full max-w-[600px]">
               <div class="text-tlg text-black dark:text-white font-sans font-light tracking-widest">Elizabeth Le Blond</div>
               <div class="body-copy">Elizabeth le Blond was a pioneering female mountaineer in the late 19th century. In 1907, she founded the Ladies’ Alpine Club, creating a space for women passionate about climbing. Despite societal expectations, she and her fellow mountaineers achieved extraordinary feats—all while wearing dresses. Their clothing constantly worked against them, making already formidable climbs even more challenging.</div>
             </div>
           </div>
-          <Image src={img8} alt="" class="img-full mt-5 reveal" />
+          <BlurImage src={img8} alt="" class="img-full mt-5 reveal" />
           <div class="block-full flex flex-col gap-7 mb-10 mt-10 md:my-[175px] md:flex-row justify-between lg:mx-[3.827vw] reveal">
             <div class="text-hsm text-black dark:text-white font-sans font-light tracking-widest ">But these women didn’t let those limitations define them. They adapted, persevered, and excelled, proving that determination can overcome constraints.</div>
             <div class="body-copy">This brand takes Inspiration from women like Le Blond. It seeks to create apparel that reflects their strength, wit, reliability, and legacy. No matter the challenge, they found a way to make it work. We make clothing that embodies this attitude. Clothing that is designed to enable women to preform their best in the outdoors. Apparel that gets you. Apparel you can trust.</div>
@@ -88,34 +89,34 @@ const seo = {
           <video class="img-full reveal" autoplay="" loop="" muted playsinline="" data-object-fit="cover">
             <source src="/project-leBlond/33_1.mp4" type="video/mp4"/>
           </video>
-          <Image src={img14} alt="" class="img-full reveal" />
-          <Image src={img16} alt="" class="img-full reveal" />
-          <Image src={img17} alt="" class="img-left reveal" />
-          <Image src={img19} alt="" class="img-right reveal" />
-          <Image src={img20} alt="" class="img-full reveal" />
+          <BlurImage src={img14} alt="" class="img-full reveal" />
+          <BlurImage src={img16} alt="" class="img-full reveal" />
+          <BlurImage src={img17} alt="" class="img-left reveal" />
+          <BlurImage src={img19} alt="" class="img-right reveal" />
+          <BlurImage src={img20} alt="" class="img-full reveal" />
           <video class="img-full reveal" autoplay="" loop="" muted playsinline="" data-object-fit="cover">
             <source src="/project-leBlond/34_1.mp4" type="video/mp4"/>
           </video>
-          <Image src={img22} alt="" class="img-full reveal" />
+          <BlurImage src={img22} alt="" class="img-full reveal" />
           <video class="img-full reveal" autoplay="" loop="" muted playsinline="" data-object-fit="cover">
             <source src="/project-leBlond/37_1.mp4" type="video/mp4"/>
           </video>
-          <Image src={img24} alt="" class="img-full reveal" />
+          <BlurImage src={img24} alt="" class="img-full reveal" />
           <video class="img-full reveal" autoplay="" loop="" muted playsinline="" data-object-fit="cover">
             <source src="/project-leBlond/38_1.mp4" type="video/mp4"/>
           </video>
-          <Image src={img26} alt="" class="img-full reveal" />
+          <BlurImage src={img26} alt="" class="img-full reveal" />
           <video class="img-full reveal" autoplay="" loop="" muted playsinline="" data-object-fit="cover">
             <source src="/project-leBlond/35_1.mp4" type="video/mp4"/>
           </video>
-          <Image src={img28} alt="" class="img-full reveal" />
-          <Image src={img29} alt="" class="img-full reveal" />
-          <Image src={img30} alt="" class="img-left reveal" />
-          <Image src={img31} alt="" class="img-right reveal" />
-          <Image src={img32} alt="" class="img-full reveal" />
+          <BlurImage src={img28} alt="" class="img-full reveal" />
+          <BlurImage src={img29} alt="" class="img-full reveal" />
+          <BlurImage src={img30} alt="" class="img-left reveal" />
+          <BlurImage src={img31} alt="" class="img-right reveal" />
+          <BlurImage src={img32} alt="" class="img-full reveal" />
           <div class="font-mono italic font-light text-tsm text-right opacity-50 col-span-full my-3 md:my-5">Mockups for conceptual purposes only</div>
   </div>
 </div>
 <!--Footer-->
-<Footer Primary='Next Project' PrimaryLink='project-KIR' Secondary='Check Out the Playground' SecondaryLink='playground'/></div>
+<Footer Primary='Next Project' PrimaryLink='project-KIR' Secondary='Check Out the Playground' SecondaryLink='playground'/>
 </DefaultLayout>

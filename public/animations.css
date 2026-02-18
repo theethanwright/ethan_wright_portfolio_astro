@@ -55,22 +55,22 @@
   }
 
   .rounded-scroll {
-    border-top-left-radius: calc(max(40vw - max(40vw * var(--visiblePct))));
-    border-top-right-radius: calc(max(40vw - max(40vw * var(--visiblePct))));
+    border-top-left-radius: max(0px, calc(40vw - 40vw * var(--visiblePct)));
+    border-top-right-radius: max(0px, calc(40vw - 40vw * var(--visiblePct)));
   }
 
   .footer-animation-text {
-    transform: translateY(calc(max(10vh - max(10vh * var(--visiblePct)))));
-    opacity: calc(max(100% * var(--visiblePct)));
+    transform: translateY(max(0px, calc(10vh - 10vh * var(--visiblePct))));
+    opacity: calc(100% * var(--visiblePct));
   }
 
   .footer-animation-arrows {
-    transform: translateY(calc(max(20vh - max(20vh * var(--visiblePct)))));
-    opacity: calc(max(100% * var(--visiblePct)));
+    transform: translateY(max(0px, calc(20vh - 20vh * var(--visiblePct))));
+    opacity: calc(100% * var(--visiblePct));
   }
-  
+
   .height {
-    height: calc(max(var(--viewportHeight) * 1px));
+    height: calc(var(--viewportHeight) * 1px);
   }
 
   .pimg {
