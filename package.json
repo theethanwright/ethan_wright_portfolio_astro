@@ -10,12 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/tailwind": "^6.0.0",
+    "@astrojs/tailwind": "^6.0.2",
     "@types/canvas-confetti": "^1.6.4",
-    "astro": "^5.3.1",
-    "autoprefixer": "^10.4.19",
-    "canvas-confetti": "^1.9.3",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3"
+    "astro": "^5.17.3",
+    "autoprefixer": "^10.4.24",
+    "canvas-confetti": "^1.9.4",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19"
   }
 }
